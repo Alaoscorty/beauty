@@ -1,10 +1,13 @@
  // Affiche/masque les produits de la catégorie Soins Visage au clic
-document.getElementById('face-care-category').addEventListener('click', function(e) {
-    // Évite d'ouvrir le lien si on clique sur un lien à l'intérieur
-    if (e.target.tagName.toLowerCase() === 'a') return;
-    const products = document.getElementById('face-care-products');
-    products.classList.toggle('hidden');
+document.addEventListener('DOMContentLoaded', function() {
+    const toggle = document.getElementById('face-care-toggle');
+    const products = toggle.parentElement.querySelector('#face-care-products');
+    toggle.addEventListener('click', function() {
+        products.classList.toggle('hidden');
+    });
 });
+
+
 //script qui permet de gérer le formulaire
 
 document.getElementById('whatsapp-reservation-form').addEventListener('submit', function(e) {
