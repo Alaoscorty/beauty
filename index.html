@@ -414,8 +414,87 @@
             </div>
             
             <div class="text-center mt-12">
-                <a href="#" class="inline-block bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full transition duration-300">Voir tous nos services</a>
+                <a href="#" class="inline-block bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full transition duration-300"><i class="fa-solid fa-heart-circle-plus"></i></a>
             </div>
+            <!-- Donation Modal -->
+            <div id="donation-modal" class="fixed inset-0 z-50 hidden overflow-y-auto">
+                <div class="flex items-center justify-center min-h-screen px-4">
+                    <div class="fixed inset-0 bg-gray-900 opacity-60"></div>
+                    <div class="bg-white rounded-lg shadow-lg max-w-md w-full z-10 p-8 relative">
+                        <button id="close-donation" class="absolute top-3 right-3 text-gray-400 hover:text-pink-500 text-xl">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        <h3 class="text-2xl font-bold text-center mb-4 text-pink-500">Faire un don</h3>
+                        <form id="donation-form" class="space-y-5">
+                            <div>
+                                <label for="donor-name" class="block text-gray-700 font-medium mb-1">Nom complet</label>
+                                <input type="text" id="donor-name" required class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                            </div>
+                            <div>
+                                <label for="donor-email" class="block text-gray-700 font-medium mb-1">Email</label>
+                                <input type="email" id="donor-email" required class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                            </div>
+                            <div>
+                                <label for="donation-amount" class="block text-gray-700 font-medium mb-1">Montant (FCFA)</label>
+                                <input type="number" id="donation-amount" min="100" required class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-1">Méthode de paiement</label>
+                                <select id="donation-method" required class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                                    <option value="">Sélectionnez une méthode</option>
+                                    <option value="mobile">Mobile Money (MTN, Moov, etc.)</option>
+                                    <option value="bank">Virement bancaire (Bénin)</option>
+                                </select>
+                            </div>
+                            <div id="mobile-info" class="hidden">
+                                <p class="text-sm text-gray-600 mt-2">
+                                    Envoyez votre don via Mobile Money au <span class="font-bold text-pink-500">+229 97 00 00 00</span> puis entrez le numéro de transaction ci-dessous.
+                                </p>
+                                <input type="text" id="mobile-transaction" placeholder="Numéro de transaction" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                            </div>
+                            <div id="bank-info" class="hidden">
+                                <p class="text-sm text-gray-600 mt-2">
+                                    Faites un virement à la banque :<br>
+                                    <span class="font-bold">Banque : Orabank Bénin</span><br>
+                                    <span class="font-bold">IBAN : BJ6600100100000000123456789</span><br>
+                                    <span class="font-bold">Nom : Beauté Élégante</span>
+                                </p>
+                                <input type="text" id="bank-reference" placeholder="Référence du virement" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                            </div>
+                            <button type="submit" class="w-full bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 rounded transition duration-300">Valider le don</button>
+                            <div id="donation-success" class="hidden text-green-600 text-center font-medium mt-4">Merci pour votre don !</div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <script>
+                // Show donation modal
+                document.querySelector('.fa-heart-circle-plus').closest('a').addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.getElementById('donation-modal').classList.remove('hidden');
+                });
+                // Close modal
+                document.getElementById('close-donation').onclick = function() {
+                    document.getElementById('donation-modal').classList.add('hidden');
+                };
+                // Payment method toggle
+                document.getElementById('donation-method').addEventListener('change', function() {
+                    document.getElementById('mobile-info').classList.toggle('hidden', this.value !== 'mobile');
+                    document.getElementById('bank-info').classList.toggle('hidden', this.value !== 'bank');
+                });
+                // Handle form submit
+                document.getElementById('donation-form').addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    document.getElementById('donation-success').classList.remove('hidden');
+                    setTimeout(() => {
+                        document.getElementById('donation-modal').classList.add('hidden');
+                        document.getElementById('donation-success').classList.add('hidden');
+                        this.reset();
+                        document.getElementById('mobile-info').classList.add('hidden');
+                        document.getElementById('bank-info').classList.add('hidden');
+                    }, 2000);
+                });
+            </script>
         </div>
     </section>
 
