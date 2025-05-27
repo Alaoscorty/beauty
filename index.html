@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Custom CSS for elements that need more precise styling */
+
         .hero-section {
             background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80');
             background-size: cover;
@@ -106,34 +106,66 @@
             <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Nos Catégories</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
                 <div class="category-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
-                    <div class="h-40 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1596704017254-9757e8a4d9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80');"></div>
+                    <div class="h-40 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/b0/cd/38/b0cd38da7c0b45a05af0f81e720ffa4d.jpg');"></div>
                     <div class="p-4">
                         <h3 class="font-semibold text-lg mb-2 text-gray-800">Soins Visage</h3>
                         <p class="text-gray-600 text-sm">Crèmes, sérums et masques</p>
                     </div>
+                    <div id="face-care-products" class="hidden p-4 border-t bg-white">
+                        <ul class="space-y-2 text-gray-700 text-sm">
+                            <li>Crème Hydratante Intense</li>
+                            <li>Sérum Anti-Âge Premium</li>
+                            <li>Masque Éclat Doré</li>
+                            <li>Nettoyant Doux</li>
+                        </ul>
+                    </div>
                 </div>
                 
                 <div class="category-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
-                    <div class="h-40 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1596704017254-9757e8a4d9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80');"></div>
+                    <div class="h-40 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/db/7c/f8/db7cf86b8bf0b3585562cdc4cafdc0df.jpg');"></div>
                     <div class="p-4">
                         <h3 class="font-semibold text-lg mb-2 text-gray-800">Maquillage</h3>
                         <p class="text-gray-600 text-sm">Produits professionnels</p>
                     </div>
-                </div>
-                
-                <div class="category-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
-                    <div class="h-40 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1596704017254-9757e8a4d9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80');"></div>
-                    <div class="p-4">
-                        <h3 class="font-semibold text-lg mb-2 text-gray-800">Corps & Bain</h3>
-                        <p class="text-gray-600 text-sm">Gommages, huiles et laits</p>
+                    <div id="face-care-products" class="hidden p-4 border-t bg-white">
+                        <ul class="space-y-2 text-gray-700 text-sm">
+                            <li>Crème Hydratante Intense</li>
+                            <li>Sérum Anti-Âge Premium</li>
+                            <li>Masque Éclat Doré</li>
+                            <li>Nettoyant Doux</li>
+                        </ul>
                     </div>
                 </div>
                 
                 <div class="category-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
-                    <div class="h-40 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1596704017254-9757e8a4d9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80');"></div>
+                    <div class="h-40 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/8c/69/5f/8c695fa49cd55f8bb3712db1ec85509b.jpg');"></div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-2 text-gray-800">Corps & Bain</h3>
+                        <p class="text-gray-600 text-sm">Gommages, huiles et laits</p>
+                    </div>
+                    <div id="face-care-products" class="hidden p-4 border-t bg-white">
+                        <ul class="space-y-2 text-gray-700 text-sm">
+                            <li>Crème Hydratante Intense</li>
+                            <li>Sérum Anti-Âge Premium</li>
+                            <li>Masque Éclat Doré</li>
+                            <li>Nettoyant Doux</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="category-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <div class="h-40 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/13/dc/9b/13dc9b64a9ba91d6948d05d6b0b75cca.jpg');"></div>
                     <div class="p-4">
                         <h3 class="font-semibold text-lg mb-2 text-gray-800">Accessoires</h3>
                         <p class="text-gray-600 text-sm">Outils professionnels</p>
+                    </div>
+                    <div id="face-care-products" class="hidden p-4 border-t bg-white">
+                        <ul class="space-y-2 text-gray-700 text-sm">
+                            <li>Crème Hydratante Intense</li>
+                            <li>Sérum Anti-Âge Premium</li>
+                            <li>Masque Éclat Doré</li>
+                            <li>Nettoyant Doux</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -180,7 +212,7 @@
                 <!-- Product 2 -->
                 <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
                     <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1596704017254-9757e8a4d9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" alt="Sérum anti-âge" class="w-full h-64 object-cover">
+                        <img src="https://i.pinimg.com/736x/b0/98/ad/b098add8327997ca928c40bd1c1fb176.jpg" alt="Sérum anti-âge" class="w-full h-64 object-cover">
                         <div class="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">Bestseller</div>
                     </div>
                     <div class="p-4">
@@ -207,7 +239,7 @@
                 
                 <!-- Product 3 -->
                 <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
-                    <img src="https://images.unsplash.com/photo-1625772452859-1c030af8561d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" alt="Masque facial" class="w-full h-64 object-cover">
+                    <img src="https://i.pinimg.com/736x/ad/e4/6a/ade46aa01a6c3b4235bdd28cbf7705e3.jpg" alt="Masque facial" class="w-full h-64 object-cover">
                     <div class="p-4">
                         <div class="flex justify-between items-start mb-2">
                             <h3 class="font-bold text-lg text-gray-800">Masque Éclat Doré</h3>
@@ -233,7 +265,7 @@
                 <!-- Product 4 -->
                 <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
                     <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1596704017254-9757e8a4d9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" alt="Nettoyant visage" class="w-full h-64 object-cover">
+                        <img src="https://i.pinimg.com/736x/6a/db/9d/6adb9ddd63c44465ff151d49d9974a22.jpg" alt="Nettoyant visage" class="w-full h-64 object-cover">
                         <div class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">-20%</div>
                     </div>
                     <div class="p-4">
@@ -272,7 +304,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Service 1 -->
                 <div class="service-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
-                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1888&q=80');"></div>
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/44/79/db/4479dbd89fd3ebc91b4ba92127d07f7c.jpg');"></div>
                     <div class="p-6">
                         <div class="flex items-center mb-4">
                             <div class="bg-pink-100 text-pink-500 p-3 rounded-full mr-4">
@@ -290,7 +322,7 @@
                 
                 <!-- Service 2 -->
                 <div class="service-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
-                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1596704017254-9757e8a4d9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80');"></div>
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/05/9d/42/059d4215fed19bfb43cfac68d60d97fe.jpg');"></div>
                     <div class="p-6">
                         <div class="flex items-center mb-4">
                             <div class="bg-pink-100 text-pink-500 p-3 rounded-full mr-4">
@@ -308,7 +340,7 @@
                 
                 <!-- Service 3 -->
                 <div class="service-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
-                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1596704017254-9757e8a4d9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80');"></div>
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/ee/ba/c8/eebac81f119c27489338cfc88d53231c.jpg');"></div>
                     <div class="p-6">
                         <div class="flex items-center mb-4">
                             <div class="bg-pink-100 text-pink-500 p-3 rounded-full mr-4">
@@ -326,8 +358,21 @@
             </div>
             
             <div class="text-center mt-12">
-                <a href="#" class="inline-block bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full transition duration-300">Voir tous nos services</a>
+                <button id="show-more-products" class="inline-block bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full transition duration-300">
+                    Voir plus de produits
+                </button>
             </div>
+            <script>
+                // Affiche plus de produits dans la section "Nos Produits Phares"
+                document.getElementById('show-more-products').addEventListener('click', function () {
+                    const productsSection = document.getElementById('products');
+                    if (productsSection) {
+                        productsSection.scrollIntoView({ behavior: 'smooth' });
+                        // Optionnel : afficher plus de produits dynamiquement ici
+                        // Par exemple, ajouter une classe ou charger plus de produits via JS
+                    }
+                });
+            </script>
         </div>
     </section>
 
@@ -393,6 +438,43 @@
             </div>
         </div>
     </section>
+    <!-- formulaire de réservation -->
+    <section id="reservation" class="py-16 bg-gray-50 mb-5"></section>
+        <div class="container mx-auto px-4 max-w-xl">
+            <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">Réserver un service</h2>
+            <form id="whatsapp-reservation-form" class="space-y-6 bg-white p-8 rounded-lg shadow-md">
+                <div>
+                    <label for="res-name" class="block text-gray-700 font-medium mb-2">Nom complet</label>
+                    <input type="text" id="res-name" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                </div>
+                <div>
+                    <label for="res-phone" class="block text-gray-700 font-medium mb-2">Téléphone</label>
+                    <input type="tel" id="res-phone" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                </div>
+                <div>
+                    <label for="res-service" class="block text-gray-700 font-medium mb-2">Service souhaité</label>
+                    <select id="res-service" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                        <option value="">Sélectionnez un service</option>
+                        <option>Soin du Visage Premium</option>
+                        <option>Manucure Professionnelle</option>
+                        <option>Extensions de Cils</option>
+                        <option>Autre</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="res-date" class="block text-gray-700 font-medium mb-2">Date souhaitée</label>
+                    <input type="date" id="res-date" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                </div>
+                <div>
+                    <label for="res-message" class="block text-gray-700 font-medium mb-2">Message (optionnel)</label>
+                    <textarea id="res-message" rows="3" class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500"></textarea>
+                </div>
+                <button type="submit" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-6 rounded transition duration-300 w-full">Envoyer sur WhatsApp</button>
+            </form>
+        </div>  
+    </section>
+
+
 
     <!-- About Section -->
     <section id="about" class="py-16 bg-white">
@@ -836,5 +918,6 @@
             });
         });
     </script>
+    <script src="script.js"></script>
 </body>
 </html>
