@@ -25,3 +25,47 @@ e.preventDefault();
     const url = `https://wa.me/${whatsappNumber}?text=${text}`;
     window.open(url, '_blank');
 });
+
+// Recherche produits
+const searchInput = document.querySelector('#search-bar input[type="text"]');
+const searchBtnSubmit = document.getElementById('search-submit');
+const noResultDiv = document.getElementById('search-no-result');
+
+// Liste des produits (noms en minuscules)
+const products = [
+    "crème hydratante intense",
+    "sérum anti-âge premium",
+    "masque éclat doré",
+    "nettoyant doux"
+];
+
+searchBtnSubmit.addEventListener('click', function(e) {
+    e.preventDefault();
+    const query = searchInput.value.trim().toLowerCase();
+    noResultDiv.classList.add('hidden');
+    if (!query) return;
+
+    // Recherche dans la liste des produits
+    const found = products.find(name => name.includes(query));
+    if (found) {
+        // Scroll vers la section produits et surligne le produit trouvé
+        const productCards = document.querySelectorAll('#products .product-card');
+        let scrolled = false;
+        productCards.forEach(card => {
+            const title = card.querySelector('h3').textContent.trim().toLowerCase();
+            card.classList.remove('ring-4', 'ring-pink-400');
+            if (title.includes(query) && !scrolled) {
+                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                card.classList.add('ring-4', 'ring-pink-400');
+                scrolled = true;
+                setTimeout(() => card.classList.remove('ring-4', 'ring-pink-400'), 2000);
+            }
+        });
+    } else {
+        noResultDiv.classList.remove('hidden');
+    }
+});
+// Cacher le message d'erreur quand on tape
+searchInput.addEventListener('input', () => {
+    noResultDiv.classList.add('hidden');
+});
