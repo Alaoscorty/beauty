@@ -1,11 +1,76 @@
- // Affiche/masque les produits de la catégorie Soins Visage au clic
-document.addEventListener('DOMContentLoaded', function() {
-    const toggle = document.getElementById('face-care-toggle');
-    const products = toggle.parentElement.querySelector('#face-care-products');
-    toggle.addEventListener('click', function() {
-        products.classList.toggle('hidden');
+
+//script qui permet de gérer les cartes produits
+document.addEventListener('DOMContentLoaded', function () {
+  // Affichage/masquage des catégories
+  const toggles = document.querySelectorAll('[id$="-toggle"]');
+
+  toggles.forEach(toggle => {
+    const products = toggle.parentElement.querySelector('[id$="-products"]');
+    toggle.addEventListener('click', function () {
+      products.classList.toggle('hidden');
     });
+  });
+
+  // Détails des produits
+  const productData = {
+    hydratante: {
+      name: "Crème Hydratante Intense",
+      description: "Une crème riche qui hydrate en profondeur, parfaite pour les peaux sèches.",
+      price: "24.99 €",
+      image: "https://via.placeholder.com/100"
+    },
+    serum: {
+      name: "Sérum Anti-Âge Premium",
+      description: "Ce sérum atténue les rides et redonne de l’élasticité à la peau.",
+      price: "39.99 €",
+      image: "https://via.placeholder.com/100"
+    },
+    masque: {
+      name: "Masque Éclat Doré",
+      description: "Un masque éclat avec des extraits de perle pour illuminer le teint.",
+      price: "19.99 €",
+      image: "https://via.placeholder.com/100"
+    },
+    nettoyant: {
+      name: "Nettoyant Doux",
+      description: "Un nettoyant doux à base d'eau florale, sans sulfates.",
+      price: "14.99 €",
+      image: "https://via.placeholder.com/100"
+    }
+  };
+
+  // Gère le clic sur un produit
+  document.querySelectorAll('.product-item').forEach(item => {
+    item.addEventListener('click', function () {
+      const key = item.getAttribute('data-product');
+      const product = productData[key];
+      const detailContainer = item.closest('#face-care-products').querySelector('#product-detail');
+
+      // Crée une carte produit HTML
+      if (product) {
+        detailContainer.innerHTML = `
+          <div class="bg-white border rounded-lg shadow-md p-4 flex items-center space-x-4">
+            <img src="${product.image}" alt="${product.name}" class="w-24 h-24 object-cover rounded" />
+            <div class="flex-1">
+              <h4 class="text-lg font-semibold text-gray-800">${product.name}</h4>
+              <p class="text-gray-600 text-sm my-2">${product.description}</p>
+              <div class="flex items-center justify-between">
+                <span class="text-green-600 font-bold">${product.price}</span>
+                <button class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition">Ajouter</button>
+              </div>
+            </div>
+          </div>
+        `;
+        detailContainer.classList.remove('hidden');
+      } else {
+        detailContainer.innerHTML = "<p class='text-red-500'>Produit non trouvé.</p>";
+        detailContainer.classList.remove('hidden');
+      }
+    });
+  });
 });
+
+
 
 
 //script qui permet de gérer le formulaire
