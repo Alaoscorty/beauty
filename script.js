@@ -80,3 +80,4 @@ if (searchInput && noResultDiv) {
 searchInput.addEventListener('input', () => {
     noResultDiv.classList.add('hidden');
 });
+

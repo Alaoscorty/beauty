@@ -25,3 +25,29 @@
 .cart-pulse {
     animation: pulse 1.5s infinite;
 }
+    #messenger-chat #open-chat {
+    background: linear-gradient(90deg, #ec4899 0%, #a21caf 100%);
+}
+#messenger-chat #open-chat:hover {
+    background: linear-gradient(90deg, #be185d 0%, #7c3aed 100%);
+}
+#messenger-chat #chat-window .bg-blue-600 {
+    background: linear-gradient(90deg, #ec4899 0%, #a21caf 100%) !important;
+}
+#messenger-chat #chat-window .text-blue-600 {
+    color: #ec4899 !important;
+}
+#messenger-chat #chat-window .hover\:text-blue-200:hover {
+    color: #fbcfe8 !important;
+}
+#messenger-chat #chat-window .bg-blue-100 {
+    background-color: #fce7f3 !important;
+}
+#messenger-chat #chat-window .text-blue-800 {
+    color: #a21caf !important;
+}
+#messenger-chat #chat-window .text-blue-600.underline {
+    color: #ec4899 !important;
+    text-decoration: underline;
+}
+

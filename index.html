@@ -47,6 +47,122 @@
             <a href="#about" class="block py-2 text-gray-700 hover:text-pink-500">À propos</a>
             <a href="#contact" class="block py-2 text-gray-700 hover:text-pink-500">Contact</a>
         </div>
+
+        <!-- Chat Messenger Widget -->
+        <div id="messenger-chat" class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+            <!-- Chat Button -->
+            
+            <button id="open-chat" class="bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg p-4 flex items-center justify-center focus:outline-none transition duration-300">
+                <i class="fab fa-facebook-messenger text-2xl"></i>
+            </button>
+            <!-- Chat Window -->
+            <div id="chat-window" class="hidden w-80 bg-white rounded-lg shadow-xl mt-4 overflow-hidden">
+                <div class="flex items-center bg-blue-600 px-4 py-3">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Facebook_Messenger_4_Logo.svg" alt="Messenger Logo" class="w-8 h-8 rounded-full mr-2">
+                    <span class="font-bold text-white text-lg">Beauté Élégante</span>
+                    <button id="close-chat" class="ml-auto text-white hover:text-blue-200 text-xl focus:outline-none">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div id="chat-messages" class="p-4 h-64 overflow-y-auto bg-gray-50 text-sm flex flex-col gap-3">
+                    <div class="flex items-start">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Facebook_Messenger_4_Logo.svg" alt="Bot" class="w-7 h-7 rounded-full mr-2">
+                        <div class="bg-blue-100 text-gray-800 px-3 py-2 rounded-lg">
+                            Bonjour 👋 ! Je suis le bot Messenger Beauté Élégante.<br>
+                            Posez-moi une question sur nos produits, services, horaires, contact ou demandez un lien de connexion.
+                        </div>
+                    </div>
+                </div>
+                <form id="chat-form" class="flex border-t bg-white">
+                    <input id="chat-input" type="text" placeholder="Écrivez votre message..." autocomplete="off" class="flex-grow px-3 py-2 focus:outline-none text-gray-700">
+                    <button type="submit" class="px-4 text-blue-600 hover:text-blue-800 focus:outline-none">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <script>
+            // Chat open/close
+            const openChatBtn = document.getElementById('open-chat');
+            const closeChatBtn = document.getElementById('close-chat');
+            const chatWindow = document.getElementById('chat-window');
+            openChatBtn.addEventListener('click', () => {
+                chatWindow.classList.remove('hidden');
+                openChatBtn.classList.add('hidden');
+            });
+            closeChatBtn.addEventListener('click', () => {
+                chatWindow.classList.add('hidden');
+                openChatBtn.classList.remove('hidden');
+            });
+
+            // Chatbot logic
+            const chatForm = document.getElementById('chat-form');
+            const chatInput = document.getElementById('chat-input');
+            const chatMessages = document.getElementById('chat-messages');
+
+            function botReply(message) {
+                let reply = '';
+                let links = '';
+                const msg = message.toLowerCase();
+
+                if (msg.includes('produit')) {
+                    reply = "Nos produits phares incluent : Crème Hydratante, Sérum Anti-Âge, Masque Éclat Doré, Nettoyant Doux. Découvrez-les dans la section Produits.";
+                    links = `<a href="#products" class="text-blue-600 underline">Voir les produits</a>`;
+                } else if (msg.includes('service')) {
+                    reply = "Nous proposons des soins visage, manucure, extensions de cils, pédicure et plus. Consultez la section Services pour plus d'infos.";
+                    links = `<a href="#services" class="text-blue-600 underline">Voir les services</a>`;
+                } else if (msg.includes('horaire')) {
+                    reply = "Nos horaires : Lundi-Vendredi 9h-19h, Samedi 10h-18h, Dimanche fermé.";
+                } else if (msg.includes('contact')) {
+                    reply = "Vous pouvez nous contacter par email à alaoservice1@gmail.com ou au +33 1 23 45 67 89.";
+                    links = `<a href="#contact" class="text-blue-600 underline">Formulaire de contact</a>`;
+                } else if (msg.includes('connexion') || msg.includes('compte') || msg.includes('login')) {
+                    reply = "Voici le lien pour vous connecter à votre compte Beauté Élégante :";
+                    links = `<a href="https://beaute-elegante.com/login" target="_blank" class="text-blue-600 underline">Se connecter</a>`;
+                } else if (msg.includes('adresse')) {
+                    reply = "Notre adresse : 123 Rue de la Beauté, 75000 Paris, France.";
+                } else if (msg.includes('don') || msg.includes('donner')) {
+                    reply = "Vous souhaitez faire un don ? Cliquez ici :";
+                    links = `<a href="#services" class="text-blue-600 underline">Faire un don</a>`;
+                } else if (msg.includes('newsletter')) {
+                    reply = "Pour recevoir nos offres, abonnez-vous à la newsletter en bas de page.";
+                    links = `<a href="#newsletter" class="text-blue-600 underline">S'abonner</a>`;
+                } else {
+                    reply = "Je n'ai pas compris votre question. Essayez avec : produits, services, horaires, contact, connexion, adresse, don, newsletter.";
+                }
+
+                // Bot message
+                const botMsg = document.createElement('div');
+                botMsg.className = 'flex items-start';
+                botMsg.innerHTML = `
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Facebook_Messenger_4_Logo.svg" alt="Bot" class="w-7 h-7 rounded-full mr-2">
+                    <div class="bg-blue-100 text-gray-800 px-3 py-2 rounded-lg">${reply}${links ? '<br>' + links : ''}</div>
+                `;
+                chatMessages.appendChild(botMsg);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            chatForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const userMsg = chatInput.value.trim();
+                if (!userMsg) return;
+                // User message
+                const userDiv = document.createElement('div');
+                userDiv.className = 'flex items-end justify-end';
+                userDiv.innerHTML = `
+                    <div class="bg-blue-500 text-white px-3 py-2 rounded-lg mr-2">${userMsg}</div>
+                    <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Vous" class="w-7 h-7 rounded-full">
+                `;
+                chatMessages.appendChild(userDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                chatInput.value = '';
+                setTimeout(() => botReply(userMsg), 700);
+            });
+        </script>
+        <style>
+            #messenger-chat #chat-window::-webkit-scrollbar { width: 6px; }
+            #messenger-chat #chat-window::-webkit-scrollbar-thumb { background: #e5e7eb; border-radius: 3px; }
+        </style>
         
         <!-- Search Bar -->
         <div id="search-bar" class="hidden bg-white py-3 px-4 shadow-md">
