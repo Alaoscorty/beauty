@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauté Élégante - Votre destination beauté premium</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS for elements that need more precise styling */
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Animation for the cart button */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .cart-pulse {
+            animation: pulse 1.5s infinite;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-spa text-2xl text-pink-500 mr-2"></i>
+                <a href="#" class="text-2xl font-bold text-gray-800">Beauté<span class="text-pink-500">Élégante</span></a>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="text-gray-700 hover:text-pink-500 font-medium">Accueil</a>
+                <a href="#products" class="text-gray-700 hover:text-pink-500 font-medium">Produits</a>
+                <a href="#services" class="text-gray-700 hover:text-pink-500 font-medium">Services</a>
+                <a href="#about" class="text-gray-700 hover:text-pink-500 font-medium">À propos</a>
+                <a href="#contact" class="text-gray-700 hover:text-pink-500 font-medium">Contact</a>
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <button id="search-btn" class="text-gray-600 hover:text-pink-500">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button id="cart-btn" class="relative text-gray-600 hover:text-pink-500">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-pink-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center hidden">0</span>
+                </button>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-600">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-4 px-4 shadow-lg">
+            <a href="#" class="block py-2 text-gray-700 hover:text-pink-500">Accueil</a>
+            <a href="#products" class="block py-2 text-gray-700 hover:text-pink-500">Produits</a>
+            <a href="#services" class="block py-2 text-gray-700 hover:text-pink-500">Services</a>
+            <a href="#about" class="block py-2 text-gray-700 hover:text-pink-500">À propos</a>
+            <a href="#contact" class="block py-2 text-gray-700 hover:text-pink-500">Contact</a>
+        </div>
+        
+        <!-- Search Bar -->
+        <div id="search-bar" class="hidden bg-white py-3 px-4 shadow-md">
+            <div class="container mx-auto flex">
+                <input type="text" placeholder="Rechercher des produits..." class="flex-grow px-4 py-2 border border-gray-300 rounded-l focus:outline-none focus:ring-2 focus:ring-pink-500">
+                <button class="bg-pink-500 text-white px-4 py-2 rounded-r hover:bg-pink-600">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section flex items-center justify-center text-center text-white">
+        <div class="px-4">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Votre Beauté, Notre Passion</h1>
+            <p class="text-xl md:text-2xl mb-8">Découvrez nos produits premium et services d'esthétique exclusifs</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#products" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-6 rounded-full transition duration-300">Nos Produits</a>
+                <a href="#services" class="bg-white hover:bg-gray-100 text-pink-500 font-bold py-3 px-6 rounded-full transition duration-300">Nos Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Nos Catégories</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="category-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <div class="h-40 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1596704017254-9757e8a4d9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80');"></div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-2 text-gray-800">Soins Visage</h3>
+                        <p class="text-gray-600 text-sm">Crèmes, sérums et masques</p>
+                    </div>
+                </div>
+                
+                <div class="category-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <div class="h-40 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1596704017254-9757e8a4d9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80');"></div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-2 text-gray-800">Maquillage</h3>
+                        <p class="text-gray-600 text-sm">Produits professionnels</p>
+                    </div>
+                </div>
+                
+                <div class="category-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <div class="h-40 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1596704017254-9757e8a4d9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80');"></div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-2 text-gray-800">Corps & Bain</h3>
+                        <p class="text-gray-600 text-sm">Gommages, huiles et laits</p>
+                    </div>
+                </div>
+                
+                <div class="category-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <div class="h-40 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1596704017254-9757e8a4d9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80');"></div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-2 text-gray-800">Accessoires</h3>
+                        <p class="text-gray-600 text-sm">Outils professionnels</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold text-gray-800">Nos Produits Phares</h2>
+                <a href="#" class="text-pink-500 hover:text-pink-600 font-medium">Voir tout →</a>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1888&q=80" alt="Crème hydratante" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 right-2 bg-pink-500 text-white text-xs font-bold px-2 py-1 rounded-full">Nouveau</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg text-gray-800">Crème Hydratante Intense</h3>
+                            <span class="text-pink-500 font-bold">€49.90</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Hydratation 24h pour une peau éclatante</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="text-gray-600 text-xs ml-1">(42)</span>
+                            </div>
+                            <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="1" data-name="Crème Hydratante Intense" data-price="49.90">
+                                Ajouter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1596704017254-9757e8a4d9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" alt="Sérum anti-âge" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">Bestseller</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg text-gray-800">Sérum Anti-Âge Premium</h3>
+                            <span class="text-pink-500 font-bold">€69.90</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Ride réduites en 28 jours</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="text-gray-600 text-xs ml-1">(128)</span>
+                            </div>
+                            <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="2" data-name="Sérum Anti-Âge Premium" data-price="69.90">
+                                Ajouter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1625772452859-1c030af8561d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" alt="Masque facial" class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg text-gray-800">Masque Éclat Doré</h3>
+                            <span class="text-pink-500 font-bold">€34.90</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Éclat immédiat pour votre peau</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span class="text-gray-600 text-xs ml-1">(76)</span>
+                            </div>
+                            <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="3" data-name="Masque Éclat Doré" data-price="34.90">
+                                Ajouter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1596704017254-9757e8a4d9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" alt="Nettoyant visage" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">-20%</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg text-gray-800">Nettoyant Doux</h3>
+                            <div>
+                                <span class="text-gray-400 text-sm line-through mr-2">€29.90</span>
+                                <span class="text-pink-500 font-bold">€23.92</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Purifie sans agresser</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="text-gray-600 text-xs ml-1">(93)</span>
+                            </div>
+                            <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="4" data-name="Nettoyant Doux" data-price="23.92">
+                                Ajouter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Nos Services d'Esthétique</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1888&q=80');"></div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-pink-100 text-pink-500 p-3 rounded-full mr-4">
+                                <i class="fas fa-spa text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-xl text-gray-800">Soin du Visage Premium</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Un soin complet avec analyse de peau, gommage, masque et massage facial.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-pink-500 font-bold">À partir de €65</span>
+                            <a href="#" class="text-pink-500 hover:text-pink-600 font-medium text-sm">Réserver →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1596704017254-9757e8a4d9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80');"></div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-pink-100 text-pink-500 p-3 rounded-full mr-4">
+                                <i class="fas fa-hand-sparkles text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-xl text-gray-800">Manucure Professionnelle</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Soin des mains et vernis semi-permanent avec une finition impeccable.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-pink-500 font-bold">À partir de €35</span>
+                            <a href="#" class="text-pink-500 hover:text-pink-600 font-medium text-sm">Réserver →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1596704017254-9757e8a4d9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80');"></div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-pink-100 text-pink-500 p-3 rounded-full mr-4">
+                                <i class="fas fa-eye text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-xl text-gray-800">Extensions de Cils</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Extensions cils à cils pour un regard intense et naturel.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-pink-500 font-bold">À partir de €75</span>
+                            <a href="#" class="text-pink-500 hover:text-pink-600 font-medium text-sm">Réserver →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full transition duration-300">Voir tous nos services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-gradient-to-r from-pink-50 to-purple-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Ce que disent nos clients</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card p-6 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sophie L." class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold text-gray-800">Sophie L.</h4>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"La crème hydratante a transformé ma peau en seulement 2 semaines d'utilisation. Je recommande vivement!"</p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card p-6 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Émilie T." class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold text-gray-800">Émilie T.</h4>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Le soin du visage premium est exceptionnel. Mon esthéticienne était très professionnelle et attentive."</p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card p-6 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Claire D." class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold text-gray-800">Claire D.</h4>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"J'ai testé plusieurs produits et services, tous sont de très haute qualité. Un vrai plaisir de prendre soin de soi ici."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-8 lg:mb-0 lg:pr-12">
+                    <h2 class="text-3xl font-bold mb-6 text-gray-800">Notre Philosophie</h2>
+                    <p class="text-gray-600 mb-4">Fondée en 2015, Beauté Élégante s'engage à offrir des produits et services d'esthétique de la plus haute qualité, alliant innovation scientifique et ingrédients naturels.</p>
+                    <p class="text-gray-600 mb-6">Notre mission est de vous aider à révéler votre beauté naturelle tout en prenant soin de votre peau avec des formulations sûres et efficaces.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex items-center bg-gray-50 px-4 py-2 rounded-full">
+                            <i class="fas fa-leaf text-green-500 mr-2"></i>
+                            <span class="text-sm font-medium text-gray-700">Naturel</span>
+                        </div>
+                        <div class="flex items-center bg-gray-50 px-4 py-2 rounded-full">
+                            <i class="fas fa-flask text-blue-500 mr-2"></i>
+                            <span class="text-sm font-medium text-gray-700">Scientifique</span>
+                        </div>
+                        <div class="flex items-center bg-gray-50 px-4 py-2 rounded-full">
+                            <i class="fas fa-heart text-pink-500 mr-2"></i>
+                            <span class="text-sm font-medium text-gray-700">Éthique</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <div class="bg-gray-100 rounded-lg overflow-hidden aspect-video">
+                        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" alt="Notre équipe" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-16 bg-pink-500 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">Abonnez-vous à notre newsletter</h2>
+            <p class="text-pink-100 mb-8 max-w-2xl mx-auto">Recevez nos offres exclusives, conseils beauté et nouveautés directement dans votre boîte mail.</p>
+            <form class="flex flex-col sm:flex-row max-w-md mx-auto sm:max-w-xl">
+                <input type="email" placeholder="Votre email" class="flex-grow px-4 py-3 rounded sm:rounded-r-none focus:outline-none text-gray-800">
+                <button type="submit" class="bg-gray-900 hover:bg-gray-800 text-white font-bold px-6 py-3 rounded sm:rounded-l-none mt-2 sm:mt-0 transition duration-300">S'abonner</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Contactez-nous</h2>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Nom complet</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-gray-700 font-medium mb-2">Sujet</label>
+                            <select id="subject" class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                                <option value="">Sélectionnez un sujet</option>
+                                <option value="products">Question sur les produits</option>
+                                <option value="services">Réservation de service</option>
+                                <option value="other">Autre demande</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500"></textarea>
+                        </div>
+                        <button type="submit" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-6 rounded transition duration-300">Envoyer le message</button>
+                    </form>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-gray-50 p-8 rounded-lg h-full">
+                        <h3 class="text-xl font-bold mb-6 text-gray-800">Nos coordonnées</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="bg-pink-100 text-pink-500 p-3 rounded-full mr-4">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Adresse</h4>
+                                    <p class="text-gray-600">123 Rue de la Beauté<br>75000 Paris, France</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-pink-100 text-pink-500 p-3 rounded-full mr-4">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Téléphone</h4>
+                                    <p class="text-gray-600">+33 1 23 45 67 89</p>
+                                    <p class="text-gray-600">+33 6 12 34 56 78</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-pink-100 text-pink-500 p-3 rounded-full mr-4">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Email</h4>
+                                    <p class="text-gray-600">contact@beaute-elegante.com</p>
+                                    <p class="text-gray-600">support@beaute-elegante.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-pink-100 text-pink-500 p-3 rounded-full mr-4">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Horaires</h4>
+                                    <p class="text-gray-600">Lundi - Vendredi: 9h - 19h</p>
+                                    <p class="text-gray-600">Samedi: 10h - 18h</p>
+                                    <p class="text-gray-600">Dimanche: Fermé</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="fixed inset-0 z-50 hidden overflow-y-auto">
+        <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+                <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+            </div>
+            
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+            
+            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="flex justify-between items-center border-b pb-4">
+                        <h3 class="text-lg font-bold text-gray-800">Votre Panier</h3>
+                        <button id="close-cart" class="text-gray-500 hover:text-gray-700">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    
+                    <div id="cart-items" class="max-h-96 overflow-y-auto py-4">
+                        <!-- Cart items will be added here dynamically -->
+                        <p class="text-gray-500 text-center py-8">Votre panier est vide</p>
+                    </div>
+                    
+                    <div class="border-t pt-4">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium text-gray-700">Sous-total</span>
+                            <span id="cart-subtotal" class="font-medium">€0.00</span>
+                        </div>
+                        <div class="flex justify-between mb-4">
+                            <span class="font-medium text-gray-700">Livraison</span>
+                            <span class="font-medium">Gratuite</span>
+                        </div>
+                        <div class="flex justify-between border-t pt-4">
+                            <span class="font-bold text-lg text-gray-800">Total</span>
+                            <span id="cart-total" class="font-bold text-lg text-pink-500">€0.00</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                    <button type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-pink-500 text-base font-medium text-white hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 sm:ml-3 sm:w-auto sm:text-sm transition duration-300">
+                        Passer la commande
+                    </button>
+                    <button id="continue-shopping" type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm transition duration-300">
+                        Continuer mes achats
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-spa text-2xl text-pink-500 mr-2"></i>
+                        <span class="text-xl font-bold">Beauté<span class="text-pink-500">Élégante</span></span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Votre destination beauté premium pour des produits et services d'exception.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                            <i class="fab fa-pinterest-p"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Liens rapides</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">Accueil</a></li>
+                        <li><a href="#products" class="text-gray-400 hover:text-pink-500 transition duration-300">Produits</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-pink-500 transition duration-300">Services</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-pink-500 transition duration-300">À propos</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-pink-500 transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Catégories</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">Soins Visage</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">Maquillage</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">Corps & Bain</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">Accessoires</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">Nouveautés</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contact</h4>
+                    <address class="not-italic text-gray-400 space-y-2">
+                        <p>123 Rue de la Beauté<br>75000 Paris, France</p>
+                        <p>Email: contact@beaute-elegante.com</p>
+                        <p>Tél: +33 1 23 45 67 89</p>
+                    </address>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2023 Beauté Élégante. Tous droits réservés.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-pink-500 text-sm transition duration-300">Mentions légales</a>
+                    <a href="#" class="text-gray-400 hover:text-pink-500 text-sm transition duration-300">Politique de confidentialité</a>
+                    <a href="#" class="text-gray-400 hover:text-pink-500 text-sm transition duration-300">Conditions générales</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Search bar toggle
+        const searchBtn = document.getElementById('search-btn');
+        const searchBar = document.getElementById('search-bar');
+        
+        searchBtn.addEventListener('click', () => {
+            searchBar.classList.toggle('hidden');
+        });
+        
+        // Cart functionality
+        const cartBtn = document.getElementById('cart-btn');
+        const cartModal = document.getElementById('cart-modal');
+        const closeCart = document.getElementById('close-cart');
+        const continueShopping = document.getElementById('continue-shopping');
+        const cartCount = document.getElementById('cart-count');
+        const cartItemsContainer = document.getElementById('cart-items');
+        const cartSubtotal = document.getElementById('cart-subtotal');
+        const cartTotal = document.getElementById('cart-total');
+        
+        let cart = [];
+        
+        // Toggle cart modal
+        cartBtn.addEventListener('click', () => {
+            cartModal.classList.toggle('hidden');
+            updateCartDisplay();
+        });
+        
+        closeCart.addEventListener('click', () => {
+            cartModal.classList.add('hidden');
+        });
+        
+        continueShopping.addEventListener('click', () => {
+            cartModal.classList.add('hidden');
+        });
+        
+        // Add to cart functionality
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const id = button.getAttribute('data-id');
+                const name = button.getAttribute('data-name');
+                const price = parseFloat(button.getAttribute('data-price'));
+                
+                // Check if item already in cart
+                const existingItem = cart.find(item => item.id === id);
+                
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        id,
+                        name,
+                        price,
+                        quantity: 1
+                    });
+                }
+                
+                updateCartCount();
+                updateCartDisplay();
+                
+                // Add pulse animation to cart button
+                cartBtn.classList.add('cart-pulse');
+                setTimeout(() => {
+                    cartBtn.classList.remove('cart-pulse');
+                }, 1500);
+            });
+        });
+        
+        // Update cart count display
+        function updateCartCount() {
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            
+            if (totalItems > 0) {
+                cartCount.textContent = totalItems;
+                cartCount.classList.remove('hidden');
+            } else {
+                cartCount.classList.add('hidden');
+            }
+        }
+        
+        // Update cart display in modal
+        function updateCartDisplay() {
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p class="text-gray-500 text-center py-8">Votre panier est vide</p>';
+                cartSubtotal.textContent = '€0.00';
+                cartTotal.textContent = '€0.00';
+                return;
+            }
+            
+            let itemsHTML = '';
+            let subtotal = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+                
+                itemsHTML += `
+                    <div class="flex justify-between items-center py-4 border-b">
+                        <div>
+                            <h4 class="font-medium text-gray-800">${item.name}</h4>
+                            <p class="text-sm text-gray-500">€${item.price.toFixed(2)}</p>
+                        </div>
+                        <div class="flex items-center">
+                            <button class="decrease-quantity text-gray-500 hover:text-pink-500 px-2" data-id="${item.id}">
+                                <i class="fas fa-minus text-xs"></i>
+                            </button>
+                            <span class="mx-2 text-gray-700">${item.quantity}</span>
+                            <button class="increase-quantity text-gray-500 hover:text-pink-500 px-2" data-id="${item.id}">
+                                <i class="fas fa-plus text-xs"></i>
+                            </button>
+                            <button class="remove-item text-red-500 hover:text-red-700 ml-4" data-id="${item.id}">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            cartItemsContainer.innerHTML = itemsHTML;
+            cartSubtotal.textContent = `€${subtotal.toFixed(2)}`;
+            cartTotal.textContent = `€${subtotal.toFixed(2)}`;
+            
+            // Add event listeners to quantity buttons
+            document.querySelectorAll('.decrease-quantity').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const id = e.target.closest('button').getAttribute('data-id');
+                    const item = cart.find(item => item.id === id);
+                    
+                    if (item.quantity > 1) {
+                        item.quantity -= 1;
+                    } else {
+                        cart = cart.filter(item => item.id !== id);
+                    }
+                    
+                    updateCartCount();
+                    updateCartDisplay();
+                });
+            });
+            
+            document.querySelectorAll('.increase-quantity').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const id = e.target.closest('button').getAttribute('data-id');
+                    const item = cart.find(item => item.id === id);
+                    item.quantity += 1;
+                    
+                    updateCartCount();
+                    updateCartDisplay();
+                });
+            });
+            
+            document.querySelectorAll('.remove-item').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const id = e.target.closest('button').getAttribute('data-id');
+                    cart = cart.filter(item => item.id !== id);
+                    
+                    updateCartCount();
+                    updateCartDisplay();
+                });
+            });
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
