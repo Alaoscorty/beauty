@@ -121,15 +121,15 @@
                     reply = "Voici le lien pour vous connecter à votre compte Beauté Élégante :";
                     links = `<a href="https://beaute-elegante.com/login" target="_blank" class="text-blue-600 underline">Se connecter</a>`;
                 } else if (msg.includes('adresse')) {
-                    reply = "Notre adresse : 123 Rue de la Beauté, 75000 Paris, France.";
+                    reply = "Notre adresse est le suivant : Porto novo quatier OUANDO non loin du marché, Cotonou quatier ZOGBO";
                 } else if (msg.includes('don') || msg.includes('donner')) {
                     reply = "Vous souhaitez faire un don ? Cliquez ici :";
-                    links = `<a href="#services" class="text-blue-600 underline">Faire un don</a>`;
-                } else if (msg.includes('newsletter')) {
-                    reply = "Pour recevoir nos offres, abonnez-vous à la newsletter en bas de page.";
+                    links = `<a href="#don" class="text-blue-600 underline">Faire un don</a>`;
+                } else if (msg.includes('groupe')) {
+                    reply = "Pour recevoir nos offres, abonnez-vous notre groupe whatsapp en bas de page.";
                     links = `<a href="#newsletter" class="text-blue-600 underline">S'abonner</a>`;
                 } else {
-                    reply = "Je n'ai pas compris votre question. Essayez avec : produits, services, horaires, contact, connexion, adresse, don, newsletter.";
+                    reply = "Je n'ai pas compris votre question. Essayez avec : produits, services, horaires, contact, connexion, adresse, don, groupe whatsapp. Mais si vous avez d'autres questions qui n'est pas en rapport, vous pouvez prendre rendez vous ou nous contactez directement.";
                 }
 
                 // Bot message
@@ -196,140 +196,150 @@
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Nos Catégories</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                
                 <div class="category-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
                     <div class="h-40 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/b0/cd/38/b0cd38da7c0b45a05af0f81e720ffa4d.jpg');"></div>
-                    <div class="p-4 cursor-pointer" id="face-care-toggle">
-                        <h3 class="font-semibold text-lg mb-2 text-gray-800">Soins Visage</h3>
-                        <p class="text-gray-600 text-sm">Crèmes, sérums et masques</p>
-                    </div>
+                        <div class="p-4 cursor-pointer" id="face-care-toggle">
+                            <h3 class="font-semibold text-lg mb-2 text-gray-800">Crèmes, sérums et masques</h3>
+                            <p class="text-gray-600 text-sm">Laits, gommages et huiles</p>
+                        </div>
                     <div id="face-care-products" class="hidden p-4 border-t bg-white">
                         <ul class="space-y-2 text-gray-700 text-sm">
-                            <li>Crème Hydratante Intense</li>
-                            <li>Sérum Anti-Âge Premium</li>
-                            <li>Masque Éclat Doré</li>
-                            <li>Nettoyant Doux</li>
+                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="Huilesatinee">Huile Satinée</li>
+                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="Hydratanteintense">Crème Hydratante Intense</li>
+                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="Masqueeclat">Masque Éclat Doré</li>
+                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="nettoyant">Nettoyant Doux</li>
                         </ul>
+                        <!-- Conteneur pour afficher la carte produit -->
+                        <div id="product-detail" class="hidden mt-6"></div>
                     </div>
                 </div>
 
                 <div class="category-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
                     <div class="h-40 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/b3/52/d2/b352d2803012b870b36f02a90c3aa6f9.jpg');"></div>
-                    <div class="p-4 cursor-pointer" id="body-care-toggle">
-                        <h3 class="font-semibold text-lg mb-2 text-gray-800">Soins Corps</h3>
-                        <p class="text-gray-600 text-sm">Laits, gommages et huiles</p>
-                    </div>
-                    <div id="body-care-products" class="hidden p-4 border-t bg-white">
+                        <div class="p-4 cursor-pointer" id="face-care-toggle">
+                            <h3 class="font-semibold text-lg mb-2 text-gray-800">Soins Corps</h3>
+                            <p class="text-gray-600 text-sm">Laits, gommages et huiles</p>
+                        </div>
+                    <div id="face-care-products" class="hidden p-4 border-t bg-white">
                         <ul class="space-y-2 text-gray-700 text-sm">
-                        <li>Lait Corps Nourrissant</li>
-                        <li>Gommage Sucre & Café</li>
-                        <li>Huile Satinée</li>
-                        <li>Crème Mains Réparatrice</li>
+                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="Huilesatinee">Huile Satinée</li>
+                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="Laitcorps">Lait Corps Nourrissant</li>
+                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="Gommagesucre">Gommage Sucre & Café</li>
+                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="Mainreparatrice">Crème Mains Réparatrice</li>
                         </ul>
+                        <!-- Conteneur pour afficher la carte produit -->
+                        <div id="product-detail" class="hidden mt-6"></div>
                     </div>
                 </div>
-
                 
                 <div class="category-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
                     <div class="h-40 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/db/7c/f8/db7cf86b8bf0b3585562cdc4cafdc0df.jpg');"></div>
-                    <div class="p-4 cursor-pointer"  id="maquillage-care-toggle">
-                        <h3 class="font-semibold text-lg mb-2 text-gray-800">Maquillage</h3>
-                        <p class="text-gray-600 text-sm">Produits professionnels</p>
+                        <div class="p-4 cursor-pointer" id="face-care-toggle">
+                            <h3 class="font-semibold text-lg mb-2 text-gray-800">Maquillage</h3>
+                            <p class="text-gray-600 text-sm">Produits professionnels</p>
+                        </div>
+                    <div id="face-care-products" class="hidden p-4 border-t bg-white">
+                        <ul class="space-y-2 text-gray-700 text-sm">
+                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="Shampooingfortifiant">Shampooing Fortifiant</li>
+                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="Masquereparateu">Masque Réparateur</li>
+                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="Huilecapillaire">Huile Capillaire Brillance</li>
+                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="Antifrisottis">Sérum Anti-Frisottis</li>
+                        </ul>
+                        <!-- Conteneur pour afficher la carte produit -->
+                        <div id="product-detail" class="hidden mt-6"></div>
                     </div>
-                    <div id="maquillage-care-products" class="hidden p-4 border-t bg-white">
-                    <ul class="space-y-2 text-gray-700 text-sm">
-                    <li>Shampooing Fortifiant</li>
-                    <li>Masque Réparateur</li>
-                    <li>Huile Capillaire Brillance</li>
-                    <li>Sérum Anti-Frisottis</li>
-                    </ul>
-                </div>
                 </div>
                 
                 <div class="category-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
-                <div class="h-40 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/61/e2/f7/61e2f7bc5b6d55e58cdde99c9481ee7b.jpg');"></div>
-                <div class="p-4 cursor-pointer" id="hair-care-toggle">
-                    <h3 class="font-semibold text-lg mb-2 text-gray-800">Soins Cheveux</h3>
-                    <p class="text-gray-600 text-sm">Shampooings, masques, huiles</p>
+                    <div class="h-40 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/61/e2/f7/61e2f7bc5b6d55e58cdde99c9481ee7b.jpg');"></div>
+                        <div class="p-4 cursor-pointer" id="face-care-toggle">
+                            <h3 class="font-semibold text-lg mb-2 text-gray-800">Soins Cheveux</h3>
+                            <p class="text-gray-600 text-sm">Crèmes, sérums et masques</p>
+                        </div>
+                    <div id="face-care-products" class="hidden p-4 border-t bg-white">
+                        <ul class="space-y-2 text-gray-700 text-sm">
+                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="Shampooingfortifiant">Shampooing Fortifiant</li>
+                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="serum">Masque Réparateur</li>
+                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="Capillairebrillance">Huile Capillaire Brillance</li>
+                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="Frisottis">Sérum Anti-Frisottis</li>
+                        </ul>
+                        <!-- Conteneur pour afficher la carte produit -->
+                        <div id="product-detail" class="hidden mt-6"></div>
+                    </div>
                 </div>
-                <div id="hair-care-products" class="hidden p-4 border-t bg-white">
-                    <ul class="space-y-2 text-gray-700 text-sm">
-                    <li>Shampooing Fortifiant</li>
-                    <li>Masque Réparateur</li>
-                    <li>Huile Capillaire Brillance</li>
-                    <li>Sérum Anti-Frisottis</li>
-                    </ul>
-                </div>
-                </div>
+                
                 <div class="category-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
-                <div class="h-40 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/fb/65/3f/fb653f1eb96dc964b96e535a3b746afe.jpg');"></div>
-                <div class="p-4 cursor-pointer" id="natural-products-toggle">
-                    <h3 class="font-semibold text-lg mb-2 text-gray-800">Produits Naturels</h3>
-                    <p class="text-gray-600 text-sm">Ingrédients bio et doux</p>
+                    <div class="h-40 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/fb/65/3f/fb653f1eb96dc964b96e535a3b746afe.jpg');"></div>
+                        <div class="p-4 cursor-pointer" id="face-care-toggle">
+                            <h3 class="font-semibold text-lg mb-2 text-gray-800">Produits Naturels</h3>
+                            <p class="text-gray-600 text-sm">Ingrédients bio et doux</p>
+                        </div>
+                    <div id="face-care-products" class="hidden p-4 border-t bg-white">
+                        <ul class="space-y-2 text-gray-700 text-sm">
+                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="Aloevera">Aloe Vera Pur</li>
+                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="Jojoba">Huile de Jojoba</li>
+                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="Argileverte">Argile Verte</li>
+                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="Eauderose">Eau de Rose</li>
+                        </ul>
+                        <!-- Conteneur pour afficher la carte produit -->
+                        <div id="product-detail" class="hidden mt-6"></div>
+                    </div>
                 </div>
-                <div id="natural-products" class="hidden p-4 border-t bg-white">
-                    <ul class="space-y-2 text-gray-700 text-sm">
-                    <li>Aloe Vera Pur</li>
-                    <li>Huile de Jojoba</li>
-                    <li>Argile Verte</li>
-                    <li>Eau de Rose</li>
-                    </ul>
-                </div>
-                </div>
-
-
-
+                
                 <div class="category-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
                     <div class="h-40 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/8c/69/5f/8c695fa49cd55f8bb3712db1ec85509b.jpg');"></div>
-                    <div class="p-4 cursor-pointer" id="corps-products-toggle">
-                        <h3 class="font-semibold text-lg mb-2 text-gray-800">Corps & Bain</h3>
-                        <p class="text-gray-600 text-sm">Gommages, huiles et laits</p>
+                        <div class="p-4 cursor-pointer" id="face-care-toggle">
+                            <h3 class="font-semibold text-lg mb-2 text-gray-800">Corps & Bain</h3>
+                            <p class="text-gray-600 text-sm">Gommages, huiles et laits</p>
+                        </div>
+                    <div id="face-care-products" class="hidden p-4 border-t bg-white">
+                        <ul class="space-y-2 text-gray-700 text-sm">
+                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="hydratante">Shampooing Fortifiant</li>
+                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="serum">Masque Réparateur</li>
+                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="masque">Huile Capillaire Brillance</li>
+                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="nettoyant">Sérum Anti-Frisottis</li>
+                        </ul>
+                        <!-- Conteneur pour afficher la carte produit -->
+                        <div id="product-detail" class="hidden mt-6"></div>
                     </div>
-                    <div id="corps-care-products" class="hidden p-4 border-t bg-white">
-                    <ul class="space-y-2 text-gray-700 text-sm">
-                    <li>Shampooing Fortifiant</li>
-                    <li>Masque Réparateur</li>
-                    <li>Huile Capillaire Brillance</li>
-                    <li>Sérum Anti-Frisottis</li>
-                    </ul>
                 </div>
-                </div>
-                
+
                 <div class="category-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
                     <div class="h-40 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/13/dc/9b/13dc9b64a9ba91d6948d05d6b0b75cca.jpg');"></div>
-                    <div class="p-4 cursor-pointer" id="outils-products-toggle">
-                        <h3 class="font-semibold text-lg mb-2 text-gray-800">Accessoires</h3>
-                        <p class="text-gray-600 text-sm">Outils professionnels</p>
-                    </div>
-                    <div id="outils-care-products" class="hidden p-4 border-t bg-white">
+                        <div class="p-4 cursor-pointer" id="face-care-toggle">
+                            <h3 class="font-semibold text-lg mb-2 text-gray-800">Accessoires</h3>
+                            <p class="text-gray-600 text-sm">Outils professionnels</p>
+                        </div>
+                    <div id="face-care-products" class="hidden p-4 border-t bg-white">
                         <ul class="space-y-2 text-gray-700 text-sm">
-                            <li>Shampooing Fortifiant</li>
-                            <li>Masque Réparateur</li>
-                            <li>Huile Capillaire Brillance</li>
-                            <li>Sérum Anti-Frisottis</li>
+                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="hydratante">Shampooing Fortifiant</li>
+                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="serum">Masque Réparateur</li>
+                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="masque">Huile Capillaire Brillance</li>
+                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="nettoyant">Sérum Anti-Frisottis</li>
                         </ul>
+                        <!-- Conteneur pour afficher la carte produit -->
+                        <div id="product-detail" class="hidden mt-6"></div>
                     </div>
-                    
                 </div>
+
                 <div class="category-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
-
-                <!-- contenue pour afficher une carte produit -->
-                <div class="h-40 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/b0/cd/38/b0cd38da7c0b45a05af0f81e720ffa4d.jpg');"></div>
-                <div class="p-4 cursor-pointer" id="face-care-toggle">
-                    <h3 class="font-semibold text-lg mb-2 text-gray-800">Soins Visage</h3>
-                    <p class="text-gray-600 text-sm">Crèmes, sérums et masques</p>
+                    <div class="h-40 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/b0/cd/38/b0cd38da7c0b45a05af0f81e720ffa4d.jpg');"></div>
+                        <div class="p-4 cursor-pointer" id="face-care-toggle">
+                            <h3 class="font-semibold text-lg mb-2 text-gray-800">Soins Visage</h3>
+                            <p class="text-gray-600 text-sm">Crèmes, sérums et masques</p>
+                        </div>
+                    <div id="face-care-products" class="hidden p-4 border-t bg-white">
+                        <ul class="space-y-2 text-gray-700 text-sm">
+                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="hydratante">Crème Hydratante Intense</li>
+                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="serum">Sérum Anti-Âge Premium</li>
+                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="masque">Masque Éclat Doré</li>
+                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="nettoyant">Nettoyant Doux</li>
+                        </ul>
+                        <!-- Conteneur pour afficher la carte produit -->
+                        <div id="product-detail" class="hidden mt-6"></div>
+                    </div>
                 </div>
-                <div id="face-care-products" class="hidden p-4 border-t bg-white">
-                    <ul class="space-y-2 text-gray-700 text-sm">
-                    <li class="product-item cursor-pointer" data-product="hydratante">Crème Hydratante Intense</li>
-                    <li class="product-item cursor-pointer" data-product="serum">Sérum Anti-Âge Premium</li>
-                    <li class="product-item cursor-pointer" data-product="masque">Masque Éclat Doré</li>
-                    <li class="product-item cursor-pointer" data-product="nettoyant">Nettoyant Doux</li>
-                    </ul>
-                    <!-- Conteneur pour afficher la carte produit -->
-                    <div id="product-detail" class="hidden mt-6"></div>
-                </div>
-</div>
-
             </div>
         </div>
     </section>
@@ -401,7 +411,7 @@
                                 <div class="p-4">
                                     <h4 class="font-bold text-lg text-gray-800 mb-2">Sérum Anti-Âge Premium</h4>
                                     <p class="text-pink-500 font-bold mb-2">FCFA 69.90</p>
-                                    <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="2" data-name="Sérum Anti-Âge Premium" data-price="69.90">
+                                    <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="5" data-name="Sérum Anti-Âge Premium" data-price="69.90">
                                         Ajouter
                                     </button>
                                 </div>
@@ -412,7 +422,7 @@
                                 <div class="p-4">
                                     <h4 class="font-bold text-lg text-gray-800 mb-2">Sérum Anti-Âge Premium</h4>
                                     <p class="text-pink-500 font-bold mb-2">FCFA 69.90</p>
-                                    <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="2" data-name="Sérum Anti-Âge Premium" data-price="69.90">
+                                    <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="6" data-name="Sérum Anti-Âge Premium" data-price="69.90">
                                         Ajouter
                                     </button>
                                 </div>
@@ -423,7 +433,7 @@
                                 <div class="p-4">
                                     <h4 class="font-bold text-lg text-gray-800 mb-2">Sérum Anti-Âge Premium</h4>
                                     <p class="text-pink-500 font-bold mb-2">FCFA 69.90</p>
-                                    <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="2" data-name="Sérum Anti-Âge Premium" data-price="69.90">
+                                    <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="7" data-name="Sérum Anti-Âge Premium" data-price="69.90">
                                         Ajouter
                                     </button>
                                 </div>
@@ -434,7 +444,7 @@
                                 <div class="p-4">
                                     <h4 class="font-bold text-lg text-gray-800 mb-2">Sérum Anti-Âge Premium</h4>
                                     <p class="text-pink-500 font-bold mb-2">FCFA 69.90</p>
-                                    <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="2" data-name="Sérum Anti-Âge Premium" data-price="69.90">
+                                    <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="8" data-name="Sérum Anti-Âge Premium" data-price="69.90">
                                         Ajouter
                                     </button>
                                 </div>
@@ -445,7 +455,7 @@
                                 <div class="p-4">
                                     <h4 class="font-bold text-lg text-gray-800 mb-2">Sérum Anti-Âge Premium</h4>
                                     <p class="text-pink-500 font-bold mb-2">FCFA 69.90</p>
-                                    <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="2" data-name="Sérum Anti-Âge Premium" data-price="69.90">
+                                    <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="9" data-name="Sérum Anti-Âge Premium" data-price="69.90">
                                         Ajouter
                                     </button>
                                 </div>
@@ -456,7 +466,7 @@
                                 <div class="p-4">
                                     <h4 class="font-bold text-lg text-gray-800 mb-2">Sérum Anti-Âge Premium</h4>
                                     <p class="text-pink-500 font-bold mb-2">FCFA 69.90</p>
-                                    <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="2" data-name="Sérum Anti-Âge Premium" data-price="69.90">
+                                    <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="10" data-name="Sérum Anti-Âge Premium" data-price="69.90">
                                         Ajouter
                                     </button>
                                 </div>
@@ -467,7 +477,7 @@
                                 <div class="p-4">
                                     <h4 class="font-bold text-lg text-gray-800 mb-2">Sérum Anti-Âge Premium</h4>
                                     <p class="text-pink-500 font-bold mb-2">FCFA 69.90</p>
-                                    <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="2" data-name="Sérum Anti-Âge Premium" data-price="69.90">
+                                    <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="11" data-name="Sérum Anti-Âge Premium" data-price="69.90">
                                         Ajouter
                                     </button>
                                 </div>
@@ -478,7 +488,7 @@
                                 <div class="p-4">
                                     <h4 class="font-bold text-lg text-gray-800 mb-2">Sérum Anti-Âge Premium</h4>
                                     <p class="text-pink-500 font-bold mb-2">FCFA 69.90</p>
-                                    <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="2" data-name="Sérum Anti-Âge Premium" data-price="69.90">
+                                    <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="12" data-name="Sérum Anti-Âge Premium" data-price="69.90">
                                         Ajouter
                                     </button>
                                 </div>
@@ -633,6 +643,130 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Product 5 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://i.pinimg.com/736x/6a/db/9d/6adb9ddd63c44465ff151d49d9974a22.jpg" alt="Nettoyant visage" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">-10%</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg text-gray-800">Fond de teint classique</h3>
+                            <div>
+                                <span class="text-gray-400 text-sm line-through mr-2">FCFA 3000</span>
+                                <span class="text-pink-500 font-bold">FCFA 2700</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Embellit le visage</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="text-gray-600 text-xs ml-1">(95)</span>
+                            </div>
+                            <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="5" data-name="Fond de teint classique" data-price="2700">
+                                Ajouter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://i.pinimg.com/736x/6a/db/9d/6adb9ddd63c44465ff151d49d9974a22.jpg" alt="Nettoyant visage" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">-10%</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg text-gray-800">Palette contour</h3>
+                            <div>
+                                <span class="text-gray-400 text-sm line-through mr-2">FCFA 6000</span>
+                                <span class="text-pink-500 font-bold">FCFA 5000</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Purifie sans agresser</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="text-gray-600 text-xs ml-1">(90)</span>
+                            </div>
+                            <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="6" data-name="Nettoyant Doux" data-price="5000">
+                                Ajouter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 7 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://i.pinimg.com/736x/6a/db/9d/6adb9ddd63c44465ff151d49d9974a22.jpg" alt="Nettoyant visage" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">-50%</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg text-gray-800">Palette contour</h3>
+                            <div>
+                                <span class="text-gray-400 text-sm line-through mr-2">FCFA 10 000</span>
+                                <span class="text-pink-500 font-bold">FCFA 5000</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Purifie sans agresser</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="text-gray-600 text-xs ml-1">(93)</span>
+                            </div>
+                            <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="7" data-name="Palette contour" data-price="23.92">
+                                Ajouter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 8 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://i.pinimg.com/736x/6a/db/9d/6adb9ddd63c44465ff151d49d9974a22.jpg" alt="Nettoyant visage" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">-20%</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg text-gray-800">Chapeau de deux</h3>
+                            <div>
+                                <span class="text-gray-400 text-sm line-through mr-2">FCFA 800</span>
+                                <span class="text-pink-500 font-bold">FCFA 600</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Purifie sans agresser</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="text-gray-600 text-xs ml-1">(143)</span>
+                            </div>
+                            <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="8" data-name="chapeau de deux" data-price="600">
+                                Ajouter
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -655,7 +789,7 @@
                         </div>
                         <p class="text-gray-600 mb-4">Un soin complet avec analyse de peau, gommage, masque et massage facial.</p>
                         <div class="flex justify-between items-center">
-                            <span class="text-pink-500 font-bold">À partir de FCFA 65</span>
+                            <span class="text-pink-500 font-bold">À partir de FCFA 8000</span>
                             <a href="#reservation" class="text-pink-500 hover:text-pink-600 font-medium text-sm">Réserver →</a>
                         </div>
                     </div>
@@ -673,7 +807,7 @@
                         </div>
                         <p class="text-gray-600 mb-4">Soin des mains et vernis semi-permanent avec une finition impeccable.</p>
                         <div class="flex justify-between items-center">
-                            <span class="text-pink-500 font-bold">À partir de FCFA 35</span>
+                            <span class="text-pink-500 font-bold">À partir de FCFA 10000</span>
                             <a href="#reservation" class="text-pink-500 hover:text-pink-600 font-medium text-sm">Réserver →</a>
                         </div>
                     </div>
@@ -691,7 +825,7 @@
                         </div>
                         <p class="text-gray-600 mb-4">Extensions cils à cils pour un regard intense et naturel.</p>
                         <div class="flex justify-between items-center">
-                            <span class="text-pink-500 font-bold">À partir de FCFA 75</span>
+                            <span class="text-pink-500 font-bold">À partir de FCFA 5000</span>
                             <a href="#reservation" class="text-pink-500 hover:text-pink-600 font-medium text-sm">Réserver →</a>
                         </div>
                     </div>
@@ -708,7 +842,7 @@
                         </div>
                         <p class="text-gray-600 mb-4">Un soin complet avec analyse de peau, gommage, masque et massage facial.</p>
                         <div class="flex justify-between items-center">
-                            <span class="text-pink-500 font-bold">À partir de FCFA 65</span>
+                            <span class="text-pink-500 font-bold">À partir de FCFA 4500</span>
                             <a href="#reservation" class="text-pink-500 hover:text-pink-600 font-medium text-sm">Réserver →</a>
                         </div>
                     </div>
@@ -726,7 +860,7 @@
                         </div>
                         <p class="text-gray-600 mb-4">Un soin complet avec analyse de peau, gommage, masque et massage facial.</p>
                         <div class="flex justify-between items-center">
-                            <span class="text-pink-500 font-bold">À partir de FCFA 65</span>
+                            <span class="text-pink-500 font-bold">À partir de FCFA 5000</span>
                             <a href="#reservation" class="text-pink-500 hover:text-pink-600 font-medium text-sm">Réserver →</a>
                         </div>
                     </div>
@@ -744,7 +878,7 @@
                         </div>
                         <p class="text-gray-600 mb-4">Un soin complet avec analyse de peau, gommage, masque et massage facial.</p>
                         <div class="flex justify-between items-center">
-                            <span class="text-pink-500 font-bold">À partir de FCFA 65</span>
+                            <span class="text-pink-500 font-bold">À partir de FCFA 3000</span>
                             <a href="#reservation" class="text-pink-500 hover:text-pink-600 font-medium text-sm open-reservation-modal">Réserver →</a>
                         </div>
                     </div>
@@ -786,7 +920,7 @@
                             </div>
                             <div id="mobile-info" class="hidden">
                                 <p class="text-sm text-gray-600 mt-2">
-                                    Envoyez votre don via Mobile Money au <span class="font-bold text-pink-500">+229 97 00 00 00</span> puis entrez le numéro de transaction ci-dessous.
+                                    Envoyez votre don via MTN Mobile Money au <span class="font-bold text-pink-500">+229 51563219</span>ou par Moov Mobile money au <span class="font-bold text-pink-500">+229 64517494</span> puis entrez le numéro de transaction ci-dessous.
                                 </p>
                                 <input type="text" id="mobile-transaction" placeholder="Numéro de transaction" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
                             </div>
@@ -795,7 +929,7 @@
                                     Faites un virement à la banque :<br>
                                     <span class="font-bold">Banque : Orabank Bénin</span><br>
                                     <span class="font-bold">IBAN : BJ6600100100000000123456789</span><br>
-                                    <span class="font-bold">Nom : Beauté Élégante</span>
+                                    <span class="font-bold">Nom : Beauté Élégante ou AMOUSSA Sayidi A.O</span>
                                 </p>
                                 <input type="text" id="bank-reference" placeholder="Référence du virement" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
                             </div>
@@ -918,6 +1052,9 @@
                         <option>Soin du Visage Premium</option>
                         <option>Manucure Professionnelle</option>
                         <option>Extensions de Cils</option>
+                        <option>Tatouage</option>
+                        <option>Vernis simple</option>
+                        <option>Onglerie simple</option>
                         <option>Autre</option>
                     </select>
                 </div>
@@ -971,11 +1108,11 @@
     <!-- Newsletter -->
     <section class="py-16 bg-pink-500 text-white">
         <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-4">Abonnez-vous à notre newsletter</h2>
-            <p class="text-pink-100 mb-8 max-w-2xl mx-auto">Recevez nos offres exclusives, conseils beauté et nouveautés directement dans votre boîte mail.</p>
+            <h2 class="text-3xl font-bold mb-4">Abonnez-vous à notre groupe whatsapp</h2>
+            <p class="text-pink-100 mb-8 max-w-2xl mx-auto">Recevez nos offres exclusives, conseils beauté et nouveautés directement sur whatsapp</p>
             <form class="flex flex-col sm:flex-row max-w-md mx-auto sm:max-w-xl">
-                <input type="email" placeholder="Votre email" class="flex-grow px-4 py-3 rounded sm:rounded-r-none focus:outline-none text-gray-800">
-                <button type="submit" class="bg-gray-900 hover:bg-gray-800 text-white font-bold px-6 py-3 rounded sm:rounded-l-none mt-2 sm:mt-0 transition duration-300">S'abonner</button>
+                <input type="email" placeholder="Votre numéro de téléphone" class="flex-grow px-4 py-3 rounded sm:rounded-r-none focus:outline-none text-gray-800">
+                <button type="submit" class="bg-gray-900 hover:bg-gray-800 text-white font-bold px-6 py-3 rounded sm:rounded-l-none mt-2 sm:mt-0 transition duration-300">Rejoindre</button>
             </form>
         </div>
     </section>
@@ -1024,7 +1161,7 @@
                                 </div>
                                 <div>
                                     <h4 class="font-bold text-gray-800">Adresse</h4>
-                                    <p class="text-gray-600">123 Rue de la Beauté<br>75000 Paris, France</p>
+                                    <p class="text-gray-600">porto novo non loin du marché  OUAND, cotonou quartier Zogo</p>
                                 </div>
                             </div>
                             
@@ -1034,8 +1171,8 @@
                                 </div>
                                 <div>
                                     <h4 class="font-bold text-gray-800">Téléphone</h4>
-                                    <p class="text-gray-600">+33 1 23 45 67 89</p>
-                                    <p class="text-gray-600">+33 6 12 34 56 78</p>
+                                    <p class="text-gray-600">+229 0151563219</p>
+                                    <p class="text-gray-600">+229 0144104328</p>
                                 </div>
                             </div>
                             
@@ -1045,8 +1182,8 @@
                                 </div>
                                 <div>
                                     <h4 class="font-bold text-gray-800">Email</h4>
-                                    <p class="text-gray-600">contact@beaute-elegante.com</p>
-                                    <p class="text-gray-600">support@beaute-elegante.com</p>
+                                    <p class="text-gray-600">alaoservice1@gmail.com</p>
+                                    <p class="text-gray-600">alaoscorty@gmail.com</p>
                                 </div>
                             </div>
                             
@@ -1057,8 +1194,8 @@
                                 <div>
                                     <h4 class="font-bold text-gray-800">Horaires</h4>
                                     <p class="text-gray-600">Lundi - Vendredi: 9h - 19h</p>
-                                    <p class="text-gray-600">Samedi: 10h - 18h</p>
-                                    <p class="text-gray-600">Dimanche: Fermé</p>
+                                    <p class="text-gray-600">Samedi: 08h - 18h</p>
+                                    <p class="text-gray-600">Dimanche: 09h à 18h</p>
                                 </div>
                             </div>
                         </div>
@@ -1172,9 +1309,9 @@
                 <div>
                     <h4 class="text-lg font-bold mb-4">Contact</h4>
                     <address class="not-italic text-gray-400 space-y-2">
-                        <p>123 Rue de la Beauté<br>75000 Paris, France</p>
-                        <p>Email: contact@beaute-elegante.com</p>
-                        <p>Tél: +33 1 23 45 67 89</p>
+                        <p>porto novo non loin du marché  OUAND, cotonou quartier Zogo</p>
+                        <p>Email: alaoservice1@gmail.com</p>
+                        <p>Tél: +229 0151563219</p>
                     </address>
                 </div>
             </div>

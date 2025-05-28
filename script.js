@@ -11,55 +11,181 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+
   // Détails des produits
   const productData = {
+    Huilesatinee: {
+      name: "Huile Satinée",
+      description: "Une huile qui enrichie éfficacemebt la peau",
+      price: "10000 FCFA",
+      image: "https://i.pinimg.com/736x/b0/98/ad/b098add8327997ca928c40bd1c1fb176.jpg"
+    },
+    serum: {
+      name: "Huile Satinée",
+      description: "Une huile qui enrichie éfficacemebt la peau",
+      price: "10000 FCFA",
+      image: "https://i.pinimg.com/736x/b0/98/ad/b098add8327997ca928c40bd1c1fb176.jpg"
+    },
+    Hydratanteintense: {
+      name: "Huile Satinée",
+      description: "Une huile qui enrichie éfficacemebt la peau",
+      price: "10000 FCFA",
+      image: "https://i.pinimg.com/736x/b0/98/ad/b098add8327997ca928c40bd1c1fb176.jpg"
+    },
+    Masqueeclat: {
+      name: "Huile Satinée",
+      description: "Une huile qui enrichie éfficacemebt la peau",
+      price: "10000 FCFA",
+      image: "https://i.pinimg.com/736x/b0/98/ad/b098add8327997ca928c40bd1c1fb176.jpg"
+    },
+    Laitcorps: {
+      name: "Huile Satinée",
+      description: "Une huile qui enrichie éfficacemebt la peau",
+      price: "10000 FCFA",
+      image: "https://i.pinimg.com/736x/b0/98/ad/b098add8327997ca928c40bd1c1fb176.jpg"
+    },
+    Gommagesucre: {
+      name: "Huile Satinée",
+      description: "Une huile qui enrichie éfficacemebt la peau",
+      price: "10000 FCFA",
+      image: "https://i.pinimg.com/736x/b0/98/ad/b098add8327997ca928c40bd1c1fb176.jpg"
+    },
+    Mainreparatrice: {
+      name: "Huile Satinée",
+      description: "Une huile qui enrichie éfficacemebt la peau",
+      price: "10000 FCFA",
+      image: "https://i.pinimg.com/736x/b0/98/ad/b098add8327997ca928c40bd1c1fb176.jpg"
+    },
+    Shampooingfortifiant: {
+      name: "Huile Satinée",
+      description: "Une huile qui enrichie éfficacemebt la peau",
+      price: "10000 FCFA",
+      image: "https://i.pinimg.com/736x/b0/98/ad/b098add8327997ca928c40bd1c1fb176.jpg"
+    },
+    Masquereparateu: {
+      name: "Huile Satinée",
+      description: "Une huile qui enrichie éfficacemebt la peau",
+      price: "10000 FCFA",
+      image: "https://i.pinimg.com/736x/b0/98/ad/b098add8327997ca928c40bd1c1fb176.jpg"
+    },
+    Huilecapillaire: {
+      name: "Huile Satinée",
+      description: "Une huile qui enrichie éfficacemebt la peau",
+      price: "10000 FCFA",
+      image: "https://i.pinimg.com/736x/b0/98/ad/b098add8327997ca928c40bd1c1fb176.jpg"
+    },
+    Antifrisottis: {
+      name: "Huile Satinée",
+      description: "Une huile qui enrichie éfficacemebt la peau",
+      price: "10000 FCFA",
+      image: "https://i.pinimg.com/736x/b0/98/ad/b098add8327997ca928c40bd1c1fb176.jpg"
+    },
+    Shampooingfortifiant: {
+      name: "Huile Satinée",
+      description: "Une huile qui enrichie éfficacemebt la peau",
+      price: "10000 FCFA",
+      image: "https://i.pinimg.com/736x/b0/98/ad/b098add8327997ca928c40bd1c1fb176.jpg"
+    },
+    serum: {
+      name: "Huile Satinée",
+      description: "Une huile qui enrichie éfficacemebt la peau",
+      price: "10000 FCFA",
+      image: "https://i.pinimg.com/736x/b0/98/ad/b098add8327997ca928c40bd1c1fb176.jpg"
+    },
+    Capillairebrillance: {
+      name: "Huile Satinée",
+      description: "Une huile qui enrichie éfficacemebt la peau",
+      price: "10000 FCFA",
+      image: "https://i.pinimg.com/736x/b0/98/ad/b098add8327997ca928c40bd1c1fb176.jpg"
+    },
+    Frisottis: {
+      name: "Huile Satinée",
+      description: "Une huile qui enrichie éfficacemebt la peau",
+      price: "10000 FCFA",
+      image: "https://i.pinimg.com/736x/b0/98/ad/b098add8327997ca928c40bd1c1fb176.jpg"
+    },
+    Aloevera: {
+      name: "Huile Satinée",
+      description: "Une huile qui enrichie éfficacemebt la peau",
+      price: "10000 FCFA",
+      image: "https://i.pinimg.com/736x/b0/98/ad/b098add8327997ca928c40bd1c1fb176.jpg"
+    },
+    Jojoba: {
+      name: "Huile Satinée",
+      description: "Une huile qui enrichie éfficacemebt la peau",
+      price: "10000 FCFA",
+      image: "https://i.pinimg.com/736x/b0/98/ad/b098add8327997ca928c40bd1c1fb176.jpg"
+    },
+    Argileverte: {
+      name: "Huile Satinée",
+      description: "Une huile qui enrichie éfficacemebt la peau",
+      price: "10000 FCFA",
+      image: "https://i.pinimg.com/736x/b0/98/ad/b098add8327997ca928c40bd1c1fb176.jpg"
+    },
+    Eauderose: {
+      name: "Huile Satinée",
+      description: "Une huile qui enrichie éfficacemebt la peau",
+      price: "10000 FCFA",
+      image: "https://i.pinimg.com/736x/b0/98/ad/b098add8327997ca928c40bd1c1fb176.jpg"
+    },
+    
+    serum: {
+      name: "Huile Satinée",
+      description: "Une huile qui enrichie éfficacemebt la peau",
+      price: "10000 FCFA",
+      image: "https://i.pinimg.com/736x/b0/98/ad/b098add8327997ca928c40bd1c1fb176.jpg"
+    },
     hydratante: {
       name: "Crème Hydratante Intense",
       description: "Une crème riche qui hydrate en profondeur, parfaite pour les peaux sèches.",
       price: "24.99 €",
-      image: "https://via.placeholder.com/100"
+      image: "https://i.pinimg.com/736x/b0/98/ad/b098add8327997ca928c40bd1c1fb176.jpg"
     },
     serum: {
       name: "Sérum Anti-Âge Premium",
       description: "Ce sérum atténue les rides et redonne de l’élasticité à la peau.",
-      price: "39.99 €",
-      image: "https://via.placeholder.com/100"
+      price: "35 000 FCFA",
+      image: "https://i.pinimg.com/736x/b0/98/ad/b098add8327997ca928c40bd1c1fb176.jpg"
     },
     masque: {
       name: "Masque Éclat Doré",
       description: "Un masque éclat avec des extraits de perle pour illuminer le teint.",
       price: "19.99 €",
-      image: "https://via.placeholder.com/100"
+      image: "https://i.pinimg.com/736x/b0/98/ad/b098add8327997ca928c40bd1c1fb176.jpg"
     },
     nettoyant: {
       name: "Nettoyant Doux",
       description: "Un nettoyant doux à base d'eau florale, sans sulfates.",
-      price: "14.99 €",
-      image: "https://via.placeholder.com/100"
+      price: "5000 FCFA",
+      image: "https://i.pinimg.com/736x/b0/98/ad/b098add8327997ca928c40bd1c1fb176.jpg"
     }
   };
 
+
+  
+
   // Gère le clic sur un produit
-  document.querySelectorAll('.product-item').forEach(item => {
-    item.addEventListener('click', function () {
-      const key = item.getAttribute('data-product');
-      const product = productData[key];
-      const detailContainer = item.closest('#face-care-products').querySelector('#product-detail');
+    document.querySelectorAll('.product-item').forEach(item => {
+        item.addEventListener('click', function () {
+            const key = item.getAttribute('data-product');
+            const product = productData[key];
+            const detailContainer = item.closest('#face-care-products').querySelector('#product-detail');
 
       // Crée une carte produit HTML
       if (product) {
         detailContainer.innerHTML = `
-          <div class="bg-white border rounded-lg shadow-md p-4 flex items-center space-x-4">
-            <img src="${product.image}" alt="${product.name}" class="w-24 h-24 object-cover rounded" />
-            <div class="flex-1">
-              <h4 class="text-lg font-semibold text-gray-800">${product.name}</h4>
-              <p class="text-gray-600 text-sm my-2">${product.description}</p>
-              <div class="flex items-center justify-between">
-                <span class="text-green-600 font-bold">${product.price}</span>
-                <button class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition">Ajouter</button>
-              </div>
+
+            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                <img src="${product.image}" alt="image produit" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h4 class="font-bold text-lg text-gray-800 mb-2">${product.name}</h4>
+                    <p class="text-gray-600 text-sm my-2">${product.description}</p>
+                    <p class="text-pink-500 font-bold mb-2">${product.price}</p>
+                    <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="2" data-name="Sérum Anti-Âge Premium" data-price="69.90">
+                        Ajouter
+                    </button>
+                </div>
             </div>
-          </div>
         `;
         detailContainer.classList.remove('hidden');
       } else {
@@ -67,8 +193,10 @@ document.addEventListener('DOMContentLoaded', function () {
         detailContainer.classList.remove('hidden');
       }
     });
+
   });
 });
+
 
 
 
