@@ -1,4 +1,70 @@
 
+// script qui permet de gérer la barre de recherche
+  document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.querySelector('#search-bar input');
+    const searchBtn = document.getElementById('search-submit');
+    const noResult = document.getElementById('search-no-result');
+    const productCards = document.querySelectorAll('[data-nom-produit]');
+    const resultDisplay = document.getElementById('search-result-display'); // Ajoutez une div avec cet id dans votre HTML
+
+    // Fonction pour nettoyer les accents et mettre en minuscule
+    function normalize(str) {
+      return str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
+
+    // Fonction de recherche
+    function searchProducts() {
+      const keyword = normalize(searchInput.value.trim());
+      let foundCount = 0;
+      let foundProduct = null;
+
+      productCards.forEach(card => {
+        const productName = normalize(card.getAttribute('data-nom-produit'));
+
+        if (productName.includes(keyword) && keyword !== "") {
+          card.style.display = "block";
+          foundCount++;
+          if (!foundProduct) foundProduct = card;
+        } else {
+          card.style.display = "none";
+        }
+      });
+
+      // Gérer l'affichage du message "Aucun résultat"
+      noResult.classList.toggle('hidden', foundCount > 0);
+
+      // Si aucun mot-clé, tout afficher
+      if (keyword === "") {
+        productCards.forEach(card => card.style.display = "block");
+        noResult.classList.add('hidden');
+        if (resultDisplay) resultDisplay.innerHTML = "";
+        return;
+      }
+
+      // Afficher le produit trouvé dans la div en haut de la page
+      if (resultDisplay) {
+        if (foundProduct) {
+          resultDisplay.innerHTML = foundProduct.outerHTML;
+        } else {
+          resultDisplay.innerHTML = "";
+        }
+      }
+    }
+
+    // Événement clic sur bouton de recherche
+    searchBtn.addEventListener('click', searchProducts);
+
+    // Événement touche "Entrée" dans le champ
+    searchInput.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') {
+        searchProducts();
+      }
+    });
+  });
+
+
+
+
 //script qui permet de gérer les cartes produits
 document.addEventListener('DOMContentLoaded', function () {
   // Affichage/masquage des catégories
