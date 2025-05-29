@@ -107,29 +107,42 @@
                 const msg = message.toLowerCase();
 
                 if (msg.includes('produit')) {
-                    reply = "Nos produits phares incluent : Crème Hydratante, Sérum Anti-Âge, Masque Éclat Doré, Nettoyant Doux. Découvrez-les dans la section Produits.";
+                    reply = "Nos produits phares incluent : Crème Hydratante Intense, Sérum Anti-Âge Premium, Masque Éclat Doré, Nettoyant Doux, Fond de Teint, Gloss Lèvres, Huile Satinée, Gommage Sucre & Café, Lait Corps Nourrissant, et bien d'autres. Découvrez-les dans la section Produits ou cliquez sur 'Voir tout'.";
                     links = `<a href="#products" class="text-blue-600 underline">Voir les produits</a>`;
                 } else if (msg.includes('service')) {
-                    reply = "Nous proposons des soins visage, manucure, extensions de cils, pédicure et plus. Consultez la section Services pour plus d'infos.";
-                    links = `<a href="#services" class="text-blue-600 underline">Voir les services</a>`;
+                    reply = "Nous proposons des soins visage premium, manucure professionnelle, extensions de cils, maquillage, pédicure, onglerie, tatouage, vernis simple et plus. Consultez la section Services pour plus d'infos ou réservez directement.";
+                    links = `<a href="#services" class="text-blue-600 underline">Voir les services</a> <br><a href="#reservation" class="text-blue-600 underline">Réserver un service</a>`;
                 } else if (msg.includes('horaire')) {
-                    reply = "Nos horaires : Lundi-Vendredi 9h-19h, Samedi 10h-18h, Dimanche fermé.";
+                    reply = "Nos horaires : Lundi - Vendredi : 9h - 19h, Samedi : 08h - 18h, Dimanche : 09h à 18h.";
                 } else if (msg.includes('contact')) {
-                    reply = "Vous pouvez nous contacter par email à alaoservice1@gmail.com ou au +2290151563219, +229 0194516481";
+                    reply = "Vous pouvez nous contacter par email à alaoservice1@gmail.com ou alaoscorty@gmail.com, ou par téléphone au +229 0151563219, +229 0144104328. Vous pouvez aussi utiliser le formulaire de contact.";
                     links = `<a href="#contact" class="text-blue-600 underline">Formulaire de contact</a>`;
                 } else if (msg.includes('connexion') || msg.includes('compte') || msg.includes('login')) {
                     reply = "Voici le lien pour vous connecter à votre compte Beauté Élégante :";
-                    links = `<a href="https://beaute-elegante.com/login" target="_blank" class="text-blue-600 underline">Se connecter</a>`;
+                    links = `<a href="login.html" target="_blank" class="text-blue-600 underline">Se connecter</a>`;
+                } else if (msg.includes('connecter') || msg.includes('compte') || msg.includes('login')) {
+                    reply = "Voici le lien pour vous connecter à votre compte Beauté Élégante :";
+                    links = `<a href="login.html" target="_blank" class="text-blue-600 underline">Se connecter</a>`;
                 } else if (msg.includes('adresse')) {
-                    reply = "Notre adresse est le suivant : Porto novo quatier OUANDO non loin du marché, Cotonou quatier ZOGBO";
+                    reply = "Nos adresses : Porto-Novo, quartier OUANDO non loin du marché ; Cotonou, quartier Zogbo.";
                 } else if (msg.includes('don') || msg.includes('donner')) {
-                    reply = "Vous souhaitez faire un don ? Cliquez ici :";
-                    links = `<a href="#don" class="text-blue-600 underline">Faire un don</a>`;
-                } else if (msg.includes('groupe')) {
-                    reply = "Pour recevoir nos offres, abonnez-vous notre groupe whatsapp en bas de page.";
+                    reply = "Vous souhaitez faire un don ? Cliquez ici pour accéder au formulaire de don sécurisé.";
+                    links = `<a href="#services" class="text-blue-600 underline">Faire un don</a>`;
+                } else if (msg.includes('groupe') || msg.includes('whatsapp')) {
+                    reply = "Pour recevoir nos offres, abonnez-vous à notre groupe WhatsApp en bas de page.";
                     links = `<a href="#newsletter" class="text-blue-600 underline">S'abonner</a>`;
+                } else if (msg.includes('livraison')) {
+                    reply = "La livraison est gratuite pour toutes les commandes. Passez votre commande et choisissez votre mode de paiement.";
+                } else if (msg.includes('paiement')) {
+                    reply = "Nous acceptons les paiements par Mobile Money (MTN, Moov) et virement bancaire (Orabank Bénin).";
+                } else if (msg.includes('réserver') || msg.includes('reservation')) {
+                    reply = "Vous pouvez réserver un service d'esthétique directement via notre formulaire de réservation.";
+                    links = `<a href="#reservation" class="text-blue-600 underline">Réserver un service</a>`;
+                } else if (msg.includes('avis') || msg.includes('témoignage')) {
+                    reply = "Consultez les avis de nos clients dans la section Témoignages pour découvrir leurs expériences.";
+                    links = `<a href="#testimonials" class="text-blue-600 underline">Voir les témoignages</a>`;
                 } else {
-                    reply = "Je n'ai pas compris votre question. Essayez avec : produits, services, horaires, contact, connexion, adresse, don, groupe whatsapp. Mais si vous avez d'autres questions qui n'est pas en rapport, vous pouvez prendre rendez vous ou nous contactez directement.";
+                    reply = "Je n'ai pas compris votre question. Essayez avec : produits, services, horaires, contact, connexion, adresse, don, groupe WhatsApp, livraison, paiement, réservation, avis. Pour toute autre demande, prenez rendez-vous ou contactez-nous directement.";
                 }
 
                 // Bot message

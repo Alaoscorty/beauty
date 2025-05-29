@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+ <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+  <title>BeautéElegante - Connexion</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Reset & base */
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  background: linear-gradient(135deg, #ffb6c1, #c084fc);
+  margin: 0;
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* Parallax cards */
+.parallax-card {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  z-index: 1;
+}
+.card1 {
+  width: 200px;
+  height: 200px;
+  top: 10%;
+  left: 10%;
+  transform: rotate(10deg);
+}
+.card2 {
+  width: 300px;
+  height: 300px;
+  bottom: 15%;
+  right: 15%;
+  transform: rotate(-8deg);
+}
+.card3 {
+  width: 100px;
+  height: 100px;
+  top: 60%;
+  left: 30%;
+  transform: rotate(5deg);
+}
+.card4 {
+  width: 120px;
+  height: 120px;
+  top: 20%;
+  right: 25%;
+  transform: rotate(-12deg);
+}
+
+/* Container & forms */
+.container {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+              0 10px 10px rgba(0,0,0,0.22);
+  position: relative;
+  overflow: hidden;
+  width: 768px;
+  max-width: 100%;
+  min-height: 500px;
+  margin: 50px auto;
+  z-index: 2;
+}
+
+.form-container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: all 0.6s ease-in-out;
+}
+
+.sign-in-container {
+  left: 0;
+  width: 50%;
+  z-index: 2;
+}
+
+.sign-up-container {
+  left: 0;
+  width: 50%;
+  opacity: 0;
+  z-index: 1;
+}
+
+.container.right-panel-active .sign-in-container {
+  transform: translateX(100%);
+}
+
+.container.right-panel-active .sign-up-container {
+  transform: translateX(100%);
+  opacity: 1;
+  z-index: 5;
+}
+
+/* Form styling */
+form {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 0 50px;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+input {
+  background-color: #eee;
+  border: none;
+  padding: 12px 15px;
+  margin: 8px 0;
+  width: 100%;
+}
+
+button {
+  border: none;
+  padding: 12px 45px;
+  background-color: #ff69b4;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 80ms ease-in;
+  border-radius: 20px;
+}
+
+button.ghost {
+  background-color: transparent;
+  border: 2px solid white;
+}
+
+.social-container {
+  margin: 20px 0;
+}
+
+.social-container a {
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  padding: 10px;
+  margin: 0 5px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  color: #ff69b4;
+  text-decoration: none;
+}
+
+/* Overlay panels */
+.overlay-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition: transform 0.6s ease-in-out;
+  z-index: 100;
+}
+
+.container.right-panel-active .overlay-container {
+  transform: translateX(-100%);
+}
+
+.overlay {
+  background: linear-gradient(to right, #d946ef, #f472b6);
+  color: white;
+  position: relative;
+  left: -100%;
+  height: 100%;
+  width: 200%;
+  transform: translateX(0);
+  transition: transform 0.6s ease-in-out;
+}
+
+.container.right-panel-active .overlay {
+  transform: translateX(50%);
+}
+
+.overlay-panel {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 40px;
+  text-align: center;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  transition: transform 0.6s ease-in-out;
+}
+
+.overlay-left {
+  transform: translateX(-20%);
+}
+
+.container.right-panel-active .overlay-left {
+  transform: translateX(0);
+}
+
+.overlay-right {
+  right: 0;
+  transform: translateX(0);
+}
+
+.container.right-panel-active .overlay-right {
+  transform: translateX(30%);
+}
+@keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+
+        .parallax-card {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .card-big-1 { animation-delay: 2s; }
+        .card-big-2 { animation-delay: 3s; }
+        .card-small-1 { animation-delay: 4s; }
+        .card-small-2 { animation-delay: 1s; }
+
+/* Footer */
+.footer {
+  text-align: center;
+  margin-top: 20px;
+  color: white;
+  z-index: 3;
+  position: relative;
+}
+.footer .icons i {
+  margin: 0 10px;
+  color: white;
+  font-size: 20px;
+}
+
+  </style>
+</head>
+<body>
+  <!-- Parallax background cards -->
+  <div class="parallax-card card1"></div>
+  <div class="parallax-card card2"></div>
+  <div class="parallax-card card3"></div>
+  <div class="parallax-card card4"></div>
+
+  <div class="container" id="container">
+    <!-- Sign Up -->
+    <div class="form-container sign-up-container">
+      <form action="#">
+        <h1>Créer un compte</h1>
+        <div class="social-container">
+          <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+          <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <span>ou utilisez votre email</span>
+        <input type="text" placeholder="Nom" />
+        <input type="email" placeholder="Email" />
+        <input type="password" placeholder="Mot de passe" />
+        <button>S'inscrire</button>
+      </form>
+    </div>
+
+    <!-- Sign In -->
+    <div class="form-container sign-in-container">
+      <form action="#">
+        <h1>Se connecter</h1>
+        <div class="social-container">
+          <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+          <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <span>ou utilisez votre compte</span>
+        <input type="email" placeholder="Email" />
+        <input type="password" placeholder="Mot de passe" />
+        <a href="#">Mot de passe oublié ?</a>
+        <button>Se connecter</button>
+      </form>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <h1>Ravie de te revoir !</h1>
+          <p>Connecte-toi pour continuer ton voyage beauté</p>
+          <button class="ghost" id="signIn">Se connecter</button>
+        </div>
+        <div class="overlay-panel overlay-right">
+          <h1>Bienvenue !</h1>
+          <p>Inscris-toi et découvre le monde de BeautéElegante</p>
+          <button class="ghost" id="signUp">S'inscrire</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <b>Suivez-nous</b>
+    <div class="icons">
+      <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://medium.com/" target="_blank"><i class="fab fa-medium"></i></a>
+      <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter-square"></i></a>
+      <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </div>
+
+  <script>
+    const signUpButton = document.getElementById('signUp');
+const signInButton = document.getElementById('signIn');
+const container = document.getElementById('container');
+
+signUpButton.addEventListener('click', () => {
+  container.classList.add('right-panel-active');
+});
+
+signInButton.addEventListener('click', () => {
+  container.classList.remove('right-panel-active');
+});
+
+  </script>
+</body>
+</html>
