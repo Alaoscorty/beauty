@@ -134,7 +134,7 @@
                 } else if (msg.includes('livraison')) {
                     reply = "La livraison est gratuite pour toutes les commandes. Passez votre commande et choisissez votre mode de paiement.";
                 } else if (msg.includes('paiement')) {
-                    reply = "Nous acceptons les paiements par Mobile Money (MTN, Moov) et virement bancaire (Orabank Bénin).";
+                    reply = "Nous acceptons les paiements par Mobile Money (MTN, Moov) et virement bancaire (Ecobank Bénin). De plus une fois que vous aurez confirmer votre paiement veillez soumettre le pdf de votre commande par whatsapp pour la réception de votre colis.";
                 } else if (msg.includes('réserver') || msg.includes('reservation')) {
                     reply = "Vous pouvez réserver un service d'esthétique directement via notre formulaire de réservation.";
                     links = `<a href="#reservation" class="text-blue-600 underline">Réserver un service</a>`;
@@ -211,7 +211,7 @@
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
                 
                 <div class="category-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
-                    <div class="h-40 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/b0/cd/38/b0cd38da7c0b45a05af0f81e720ffa4d.jpg');"></div>
+                    <div class="h-40 bg-cover bg-center" id="visage"style="background-image: url('https://i.pinimg.com/736x/b0/cd/38/b0cd38da7c0b45a05af0f81e720ffa4d.jpg');"></div>
                         <div class="p-4 cursor-pointer" id="face-care-toggle">
                             <h3 class="font-semibold text-lg mb-2 text-gray-800">Soins Visage</h3>
                             <p class="text-gray-600 text-sm">Crèmes, sérums et masques</p>
@@ -1567,7 +1567,7 @@
                                 <div id="bank-info" class="hidden">
                                     <p class="text-sm text-gray-600 mt-2">
                                         Faites un virement à la banque :<br>
-                                        <span class="font-bold">Banque : Orabank Bénin</span><br>
+                                        <span class="font-bold">Banque : Ecobank Bénin</span><br>
                                         <span class="font-bold">IBAN : BJ6600100100000000123456789</span><br>
                                         <span class="font-bold">Nom : Beauté Élégante ou AMOUSSA Sayidi A.O</span>
                                     </p>
@@ -1951,7 +1951,7 @@
                                     <div id="bank-info-pay" class="hidden">
                                         <p class="text-sm text-gray-600 mt-2">
                                             Faites un virement à la banque :<br>
-                                            <span class="font-bold">Banque : Orabank Bénin</span><br>
+                                            <span class="font-bold">Banque : Ecobank Bénin</span><br>
                                             <span class="font-bold">IBAN : BJ6600100100000000123456789</span><br>
                                             <span class="font-bold">Nom : Beauté Élégante ou AMOUSSA Sayidi A.O</span>
                                         </p>
@@ -2064,11 +2064,11 @@
                 <div>
                     <h4 class="text-lg font-bold mb-4">Catégories</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">Soins Visage</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">Maquillage</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">Corps & Bain</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">Accessoires</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">Nouveautés</a></li>
+                        <li><a href="#visage" class="text-gray-400 hover:text-pink-500 transition duration-300">Soins Visage</a></li>
+                        <li><a href="#face-care-toggle" class="text-gray-400 hover:text-pink-500 transition duration-300">Maquillage</a></li>
+                        <li><a href="#face-care-products" class="text-gray-400 hover:text-pink-500 transition duration-300">Corps & Bain</a></li>
+                        <li><a href="#face-care-toggle" class="text-gray-400 hover:text-pink-500 transition duration-300">Accessoires</a></li>
+                        <li><a href="#face-care-toggle" class="text-gray-400 hover:text-pink-500 transition duration-300">Nouveautés</a></li>
                     </ul>
                 </div>
                 
