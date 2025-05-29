@@ -181,9 +181,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     <h4 class="font-bold text-lg text-gray-800 mb-2">${product.name}</h4>
                     <p class="text-gray-600 text-sm my-2">${product.description}</p>
                     <p class="text-pink-500 font-bold mb-2">${product.price}</p>
-                    <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="2" data-name="Sérum Anti-Âge Premium" data-price="69.90">
-                        Ajouter
-                    </button>
                 </div>
             </div>
         `;
