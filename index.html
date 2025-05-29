@@ -255,9 +255,9 @@
                     <div id="face-care-products" class="hidden p-4 border-t bg-white">
                         <ul class="space-y-2 text-gray-700 text-sm">
                             <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="Shampooingfortifiant">Fond de Teint Haute Tenue</li>
-                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="Masquereparateu">Palette Yeux Pigmentée</li>
-                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="Huilecapillaire">Rouge à Lèvres Mat</li>
-                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="Antifrisottis">Fixateur de Maquillage</li>
+                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="Paletteyeux">Palette Yeux Pigmentée</li>
+                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="rougelevre">Rouge à Lèvres Mat</li>
+                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="fixateur">Fixateur de Maquillage</li>
                         </ul>
                         <!-- Conteneur pour afficher la carte produit -->
                         <div id="product-detail" class="hidden mt-6"></div>
@@ -308,10 +308,10 @@
                         </div>
                     <div id="face-care-products" class="hidden p-4 border-t bg-white">
                         <ul class="space-y-2 text-gray-700 text-sm">
-                            <li class="product-item cursor-pointer hover:text-pink-500">Sels de Bain Relaxants</li>
-                            <li class="product-item cursor-pointer hover:text-pink-500">Huile Essentielle Lavande</li>
-                            <li class="product-item cursor-pointer hover:text-pink-500">Gel Douche Apaisant</li>
-                            <li class="product-item cursor-pointer hover:text-pink-500">Lait de Bain Nourrissant</li>
+                            <li class="product-item cursor-pointer hover:text-pink-500" data-product="selsdebain">Sels de Bain Relaxants</li>
+                            <li class="product-item cursor-pointer hover:text-pink-500" data-product="huilelavande">Huile Essentielle Lavande</li>
+                            <li class="product-item cursor-pointer hover:text-pink-500" data-product="geldouche">Gel Douche Apaisant</li>
+                            <li class="product-item cursor-pointer hover:text-pink-500" data-product="laitdebain">Lait de Bain Nourrissant</li>
                         </ul>
                         <!-- Conteneur pour afficher la carte produit -->
                         <div id="product-detail" class="hidden mt-6"></div>
@@ -326,10 +326,10 @@
                         </div>
                     <div id="face-care-products" class="hidden p-4 border-t bg-white">
                         <ul class="space-y-2 text-gray-700 text-sm">
-                            <li class="product-item cursor-pointer hover:text-pink-500">Pinceaux de Maquillage</li>
-                            <li class="product-item cursor-pointer hover:text-pink-500">Éponge Blender</li>
-                            <li class="product-item cursor-pointer hover:text-pink-500">Rouleau de Jade</li>
-                            <li class="product-item cursor-pointer hover:text-pink-500">Brosse Nettoyante Visage</li>
+                            <li class="product-item cursor-pointer hover:text-pink-500" data-product="pinceaux">Pinceaux de Maquillage</li>
+                            <li class="product-item cursor-pointer hover:text-pink-500" data-product="blender">Éponge Blender</li>
+                            <li class="product-item cursor-pointer hover:text-pink-500" data-product="rouleau">Rouleau de Jade</li>
+                            <li class="product-item cursor-pointer hover:text-pink-500" data-product="brossevisage">Brosse Nettoyante Visage</li>
                         </ul>
                         <!-- Conteneur pour afficher la carte produit -->
                         <div id="product-detail" class="hidden mt-6"></div>
@@ -339,7 +339,7 @@
                 <div class="category-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
                     <div class="h-40 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/13/c6/29/13c62986f6b867fcfeedd7843cd0f453.jpg');"></div>
                         <div class="p-4 cursor-pointer" id="face-care-toggle">
-                            <h3 class="font-semibold text-lg mb-2 text-gray-800">Soins Visage</h3>
+                            <h3 class="font-semibold text-lg mb-2 text-gray-800">produit de beauté</h3>
                             <p class="text-gray-600 text-sm">Crèmes, sérums et masques</p>
                         </div>
                     <div id="face-care-products" class="hidden p-4 border-t bg-white">
@@ -1347,7 +1347,7 @@
                 <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300" data-nom-produit="Palette contour prenium">
                     <div class="relative">
                         <img src="https://i.pinimg.com/736x/fc/1e/fd/fc1efdf2e813172383bacac57c9be902.jpg" alt="Nettoyant visage" class="w-full h-64 object-cover">
-                        <div class="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">Bestseller</div>
+                        <div class="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">-50%</div>
                     </div>
                     <div class="p-4">
                         <div class="flex justify-between items-start mb-2">
@@ -1904,7 +1904,7 @@
                     <div class="border-t pt-4">
                         <div class="flex justify-between mb-2">
                             <span class="font-medium text-gray-700">Sous-total</span>
-                            <span id="cart-subtotal" class="font-medium">FCFA 0.00</span>
+                            <span id="cart-subtotal" class="font-medium">FCFA 0</span>
                         </div>
                         <div class="flex justify-between mb-4">
                             <span class="font-medium text-gray-700">Livraison</span>
@@ -1912,7 +1912,7 @@
                         </div>
                         <div class="flex justify-between border-t pt-4">
                             <span class="font-bold text-lg text-gray-800">Total</span>
-                            <span id="cart-total" class="font-bold text-lg text-pink-500">FCFA 0.00</span>
+                            <span id="cart-total" class="font-bold text-lg text-pink-500">FCFA 0</span>
                         </div>
                     </div>
                     
@@ -2000,7 +2000,7 @@
                             doc.text("Merci pour votre commande !", 10, y);
 
                             // Génère le PDF en blob
-                            doc.save("commande.pdf");
+                            doc.save("votrecommande.pdf");
 
                             // Prépare le message WhatsApp
                             const phone = "22951563219";
