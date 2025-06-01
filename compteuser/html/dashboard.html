@@ -141,28 +141,51 @@
                         </div>
                         <div>
                             <p class="text-gray-500 text-sm">Rendez-vous aujourd'hui</p>
-                            <p class="text-2xl font-bold">12</p>
+                            <p id="todayAppointments" class="text-2xl font-bold">0</p>
                         </div>
                     </div>
                     
+                    <script>
+                      // Compte le nombre de réservations pour aujourd'hui depuis localStorage
+                      function countTodayAppointments() {
+                        let reservations = [];
+                        try {
+                          reservations = JSON.parse(localStorage.getItem('reservations')) || [];
+                        } catch (err) {
+                          reservations = [];
+                        }
+                        const today = new Date().toISOString().slice(0, 10);
+                        const count = reservations.filter(r => r.date && r.date.startsWith(today)).length;
+                        document.getElementById('todayAppointments').textContent = count;
+                      }
+                      countTodayAppointments();
+                    </script>
+
                     <div class="bg-white rounded-lg shadow p-6 flex items-center">
-                        <div class="p-3 rounded-full bg-indigo-100 text-indigo-600 mr-4">
-                            <i class="fas fa-shopping-bag text-2xl"></i>
-                        </div>
-                        <div>
-                            <p class="text-gray-500 text-sm">Commandes ce mois</p>
-                            <p id="ordersCount" class="text-2xl font-bold">0</p>
-                        </div>
+                      <div class="p-3 rounded-full bg-indigo-100 text-indigo-600 mr-4">
+                        <i class="fas fa-shopping-bag text-2xl"></i>
+                      </div>
+                      <div>
+                        <p class="text-gray-500 text-sm">Commandes ce mois</p>
+                        <p id="ordersCount" class="text-2xl font-bold">0</p>
+                      </div>
                     </div>
-                    
-                    <div class="bg-white rounded-lg shadow p-6 flex items-center">
-                        <div class="p-3 rounded-full bg-green-100 text-green-600 mr-4">
-                            <i class="fas fa-euro-sign text-2xl"></i>
-                        </div>
-                        <div>
-                            <p class="text-gray-500 text-sm">Chiffre d'affaires</p>
-                            <p class="text-2xl font-bold">3,245€</p>
-                        </div>
+                    <script>
+                      // Affiche le nombre de commandes depuis localStorage
+                      function updateOrdersCount() {
+                        let ordersCount = parseInt(localStorage.getItem('ordersCount') || '0', 10);
+                        document.getElementById('ordersCount').textContent = ordersCount;
+                      }
+                      updateOrdersCount();
+                    </script>
+                    <div class="bg-white rounded-lg shadow p-6 flex items-center mt-4">
+                                <div class="p-3 rounded-full bg-green-100 text-green-600 mr-4">
+                                    <i class="fas fa-euro-sign text-2xl"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-500 text-sm">Total enregistré</p>
+                                    <p class="text-2xl font-bold" id="cart-total-local">FCFA 0</p>
+                                </div>
                     </div>
                     
                     <div class="bg-white rounded-lg shadow p-6 flex items-center">
@@ -180,17 +203,17 @@
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
                     <!-- Revenue Chart -->
                     <div class="bg-white rounded-lg shadow p-6">
-                        <div class="flex justify-between items-center mb-4">
-                            <h2 class="text-lg font-semibold">Chiffre d'affaires</h2>
-                            <select class="border border-gray-300 rounded px-3 py-1 text-sm">
-                                <option>Ce mois</option>
-                                <option>Ce trimestre</option>
-                                <option>Cette année</option>
-                            </select>
-                        </div>
-                        <div class="chart-container">
-                            <canvas id="revenueChart"></canvas>
-                        </div>
+                      <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-lg font-semibold">Chiffre d'affaires</h2>
+                        <select class="border border-gray-300 rounded px-3 py-1 text-sm">
+                          <option>Ce mois</option>
+                          <option>Ce trimestre</option>
+                          <option>Cette année</option>
+                        </select>
+                      </div>
+                      <div class="chart-container">
+                        <canvas id="revenueChart"></canvas>
+                      </div>
                     </div>
                     
                     <!-- Appointments Chart -->
