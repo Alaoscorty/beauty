@@ -1671,6 +1671,78 @@
                     </div>
                     <p class="text-gray-600 italic">"J'ai testé plusieurs produits et services, tous sont de très haute qualité. Un vrai plaisir de prendre soin de soi ici."</p>
                 </div>
+                <!-- Formulaire d'avis Google -->
+                <div class="testimonial-card p-6 rounded-lg shadow-sm bg-white">
+                    <h4 class="font-bold text-gray-800 mb-2">Laisser un avis</h4>
+                    <form id="google-review-form" class="space-y-3">
+                        <input type="text" id="review-name" placeholder="Votre nom" required class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                        <textarea id="review-message" placeholder="Votre commentaire" required rows="3" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500"></textarea>
+                        <button type="submit" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded transition duration-300 w-full">Poster sur Google</button>
+                    </form>
+                    <div id="review-success" class="hidden text-green-600 text-center font-medium mt-3">Merci ! Cliquez sur le bouton ci-dessous pour publier votre avis sur Google.</div>
+                    <a id="google-review-link" href="#" target="_blank" class="hidden mt-3 inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 w-full text-center">Publier sur Google</a>
+                </div>
+                <!-- Affichage des avis Google -->
+                <div id="google-reviews" class="col-span-1 md:col-span-3 mt-8">
+                    <h4 class="font-bold text-gray-800 mb-4">Avis Google récents</h4>
+                    <div id="google-reviews-list" class="space-y-4 text-gray-700 text-sm">
+                        <div>Chargement des avis...</div>
+                    </div>
+                </div>
+                <script>
+                // Formulaire d'avis Google
+                document.getElementById('google-review-form').addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const name = document.getElementById('review-name').value.trim();
+                    const message = document.getElementById('review-message').value.trim();
+                    // Prépare le lien Google avec un message pré-rempli
+                    const reviewUrl = `https://g.page/r/CcHxLxja3zemEAE/review?rc=${encodeURIComponent(message)}`;
+                    document.getElementById('google-review-link').href = reviewUrl;
+                    document.getElementById('review-success').classList.remove('hidden');
+                    document.getElementById('google-review-link').classList.remove('hidden');
+                });
+
+                // Récupération des avis Google (affichage statique, car l'API Google Places nécessite une clé et ne peut pas être appelée côté client sans proxy)
+                // Remplacez ce tableau par un appel API côté serveur si besoin
+                const googleReviews = [
+                    {
+                        name: "Fatou S.",
+                        rating: 5,
+                        text: "Service impeccable, produits de qualité et accueil chaleureux. Je recommande !"
+                    },
+                    {
+                        name: "Aminata D.",
+                        rating: 5,
+                        text: "J'ai adoré le soin visage, ma peau est éclatante. Merci à toute l'équipe !"
+                    },
+                    {
+                        name: "Nadia K.",
+                        rating: 4,
+                        text: "Très bon rapport qualité/prix, je reviendrai pour tester d'autres services."
+                    }
+                ];
+
+                function displayGoogleReviews() {
+                    const container = document.getElementById('google-reviews-list');
+                    if (!googleReviews.length) {
+                        container.innerHTML = "<div>Aucun avis Google pour le moment.</div>";
+                        return;
+                    }
+                    container.innerHTML = googleReviews.map(r => `
+                        <div class="bg-gray-50 p-4 rounded shadow-sm">
+                            <div class="flex items-center mb-1">
+                                <span class="font-bold text-gray-800 mr-2">${r.name}</span>
+                                <span class="flex text-yellow-400 text-xs">
+                                    ${'<i class="fas fa-star"></i>'.repeat(r.rating)}
+                                    ${r.rating < 5 ? '<i class="far fa-star"></i>'.repeat(5 - r.rating) : ''}
+                                </span>
+                            </div>
+                            <div class="text-gray-700">${r.text}</div>
+                        </div>
+                    `).join('');
+                }
+                displayGoogleReviews();
+                </script>
             </div>
         </div>
     </section>
@@ -1796,7 +1868,7 @@
             document.getElementById('whatsapp-group-form').addEventListener('submit', function(e) {
                 e.preventDefault();
                 // Remplacez ce lien par celui de votre groupe WhatsApp
-                const whatsappGroupLink = "https://chat.whatsapp.com/XXXXXXXXXXXXXX";
+                const whatsappGroupLink = "https://chat.whatsapp.com/I8GTvwRGSUjAqHcqouuSlA";
                 window.open(whatsappGroupLink, '_blank');
             });
         </script>
@@ -2100,7 +2172,7 @@
                     </div>
                     <p class="text-gray-400 mb-4">Votre destination beauté premium pour des produits et services d'exception.</p>
                     <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                        <a href="https://www.facebook.com/share/1GBHkW9umd/" class="text-gray-400 hover:text-pink-500 transition duration-300">
                             <i class="fab fa-facebook-f"></i>
                         </a>
                         <a href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">

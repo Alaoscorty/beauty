@@ -257,7 +257,7 @@ button.ghost {
   <div class="container" id="container">
     <!-- Sign Up -->
     <div class="form-container sign-up-container">
-      <form action="#">
+      <form id="signUpForm">
         <h1>Créer un compte</h1>
         <div class="social-container">
           <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -265,18 +265,16 @@ button.ghost {
           <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
         </div>
         <span>ou utilisez votre email</span>
-        <input type="text" placeholder="Nom" />
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Mot de passe" />
-        <a href="compteuser/html/dashboard.html">
-          <button>S'inscrire</button>
-        </a>
+        <input type="text" id="nameSignUp" placeholder="Nom" required />
+        <input type="email" id="emailSignUp" placeholder="Email" required />
+        <input type="password" id="passwordSignUp" placeholder="Mot de passe" required />
+        <button type="submit">S'inscrire</button>
       </form>
     </div>
 
     <!-- Sign In -->
     <div class="form-container sign-in-container">
-      <form action="#">
+      <form id="signInForm">
         <h1>Se connecter</h1>
         <div class="social-container">
           <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -284,12 +282,10 @@ button.ghost {
           <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
         </div>
         <span>ou utilisez votre compte</span>
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Mot de passe" />
+        <input type="email" id="emailSignIn" placeholder="Email" required />
+        <input type="password" id="passwordSignIn" placeholder="Mot de passe" required />
         <a href="#" style="margin-bottom: 2vh;margin-top: 1vh;">Mot de passe oublié ?</a>
-        <a href="compteuser/html/dashboard.html">
-          <button>Se connecter</button>
-        </a>
+        <button type="submit">Se connecter</button>
       </form>
     </div>
 
@@ -316,7 +312,7 @@ button.ghost {
     <div class="icons">
       <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
       <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://medium.com/" target="_blank"><i class="fab fa-medium"></i></a>
+      <a href="https://www.facebook.com/share/1GBHkW9umd/" target="_blank"><i class="fab fa-facebook"></i></a>
       <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter-square"></i></a>
       <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
     </div>
@@ -336,5 +332,6 @@ signInButton.addEventListener('click', () => {
 });
 
   </script>
+  <script src="login.js"></script>
 </body>
 </html>
