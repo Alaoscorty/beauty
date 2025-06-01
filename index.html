@@ -1708,6 +1708,41 @@
                     <label for="res-message" class="block text-gray-700 font-medium mb-2">Message (optionnel)</label>
                     <textarea id="res-message" rows="3" class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500"></textarea>
                 </div>
+                <script>
+                // Lors de la soumission du formulaire de réservation, stocke la réservation dans le localStorage
+                document.getElementById('whatsapp-reservation-form').addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const name = document.getElementById('res-name').value.trim();
+                    const phone = document.getElementById('res-phone').value.trim();
+                    const service = document.getElementById('res-service').value.trim();
+                    const date = document.getElementById('res-date').value.trim();
+                    const message = document.getElementById('res-message').value.trim();
+
+                    // Récupère les réservations existantes ou initialise un tableau
+                    let reservations = [];
+                    try {
+                        reservations = JSON.parse(localStorage.getItem('reservations')) || [];
+                    } catch (err) {
+                        reservations = [];
+                    }
+                    // Ajoute la nouvelle réservation
+                    reservations.push({
+                        name,
+                        phone,
+                        service,
+                        date,
+                        message,
+                        createdAt: new Date().toISOString()
+                    });
+                    localStorage.setItem('reservations', JSON.stringify(reservations));
+
+                    // Optionnel : affiche un message de confirmation
+                    alert('Votre réservation a bien été enregistrée !');
+
+                    // Redirige vers dashboard.html (optionnel)
+                    // window.location.href = 'dashboard.html';
+                });
+                </script>
                 <button type="submit" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-6 rounded transition duration-300 w-full">Envoyer</button>
             </form>
         </div>  
@@ -1913,6 +1948,28 @@
                         <div class="flex justify-between border-t pt-4">
                             <span class="font-bold text-lg text-gray-800">Total</span>
                             <span id="cart-total" class="font-bold text-lg text-pink-500">FCFA 0</span>
+
+
+
+
+                            <!-- Total enregistré dans le localStorage -->
+                            
+                            <script>
+                                // Met à jour le total dans le localStorage et l'affiche
+                                function updateCartTotalLocal() {
+                                    const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+                                    localStorage.setItem('cartTotal', total);
+                                    document.getElementById('cart-total-local').textContent = `FCFA ${total.toFixed(2)}`;
+                                }
+                                // Appelle la fonction à chaque mise à jour du panier
+                                const _oldUpdateCartDisplay = updateCartDisplay;
+                                updateCartDisplay = function() {
+                                    _oldUpdateCartDisplay();
+                                    updateCartTotalLocal();
+                                };
+                                // Initialise à l'ouverture du panier
+                                updateCartTotalLocal();
+                            </script>
                         </div>
                     </div>
                     
@@ -1923,6 +1980,14 @@
                     <button id="checkout-btn" type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-pink-500 text-base font-medium text-white hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 sm:ml-3 sm:w-auto sm:text-sm transition duration-300">
                         Passer la commande
                     </button>
+                    <script>
+                        document.getElementById('checkout-btn').addEventListener('click', function() {
+                            // Récupère le nombre de commandes dans le localStorage ou 0
+                            let ordersCount = parseInt(localStorage.getItem('ordersCount') || '0', 10);
+                            ordersCount += 1;
+                            localStorage.setItem('ordersCount', ordersCount);
+                        });
+                    </script>
 
                     <!-- Modal Paiement -->
                     <div id="payment-modal" class="fixed inset-0 z-60 hidden overflow-y-auto">
