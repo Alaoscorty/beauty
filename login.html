@@ -32,28 +32,28 @@ body {
 .card1 {
   width: 200px;
   height: 200px;
-  top: 10%;
-  left: 10%;
+  top: 7%;
+  left: 12%;
   transform: rotate(10deg);
 }
 .card2 {
   width: 300px;
   height: 300px;
-  bottom: 15%;
+  bottom: 10%;
   right: 15%;
   transform: rotate(-8deg);
 }
 .card3 {
   width: 100px;
   height: 100px;
-  top: 60%;
+  top: 80%;
   left: 30%;
   transform: rotate(5deg);
 }
 .card4 {
   width: 120px;
   height: 120px;
-  top: 20%;
+  top: 50%;
   right: 25%;
   transform: rotate(-12deg);
 }
@@ -268,7 +268,9 @@ button.ghost {
         <input type="text" placeholder="Nom" />
         <input type="email" placeholder="Email" />
         <input type="password" placeholder="Mot de passe" />
-        <button>S'inscrire</button>
+        <a href="compteuser/html/dashboard.html">
+          <button>S'inscrire</button>
+        </a>
       </form>
     </div>
 
@@ -284,8 +286,10 @@ button.ghost {
         <span>ou utilisez votre compte</span>
         <input type="email" placeholder="Email" />
         <input type="password" placeholder="Mot de passe" />
-        <a href="#">Mot de passe oublié ?</a>
-        <button>Se connecter</button>
+        <a href="#" style="margin-bottom: 2vh;margin-top: 1vh;">Mot de passe oublié ?</a>
+        <a href="compteuser/html/dashboard.html">
+          <button>Se connecter</button>
+        </a>
       </form>
     </div>
 
@@ -295,7 +299,8 @@ button.ghost {
         <div class="overlay-panel overlay-left">
           <h1>Ravie de te revoir !</h1>
           <p>Connecte-toi pour continuer ton voyage beauté</p>
-          <button class="ghost" id="signIn">Se connecter</button>
+            <button class="ghost" id="signIn">Se connecter</button>
+
         </div>
         <div class="overlay-panel overlay-right">
           <h1>Bienvenue !</h1>
