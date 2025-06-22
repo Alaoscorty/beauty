@@ -20,6 +20,7 @@
             
             <nav class="hidden md:flex space-x-8">
                 <a href="#" class="text-gray-700 hover:text-pink-500 font-medium">Accueil</a>
+                <a href="formation.html" class="text-gray-700 hover:text-pink-500 font-medium">Nos formations</a>
                 <a href="#products" class="text-gray-700 hover:text-pink-500 font-medium">Produits</a>
                 <a href="#services" class="text-gray-700 hover:text-pink-500 font-medium">Services</a>
                 <a href="#about" class="text-gray-700 hover:text-pink-500 font-medium">À propos</a>
@@ -43,6 +44,7 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white py-4 px-4 shadow-lg">
             <a href="#" class="block py-2 text-gray-700 hover:text-pink-500">Accueil</a>
+            <a href="formation.html" class="block py-2 text-gray-700 hover:text-pink-500">Nos formations</a>
             <a href="#products" class="block py-2 text-gray-700 hover:text-pink-500">Produits</a>
             <a href="#services" class="block py-2 text-gray-700 hover:text-pink-500">Services</a>
             <a href="#about" class="block py-2 text-gray-700 hover:text-pink-500">À propos</a>
@@ -115,7 +117,7 @@
                 } else if (msg.includes('horaire')) {
                     reply = "Nos horaires : Lundi - Vendredi : 9h - 19h, Samedi : 08h - 18h, Dimanche : 09h à 18h.";
                 } else if (msg.includes('contact')) {
-                    reply = "Vous pouvez nous contacter par email à alaoservice1@gmail.com ou alaoscorty@gmail.com, ou par téléphone au +229 0151563219, +229 0144104328. Vous pouvez aussi utiliser le formulaire de contact.";
+                    reply = "Vous pouvez nous contacter par email à alaoservice1@gmail.com ou alaoscorty@gmail.com, ou par téléphone au +229 0151563219, +229 0144104328, +229 41803470, +229 0197903723, +229 0194516481. Vous pouvez aussi utiliser le formulaire de contact.";
                     links = `<a href="#contact" class="text-blue-600 underline">Formulaire de contact</a>`;
                 } else if (msg.includes('connexion') || msg.includes('compte') || msg.includes('login')) {
                     reply = "Voici le lien pour vous connecter à votre compte Beauté Élégante :";
@@ -124,7 +126,7 @@
                     reply = "Voici le lien pour vous connecter à votre compte Beauté Élégante :";
                     links = `<a href="login.html" target="_blank" class="text-blue-600 underline">Se connecter</a>`;
                 } else if (msg.includes('adresse')) {
-                    reply = "Nos adresses : Porto-Novo, quartier OUANDO non loin du marché ; Cotonou, quartier Zogbo.";
+                    reply = "Nos adresses : Porto-Novo, quartier OUANDO non loin du marché ;Dodji à 100m avant le feu en quittant le CEG DJEGAN-KPEVI; Cotonou, quartier Zogbo.";
                 } else if (msg.includes('don') || msg.includes('donner')) {
                     reply = "Vous souhaitez faire un don ? Cliquez ici pour accéder au formulaire de don sécurisé.";
                     links = `<a href="#services" class="text-blue-600 underline">Faire un don</a>`;
@@ -1679,8 +1681,8 @@
                         <textarea id="review-message" placeholder="Votre commentaire" required rows="3" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500"></textarea>
                         <button type="submit" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded transition duration-300 w-full">Poster sur Google</button>
                     </form>
-                    <div id="review-success" class="hidden text-green-600 text-center font-medium mt-3">Merci ! Cliquez sur le bouton ci-dessous pour publier votre avis sur Google.</div>
-                    <a id="google-review-link" href="#" target="_blank" class="hidden mt-3 inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 w-full text-center">Publier sur Google</a>
+                    <div id="review-success" class="hidden text-green-600 text-center font-medium mt-3">Merci ! votre avis nous ai d'une grande utilité, veillez partager nos services avec vos proches.</div>
+                    <a id="google-review-link" href="#" target="_blank" class="hidden mt-3 inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 w-full text-center">Retour</a>
                 </div>
                 <!-- Affichage des avis Google -->
                 <div id="google-reviews" class="col-span-1 md:col-span-3 mt-8">
@@ -1696,7 +1698,7 @@
                     const name = document.getElementById('review-name').value.trim();
                     const message = document.getElementById('review-message').value.trim();
                     // Prépare le lien Google avec un message pré-rempli
-                    const reviewUrl = `https://g.page/r/CcHxLxja3zemEAE/review?rc=${encodeURIComponent(message)}`;
+                    const reviewUrl = `https://g.page/r/CcHxLxja3zemEAE/`;
                     document.getElementById('google-review-link').href = reviewUrl;
                     document.getElementById('review-success').classList.remove('hidden');
                     document.getElementById('google-review-link').classList.remove('hidden');
@@ -1828,7 +1830,7 @@
             <div class="flex flex-col lg:flex-row items-center">
                 <div class="lg:w-1/2 mb-8 lg:mb-0 lg:pr-12">
                     <h2 class="text-3xl font-bold mb-6 text-gray-800">Notre Philosophie</h2>
-                    <p class="text-gray-600 mb-4">Fondée en 2015, Beauté Élégante s'engage à offrir des produits et services d'esthétique de la plus haute qualité, alliant innovation scientifique et ingrédients naturels.</p>
+                    <p class="text-gray-600 mb-4">Fondée en 2008, Beauté Élégante s'engage à offrir des produits et services d'esthétique de la plus haute qualité, alliant innovation scientifique et ingrédients naturels.</p>
                     <p class="text-gray-600 mb-6">Notre mission est de vous aider à révéler votre beauté naturelle tout en prenant soin de votre peau avec des formulations sûres et efficaces.</p>
                     <div class="flex flex-wrap gap-4">
                         <div class="flex items-center bg-gray-50 px-4 py-2 rounded-full">
@@ -1941,7 +1943,7 @@
                                 </div>
                                 <div>
                                     <h4 class="font-bold text-gray-800">Adresse</h4>
-                                    <p class="text-gray-600">porto novo non loin du marché  OUANDO, cotonou quartier Zogbo</p>
+                                    <p class="text-gray-600">Porto novo non loin du marché  OUANDO,Dodji à 100m avant le feu en quittant le CEG DJEGAN-KPEVI, Cotonou quartier Zogbo</p>
                                 </div>
                             </div>
                             
@@ -1951,8 +1953,20 @@
                                 </div>
                                 <div>
                                     <h4 class="font-bold text-gray-800">Téléphone</h4>
-                                    <p class="text-gray-600">+229 0151563219</p>
-                                    <p class="text-gray-600">+229 0144104328</p>
+                                    <p class="text-gray-600"><a href="wa.me/+22997903723" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                                    <i class="fab fa-twitter"></i></a> +229 0197903723</p>
+                                    <p class="text-gray-600"> <a href="wa.me/+22951563219" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                                    <i class="fab fa-twitter"></i></a>+229 0151563219</p>
+                                    <p class="text-gray-600"> <a href="wa.me/+22941803470" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                                    <i class="fab fa-twitter"></i></a>+229 0141803470</p>
+                                    <p class="text-gray-600"> <a href="wa.me/+22944104328" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                                    <i class="fab fa-twitter"></i></a>+229 0144104328</p>
+                                    <p class="text-gray-600"> <a href="wa.me/+22994516481" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                                    <i class="fab fa-twitter"></i></a>+229 0194516481</p>
+                                    <p class="text-gray-600"> <a href="wa.me/+22957024715" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                                    <i class="fab fa-twitter"></i></a>+229 0157024715</p>
+                                    <p class="text-gray-600"> <a href="wa.me/+22944104328" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                                    <i class="fab fa-twitter"></i></a>+229 0157523222</p>
                                 </div>
                             </div>
                             
@@ -1973,8 +1987,8 @@
                                 </div>
                                 <div>
                                     <h4 class="font-bold text-gray-800">Horaires</h4>
-                                    <p class="text-gray-600">Lundi - Vendredi: 9h - 19h</p>
-                                    <p class="text-gray-600">Samedi: 08h - 18h</p>
+                                    <p class="text-gray-600">Lundi - Vendredi: 8h - 18h</p>
+                                    <p class="text-gray-600">Samedi: 08h - 19h</p>
                                     <p class="text-gray-600">Dimanche: 09h à 18h</p>
                                 </div>
                             </div>
@@ -2081,7 +2095,7 @@
                                     </div>
                                     <div id="mobile-info-pay" class="hidden">
                                         <p class="text-sm text-gray-600 mt-2">
-                                            Payez via MTN Mobile Money au <span class="font-bold text-pink-500">+229 51563219</span> ou Moov au <span class="font-bold text-pink-500">+229 64517494</span> puis entrez le numéro de transaction ci-dessous.
+                                            Payez via MTN Mobile Money au <span class="font-bold text-pink-500">+229 51563219</span> ou Moov au <span class="font-bold text-pink-500">+229 94516481</span> puis entrez le numéro de transaction ci-dessous.
                                         </p>
                                         <input type="text" id="mobile-transaction-pay" placeholder="Numéro de transaction" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
                                     </div>
@@ -2120,7 +2134,7 @@
                             const { jsPDF } = window.jspdf;
                             const doc = new jsPDF();
                             doc.setFontSize(16);
-                            doc.text("Beauté Élégante - Récapitulatif de commande", 10, 15);
+                            doc.text("Beauté Élégante - Réçu de votre commande", 10, 15);
                             doc.setFontSize(12);
                             let y = 30;
                             doc.text("Produits :", 10, y);
@@ -2140,7 +2154,7 @@
                             doc.save("votrecommande.pdf");
 
                             // Prépare le message WhatsApp
-                            const phone = "22951563219";
+                            const phone = "22994516481";
                             const text = encodeURIComponent("Bonjour, j'ai effectué mon paiement. Veuillez trouver ci-joint le PDF de ma commande.");
                             // Ouvre WhatsApp (l'utilisateur doit joindre le PDF manuellement)
                             window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
@@ -2181,6 +2195,9 @@
                         <a href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">
                             <i class="fab fa-twitter"></i>
                         </a>
+                        <a href="wa.me/+22951563219" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
                         <a href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">
                             <i class="fab fa-pinterest-p"></i>
                         </a>
@@ -2191,6 +2208,7 @@
                     <h4 class="text-lg font-bold mb-4">Liens rapides</h4>
                     <ul class="space-y-2">
                         <li><a href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">Accueil</a></li>
+                        <li><a href="formation.html#formation" class="text-gray-400 hover:text-pink-500 transition duration-300">Nos formations</a></li>
                         <li><a href="#products" class="text-gray-400 hover:text-pink-500 transition duration-300">Produits</a></li>
                         <li><a href="#services" class="text-gray-400 hover:text-pink-500 transition duration-300">Services</a></li>
                         <li><a href="#about" class="text-gray-400 hover:text-pink-500 transition duration-300">À propos</a></li>
@@ -2212,9 +2230,17 @@
                 <div>
                     <h4 class="text-lg font-bold mb-4">Contact</h4>
                     <address class="not-italic text-gray-400 space-y-2">
-                        <p>porto novo non loin du marché  OUANDO, cotonou quartier Zogo</p>
+                        <p>Porto novo non loin du marché  OUANDO,Dodji à 100m avant le feu en quittant le CEG DJEGAN-KPEVI, Cotonou quartier Zogo</p>
                         <p>Email: alaoservice1@gmail.com</p>
                         <p>Tél: +229 0151563219</p>
+                        <p>Tél: +229 0197903723</p>
+                        <p>Tél: +229 0144104328</p>
+                        <p>Tél: +229 0141803470</p>
+                        <p>Tél: +229 0194516481</p>
+                        <p>Tél: +229 0157024715</p>
+                        <p>Tél: +229 0157523222</p>
+                        <p>Tél: +229 0161656295</p>
+                        <p>Tél: +229 0161216534</p>
                     </address>
                 </div>
             </div>

@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauté Élégante - Votre destination beauté premium</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-spa text-2xl text-pink-500 mr-2"></i>
+                <a href="#" class="text-2xl font-bold text-gray-800">Beauté<span class="text-pink-500">Élégante</span></a>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="text-gray-700 hover:text-pink-500 font-medium">Accueil</a>
+                <a href="formation.html" class="text-gray-700 hover:text-pink-500 font-medium">Nos formations</a>
+                <a href="#products" class="text-gray-700 hover:text-pink-500 font-medium">Produits</a>
+                <a href="#services" class="text-gray-700 hover:text-pink-500 font-medium">Services</a>
+                <a href="#about" class="text-gray-700 hover:text-pink-500 font-medium">À propos</a>
+                <a href="#contact" class="text-gray-700 hover:text-pink-500 font-medium">Contact</a>
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <button id="search-btn" class="text-gray-600 hover:text-pink-500">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button id="cart-btn" class="relative text-gray-600 hover:text-pink-500">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-pink-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center hidden">0</span>
+                </button>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-600">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-4 px-4 shadow-lg">
+            <a href="#" class="block py-2 text-gray-700 hover:text-pink-500">Accueil</a>
+            <a href="formation.html" class="block py-2 text-gray-700 hover:text-pink-500">Nos formations</a>
+            <a href="#products" class="block py-2 text-gray-700 hover:text-pink-500">Produits</a>
+            <a href="#services" class="block py-2 text-gray-700 hover:text-pink-500">Services</a>
+            <a href="#about" class="block py-2 text-gray-700 hover:text-pink-500">À propos</a>
+            <a href="#contact" class="block py-2 text-gray-700 hover:text-pink-500">Contact</a>
+        </div>
+
+        <!-- Chat Messenger Widget -->
+        <div id="messenger-chat" class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+            <!-- Chat Button -->
+            
+            <button id="open-chat" class="bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg p-4 flex items-center justify-center focus:outline-none transition duration-300">
+                <i class="fab fa-facebook-messenger text-2xl"></i>
+            </button>
+            <!-- Chat Window -->
+            <div id="chat-window" class="hidden w-80 bg-white rounded-lg shadow-xl mt-4 overflow-hidden">
+                <div class="flex items-center bg-blue-600 px-4 py-3">
+                    <img src="https://scontent-lis1-1.xx.fbcdn.net/v/t39.30808-6/481274404_633810389361324_2341581396917416261_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeF1Bl3LARHJzN5h8i8lr5nriejG8YGfwmGJ6MbxgZ_CYc_XHoMkjqZFyVo3ITlI018l26YX0RxJG4Afg_1xFsrp&_nc_ohc=dGAy-CZnCnIQ7kNvwF9ruUC&_nc_oc=Adk0F_85CYWDY0DkXJoe581eGopJFuLCxAWWtGxip-SkAAk93bwsz51SBo3nE6tSPe8&_nc_zt=23&_nc_ht=scontent-lis1-1.xx&_nc_gid=eDEKAkjQsUsytSkeRgklPg&oh=00_AfLXlKnkCrRGDXmkKwZh8bB6m9hskmOVqhR9ERipLW_T8A&oe=683BC28C" alt="Messenger Logo" class="w-8 h-8 rounded-full mr-2">
+                    <span class="font-bold text-white text-lg">Beauté Élégante</span>
+                    <button id="close-chat" class="ml-auto text-white hover:text-blue-200 text-xl focus:outline-none">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div id="chat-messages" class="p-4 h-64 overflow-y-auto bg-gray-50 text-sm flex flex-col gap-3">
+                    <div class="flex items-start">
+                        <img src="https://scontent-lis1-1.xx.fbcdn.net/v/t39.30808-6/481970510_633808076028222_7144637731826429266_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeGmmi1YMNaqV9IP24NNA2ZheqVgesb40Wx6pWB6xvjRbI5ma3It03G8EsfRb30oSIwcTuuCrWMtsvoEN_oeZO6C&_nc_ohc=K10Qshbfma0Q7kNvwGBNwV9&_nc_oc=AdkxtMMw1f0BH6ZuRg1-SR7pZXrHz0aq-lcX5Y_J_NOV6s6he9i7L53tpX_QMrr8Rbk&_nc_zt=23&_nc_ht=scontent-lis1-1.xx&_nc_gid=Ri4pFAkKAuEhZJEb2TyB-w&oh=00_AfKK4Gnm_jQT_KgnxA62JMOrHfdn-x3GjZFlcpNeMaRg4Q&oe=683BC7E7" alt="Bot" class="w-7 h-7 rounded-full mr-2">
+                        <div class="bg-blue-100 text-gray-800 px-3 py-2 rounded-lg">
+                            Bonjour 👋 ! Je suis le bot Messenger Beauté Élégante.<br>
+                            Posez-moi une question sur nos produits, services, horaires, contact ou demandez un lien de connexion.
+                        </div>
+                    </div>
+                </div>
+                <form id="chat-form" class="flex border-t bg-white">
+                    <input id="chat-input" type="text" placeholder="Écrivez votre message..." autocomplete="off" class="flex-grow px-3 py-2 focus:outline-none text-gray-700">
+                    <button type="submit" class="px-4 text-blue-600 hover:text-blue-800 focus:outline-none">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <script>
+            // Chat open/close
+            const openChatBtn = document.getElementById('open-chat');
+            const closeChatBtn = document.getElementById('close-chat');
+            const chatWindow = document.getElementById('chat-window');
+            openChatBtn.addEventListener('click', () => {
+                chatWindow.classList.remove('hidden');
+                openChatBtn.classList.add('hidden');
+            });
+            closeChatBtn.addEventListener('click', () => {
+                chatWindow.classList.add('hidden');
+                openChatBtn.classList.remove('hidden');
+            });
+
+            // Chatbot logic
+            const chatForm = document.getElementById('chat-form');
+            const chatInput = document.getElementById('chat-input');
+            const chatMessages = document.getElementById('chat-messages');
+
+            function botReply(message) {
+                let reply = '';
+                let links = '';
+                const msg = message.toLowerCase();
+
+                if (msg.includes('produit')) {
+                    reply = "Nos produits phares incluent : Crème Hydratante Intense, Sérum Anti-Âge Premium, Masque Éclat Doré, Nettoyant Doux, Fond de Teint, Gloss Lèvres, Huile Satinée, Gommage Sucre & Café, Lait Corps Nourrissant, et bien d'autres. Découvrez-les dans la section Produits ou cliquez sur 'Voir tout'.";
+                    links = `<a href="#products" class="text-blue-600 underline">Voir les produits</a>`;
+                } else if (msg.includes('service')) {
+                    reply = "Nous proposons des soins visage premium, manucure professionnelle, extensions de cils, maquillage, pédicure, onglerie, tatouage, vernis simple et plus. Consultez la section Services pour plus d'infos ou réservez directement.";
+                    links = `<a href="#services" class="text-blue-600 underline">Voir les services</a> <br><a href="#formation" class="text-blue-600 underline">Réserver un service</a>`;
+                } else if (msg.includes('horaire')) {
+                    reply = "Nos horaires : Lundi - Vendredi : 9h - 19h, Samedi : 08h - 18h, Dimanche : 09h à 18h.";
+                } else if (msg.includes('contact')) {
+                    reply = "Vous pouvez nous contacter par email à alaoservice1@gmail.com ou alaoscorty@gmail.com, ou par téléphone au +229 0151563219, +229 0144104328, +229 41803470, +229 0197903723, +229 0194516481. Vous pouvez aussi utiliser le formulaire de contact.";
+                    links = `<a href="#contact" class="text-blue-600 underline">Formulaire de contact</a>`;
+                } else if (msg.includes('connexion') || msg.includes('compte') || msg.includes('login')) {
+                    reply = "Voici le lien pour vous connecter à votre compte Beauté Élégante :";
+                    links = `<a href="login.html" target="_blank" class="text-blue-600 underline">Se connecter</a>`;
+                } else if (msg.includes('connecter') || msg.includes('compte') || msg.includes('login')) {
+                    reply = "Voici le lien pour vous connecter à votre compte Beauté Élégante :";
+                    links = `<a href="login.html" target="_blank" class="text-blue-600 underline">Se connecter</a>`;
+                } else if (msg.includes('adresse')) {
+                    reply = "Nos adresses : Porto-Novo, quartier OUANDO non loin du marché ;Dodji à 100m avant le feu en quittant le CEG DJEGAN-KPEVI; Cotonou, quartier Zogbo.";
+                } else if (msg.includes('don') || msg.includes('donner')) {
+                    reply = "Vous souhaitez faire un don ? Cliquez ici pour accéder au formulaire de don sécurisé.";
+                    links = `<a href="#services" class="text-blue-600 underline">Faire un don</a>`;
+                } else if (msg.includes('groupe') || msg.includes('whatsapp')) {
+                    reply = "Pour recevoir nos offres, abonnez-vous à notre groupe WhatsApp en bas de page.";
+                    links = `<a href="#newsletter" class="text-blue-600 underline">S'abonner</a>`;
+                } else if (msg.includes('livraison')) {
+                    reply = "La livraison est gratuite pour toutes les commandes. Passez votre commande et choisissez votre mode de paiement.";
+                } else if (msg.includes('paiement')) {
+                    reply = "Nous acceptons les paiements par Mobile Money (MTN, Moov) et virement bancaire (Ecobank Bénin). De plus une fois que vous aurez confirmer votre paiement veillez soumettre le pdf de votre commande par whatsapp pour la réception de votre colis.";
+                } else if (msg.includes('réserver') || msg.includes('reservation')) {
+                    reply = "Vous pouvez réserver un service d'esthétique directement via notre formulaire de réservation.";
+                    links = `<a href="#formation" class="text-blue-600 underline">Réserver un service</a>`;
+                } else if (msg.includes('avis') || msg.includes('témoignage')) {
+                    reply = "Consultez les avis de nos clients dans la section Témoignages pour découvrir leurs expériences.";
+                    links = `<a href="#testimonials" class="text-blue-600 underline">Voir les témoignages</a>`;
+                } else {
+                    reply = "Je n'ai pas compris votre question. Essayez avec : produits, services, horaires, contact, connexion, adresse, don, groupe WhatsApp, livraison, paiement, réservation, avis. Pour toute autre demande, prenez rendez-vous ou contactez-nous directement.";
+                }
+
+                // Bot message
+                const botMsg = document.createElement('div');
+                botMsg.className = 'flex items-start';
+                botMsg.innerHTML = `
+                    <img src="https://scontent-lis1-1.xx.fbcdn.net/v/t39.30808-6/481970510_633808076028222_7144637731826429266_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeGmmi1YMNaqV9IP24NNA2ZheqVgesb40Wx6pWB6xvjRbI5ma3It03G8EsfRb30oSIwcTuuCrWMtsvoEN_oeZO6C&_nc_ohc=K10Qshbfma0Q7kNvwGBNwV9&_nc_oc=AdkxtMMw1f0BH6ZuRg1-SR7pZXrHz0aq-lcX5Y_J_NOV6s6he9i7L53tpX_QMrr8Rbk&_nc_zt=23&_nc_ht=scontent-lis1-1.xx&_nc_gid=Ri4pFAkKAuEhZJEb2TyB-w&oh=00_AfKK4Gnm_jQT_KgnxA62JMOrHfdn-x3GjZFlcpNeMaRg4Q&oe=683BC7E7" alt="Bot" class="w-7 h-7 rounded-full mr-2">
+                    <div class="bg-blue-100 text-gray-800 px-3 py-2 rounded-lg">${reply}${links ? '<br>' + links : ''}</div>
+                `;
+                chatMessages.appendChild(botMsg);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            chatForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const userMsg = chatInput.value.trim();
+                if (!userMsg) return;
+                // User message
+                const userDiv = document.createElement('div');
+                userDiv.className = 'flex items-end justify-end';
+                userDiv.innerHTML = `
+                    <div class="bg-blue-500 text-white px-3 py-2 rounded-lg mr-2">${userMsg}</div>
+                    <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Vous" class="w-7 h-7 rounded-full">
+                `;
+                chatMessages.appendChild(userDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                chatInput.value = '';
+                setTimeout(() => botReply(userMsg), 700);
+            });
+        </script>
+        <style>
+            #messenger-chat #chat-window::-webkit-scrollbar { width: 6px; }
+            #messenger-chat #chat-window::-webkit-scrollbar-thumb { background: #e5e7eb; border-radius: 3px; }
+        </style>
+        
+        <!-- Search Bar -->
+        <div id="search-bar" class="hidden bg-white py-3 px-4 shadow-md">
+            <div class="container mx-auto flex">
+                <input type="text" placeholder="Rechercher des produits..." class="flex-grow px-4 py-2 border border-gray-300 rounded-l focus:outline-none focus:ring-2 focus:ring-pink-500">
+                <button id="search-submit" class="bg-pink-500 text-white px-4 py-2 rounded-r hover:bg-pink-600">
+                    <i class="fas fa-search"></i>
+                </button>
+                <div id="search-no-result" class="hidden text-red-500 text-sm ml-4 flex items-center">
+                    Aucun résultat
+                </div>  
+            </div>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section id="services" class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Nos formations disponibles</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Formation 1 -->
+                <div class="service-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300" data-nom-service="Formation en nouage de foulard et Makeup">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/44/79/db/4479dbd89fd3ebc91b4ba92127d07f7c.jpg');"></div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-pink-100 text-pink-500 p-3 rounded-full mr-4">
+                                <i class="fas fa-spa text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-xl text-gray-800">Formation en nouage de foulard et Makeup</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Un rituel complet pour raviver l’éclat du visage : diagnostic, exfoliation, masque et massage relaxant.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-pink-500 font-bold">50 000f --→ 1mois</span>
+                            <span class="text-pink-500 font-bold">130 000f --→ 3mois</span>
+                            <span class="text-pink-500 font-bold">250 000f --→ 6mois</span>
+                            <span class="text-pink-500 font-bold">500 000f --→ 1ans</span>
+                            <a href="#formation" class="text-pink-500 hover:text-pink-600 font-medium text-sm">Suivre la formation →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formation 2 -->
+                <div class="service-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300" data-nom-service="Formation en manucure Professionnelle">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/05/9d/42/059d4215fed19bfb43cfac68d60d97fe.jpg');"></div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-pink-100 text-pink-500 p-3 rounded-full mr-4">
+                                <i class="fas fa-hand-sparkles text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-xl text-gray-800">Formation en manucure et pédicures Professionnelle</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Nettoyage, soin des cuticules et pose de vernis semi-permanent pour des mains et des pieds élégantes et soignées.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-pink-500 font-bold">50 000f --→ 1mois</span>
+                            <span class="text-pink-500 font-bold">130 000f --→ 3mois</span>
+                            <span class="text-pink-500 font-bold">250 000f --→ 6mois</span>
+                            <span class="text-pink-500 font-bold">500 000f --→ 1ans</span>
+                            <a href="#formation" class="text-pink-500 hover:text-pink-600 font-medium text-sm">Suivre la formation →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formation 3 -->
+                <div class="service-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300" data-nom-service="Formation en coiffure tresse perruquerie emballage, coiffure Homme">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/ee/ba/c8/eebac81f119c27489338cfc88d53231c.jpg');"></div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-pink-100 text-pink-500 p-3 rounded-full mr-4">
+                                <i class="fas fa-eye text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-xl text-gray-800">Formation en coiffure tresse perruquerie emballage, coiffure Homme</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Technique cil à cil pour intensifier le regard tout en conservant un effet naturel et raffiné.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-pink-500 font-bold">50 000f --→ 1mois</span>
+                            <span class="text-pink-500 font-bold">130 000f --→ 3mois</span>
+                            <span class="text-pink-500 font-bold">250 000f --→ 6mois</span>
+                            <span class="text-pink-500 font-bold">500 000f --→ 1ans</span>
+                            <a href="#formation" class="text-pink-500 hover:text-pink-600 font-medium text-sm">Suivre la formation →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formation 4 -->
+                <div class="service-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300" data-nom-service="Formation en Haute couture, Stylisme, Modélisme et Broderie">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/ab/4e/46/ab4e46b5021ed0327aa1e8355c32e8c4.jpg');"></div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-pink-100 text-pink-500 p-3 rounded-full mr-4">
+                                <i class="fas fa-smile-beam"></i>
+                            </div>
+                            <h3 class="font-bold text-xl text-gray-800">Formation en Haute couture, Stylisme, Modélisme et Broderie</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Maquillage professionnel longue tenue, adapté à vos traits et à l’occasion (mariage, soirée, shooting...).</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-pink-500 font-bold">50 000f --→ 1mois</span>
+                            <span class="text-pink-500 font-bold">130 000f --→ 3mois</span>
+                            <span class="text-pink-500 font-bold">250 000f --→ 6mois</span>
+                            <span class="text-pink-500 font-bold">500 000f --→ 1ans</span>
+                            <a href="#formation" class="text-pink-500 hover:text-pink-600 font-medium text-sm">Suivre la formation →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formation 5 -->
+                <div class="service-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300" data-nom-service="Formation en Graphisme Design">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/5d/ff/b1/5dffb1dab5704bcf259546a451edd9f6.jpg');"></div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-pink-100 text-pink-500 p-3 rounded-full mr-4">
+                                <i class="fa-solid fa-chart-simple"></i>
+                            </div>
+                            <h3 class="font-bold text-xl text-gray-800">Formation en Graphisme Design</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Détente et beauté des pieds avec bain, exfoliation, soin des ongles et application de vernis au choix.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-pink-500 font-bold">50 000f --→ 1mois</span>
+                            <span class="text-pink-500 font-bold">130 000f --→ 3mois</span>
+                            <span class="text-pink-500 font-bold">250 000f --→ 6mois</span>
+                            <span class="text-pink-500 font-bold">500 000f --→ 1ans</span>
+                            <a href="#formation" class="text-pink-500 hover:text-pink-600 font-medium text-sm">Suivre la formation →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formation 6 -->
+                <div class="service-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300" data-nom-service="Formation en Marketing d'influence et gestion de communauté">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/05/cf/be/05cfbea3605981c57e628240a6f879ca.jpg');"></div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-pink-100 text-pink-500 p-3 rounded-full mr-4">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            </div>
+                            <h3 class="font-bold text-xl text-gray-800">Formation en Marketing d'influence et gestion de communauté</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Manucure haut de gamme incluant traitement, modelage et vernis pour des ongles parfaitement dessinés.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-pink-500 font-bold">50 000f --→ 1mois</span>
+                            <span class="text-pink-500 font-bold">130 000f --→ 3mois</span>
+                            <span class="text-pink-500 font-bold">250 000f --→ 6mois</span>
+                            <span class="text-pink-500 font-bold">500 000f --→ 1ans</span>
+                            <a href="#formation" class="text-pink-500 hover:text-pink-600 font-medium text-sm open-reservation-modal">Suivre la formation →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formation 7 -->
+                <div class="service-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300" data-nom-service="Formation en E-commerce & Dropshipping">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/05/cf/be/05cfbea3605981c57e628240a6f879ca.jpg');"></div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-pink-100 text-pink-500 p-3 rounded-full mr-4">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            </div>
+                            <h3 class="font-bold text-xl text-gray-800">Formation en E-commerce & Dropshipping</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Manucure haut de gamme incluant traitement, modelage et vernis pour des ongles parfaitement dessinés.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-pink-500 font-bold">50 000f --→ 1mois</span>
+                            <span class="text-pink-500 font-bold">130 000f --→ 3mois</span>
+                            <span class="text-pink-500 font-bold">250 000f --→ 6mois</span>
+                            <span class="text-pink-500 font-bold">500 000f --→ 1ans</span>
+                            <a href="#formation" class="text-pink-500 hover:text-pink-600 font-medium text-sm open-reservation-modal">Suivre la formation →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formation 8 -->
+                <div class="service-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300" data-nom-service="Formation en Developpement web full-stack">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/05/cf/be/05cfbea3605981c57e628240a6f879ca.jpg');"></div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-pink-100 text-pink-500 p-3 rounded-full mr-4">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            </div>
+                            <h3 class="font-bold text-xl text-gray-800">Formation en Developpement web full-stack</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Manucure haut de gamme incluant traitement, modelage et vernis pour des ongles parfaitement dessinés.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-pink-500 font-bold">50 000f --→ 1mois</span>
+                            <span class="text-pink-500 font-bold">130 000f --→ 3mois</span>
+                            <span class="text-pink-500 font-bold">250 000f --→ 6mois</span>
+                            <span class="text-pink-500 font-bold">500 000f --→ 1ans</span>
+                            <a href="#formation" class="text-pink-500 hover:text-pink-600 font-medium text-sm open-reservation-modal">Suivre la formation →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formation 9 -->
+                <div class="service-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300" data-nom-service="Formation en Marketing d'influence et gestion de communauté">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/05/cf/be/05cfbea3605981c57e628240a6f879ca.jpg');"></div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-pink-100 text-pink-500 p-3 rounded-full mr-4">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            </div>
+                            <h3 class="font-bold text-xl text-gray-800">Formation en Sécrétariat bureautique et caissière</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Manucure haut de gamme incluant traitement, modelage et vernis pour des ongles parfaitement dessinés.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-pink-500 font-bold">50 000f --→ 1mois</span>
+                            <span class="text-pink-500 font-bold">130 000f --→ 3mois</span>
+                            <span class="text-pink-500 font-bold">250 000f --→ 6mois</span>
+                            <span class="text-pink-500 font-bold">500 000f --→ 1ans</span>
+                            <a href="#formation" class="text-pink-500 hover:text-pink-600 font-medium text-sm open-reservation-modal">Suivre la formation →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full transition duration-300"><i class="fa-solid fa-heart-circle-plus"></i></a>
+            </div>
+
+            <!-- Donation Modal -->
+    <!-- Donation Modal -->
+                <div id="donation-modal" class="fixed inset-0 z-50 hidden overflow-y-auto">
+                    <div class="flex items-center justify-center min-h-screen px-4">
+                        <div class="fixed inset-0 bg-gray-900 opacity-60"></div>
+                        <div class="bg-white rounded-lg shadow-lg max-w-md w-full z-10 p-8 relative">
+                            <button id="close-donation" class="absolute top-3 right-3 text-gray-400 hover:text-pink-500 text-xl">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            <h3 class="text-2xl font-bold text-center mb-4 text-pink-500">Faire un don</h3>
+                            <form id="donation-form" class="space-y-5">
+                                <div>
+                                    <label for="donor-name" class="block text-gray-700 font-medium mb-1">Nom complet</label>
+                                    <input type="text" id="donor-name" required class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                                </div>
+                                <div>
+                                    <label for="donor-email" class="block text-gray-700 font-medium mb-1">Email</label>
+                                    <input type="email" id="donor-email" required class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                                </div>
+                                <div>
+                                    <label for="donation-amount" class="block text-gray-700 font-medium mb-1">Montant (FCFA )</label>
+                                    <input type="number" id="donation-amount" min="100" required class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 font-medium mb-1">Méthode de paiement</label>
+                                    <select id="donation-method" required class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                                        <option value="">Sélectionnez une méthode</option>
+                                        <option value="mobile">Mobile Money (MTN, Moov, etc.)</option>
+                                        <option value="bank">Virement bancaire (Bénin)</option>
+                                    </select>
+                                </div>
+                                <div id="mobile-info" class="hidden">
+                                    <p class="text-sm text-gray-600 mt-2">
+                                        Envoyez votre don via MTN Mobile Money au <span class="font-bold text-pink-500">+229 51563219</span>ou par Moov Mobile money au <span class="font-bold text-pink-500">+229 64517494</span> puis entrez le numéro de transaction ci-dessous.
+                                    </p>
+                                    <input type="text" id="mobile-transaction" placeholder="Numéro de transaction" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                                </div>
+                                <div id="bank-info" class="hidden">
+                                    <p class="text-sm text-gray-600 mt-2">
+                                        Faites un virement à la banque :<br>
+                                        <span class="font-bold">Banque : Ecobank Bénin</span><br>
+                                        <span class="font-bold">IBAN : BJ6600100100000000123456789</span><br>
+                                        <span class="font-bold">Nom : Beauté Élégante ou AMOUSSA Sayidi A.O</span>
+                                    </p>
+                                    <input type="text" id="bank-reference" placeholder="Référence du virement" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                                </div>
+                                <button type="submit" class="w-full bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 rounded transition duration-300">Valider le don</button>
+                                <div id="donation-success" class="hidden text-green-600 text-center font-medium mt-4">Merci pour votre don !</div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    // Show donation modal
+                    document.querySelector('.fa-heart-circle-plus').closest('a').addEventListener('click', function(e) {
+                        e.preventDefault();
+                        document.getElementById('donation-modal').classList.remove('hidden');
+                    });
+                    // Close modal
+                    document.getElementById('close-donation').onclick = function() {
+                        document.getElementById('donation-modal').classList.add('hidden');
+                    };
+                    // Payment method toggle
+                    document.getElementById('donation-method').addEventListener('change', function() {
+                        document.getElementById('mobile-info').classList.toggle('hidden', this.value !== 'mobile');
+                        document.getElementById('bank-info').classList.toggle('hidden', this.value !== 'bank');
+                    });
+                    // Handle form submit
+                    document.getElementById('donation-form').addEventListener('submit', function(e) {
+                        e.preventDefault();
+                        document.getElementById('donation-success').classList.remove('hidden');
+                        setTimeout(() => {
+                            document.getElementById('donation-modal').classList.add('hidden');
+                            document.getElementById('donation-success').classList.add('hidden');
+                            this.reset();
+                            document.getElementById('mobile-info').classList.add('hidden');
+                            document.getElementById('bank-info').classList.add('hidden');
+                        }, 2000);
+                    });
+                </script>
+        </div>
+    </section>
+    <!-- formulaire de réservation -->
+    <section id="formation" class="py-16 bg-gray-50 mb-5">
+        <div class="container mx-auto px-4 max-w-xl">
+            <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">Réserver un service</h2>
+            <form id="whatsapp-reservation-form" class="space-y-6 bg-white p-8 rounded-lg shadow-md">
+                <div>
+                    <label for="res-name" class="block text-gray-700 font-medium mb-2">Nom complet</label>
+                    <input type="text" id="res-name" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                </div>
+                <div>
+                    <label for="res-phone" class="block text-gray-700 font-medium mb-2">Téléphone</label>
+                    <input type="tel" id="res-phone" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                </div>
+                <div>
+                    <label for="res-service" class="block text-gray-700 font-medium mb-2">Formation Souhaitée</label>
+                    <select id="res-service" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                        <option value="">Sélectionnez un service</option>
+                        <option>Formation en nouage de foulard et Makeup</option>
+                        <option>Formation en manucure et pédicures Professionnelle</option>
+                        <option>Formation en coiffure tresse perruquerie emballage, coiffure Homme</option>
+                        <option>Formation en Haute couture, Stylisme, Modélisme et Broderie</option>
+                        <option>Formation en Graphisme Design</option>
+                        <option>Formation en Marketing d'influence et gestion de communauté</option>
+                        <option>Formation en E-commerce & Dropshipping</option>
+                        <option>Formation en Developpement web full-stack</option>
+                        <option>Formation en Sécrétariat bureautique et caissière</option>
+                        <option>Autre</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="res-date" class="block text-gray-700 font-medium mb-2">Me renseigner </label>
+                    <input type="date" id="res-date" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                </div>
+                <div>
+                    <label for="res-message" class="block text-gray-700 font-medium mb-2">Message optionnel (présenter les raisons de votre choix)</label>
+                    <textarea id="res-message" rows="3" class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500"></textarea>
+                </div>
+                <script>
+                // Lors de la soumission du formulaire de réservation, stocke la réservation dans le localStorage
+                document.getElementById('whatsapp-reservation-form').addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const name = document.getElementById('res-name').value.trim();
+                    const phone = document.getElementById('res-phone').value.trim();
+                    const service = document.getElementById('res-service').value.trim();
+                    const date = document.getElementById('res-date').value.trim();
+                    const message = document.getElementById('res-message').value.trim();
+
+                    // Récupère les réservations existantes ou initialise un tableau
+                    let reservations = [];
+                    try {
+                        reservations = JSON.parse(localStorage.getItem('reservations')) || [];
+                    } catch (err) {
+                        reservations = [];
+                    }
+                    // Ajoute la nouvelle réservation
+                    reservations.push({
+                        name,
+                        phone,
+                        service,
+                        date,
+                        message,
+                        createdAt: new Date().toISOString()
+                    });
+                    localStorage.setItem('reservations', JSON.stringify(reservations));
+
+                    // Optionnel : affiche un message de confirmation
+                    alert('Votre requête a bien été enregistrée !');
+
+                    // Redirige vers dashboard.html (optionnel)
+                    // window.location.href = 'dashboard.html';
+                });
+                </script>
+                <button type="submit" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-6 rounded transition duration-300 w-full">Envoyer</button>
+            </form>
+        </div>  
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-spa text-2xl text-pink-500 mr-2"></i>
+                        <span class="text-xl font-bold">Beauté<span class="text-pink-500">Élégante</span></span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Votre destination beauté premium pour des produits et services d'exception.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/share/1GBHkW9umd/" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="wa.me/+22951563219" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                            <i class="fab fa-pinterest-p"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Liens rapides</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">Accueil</a></li>
+                        <li><a href="formation.html" class="text-gray-400 hover:text-pink-500 transition duration-300">Nos formations</a></li>
+                        <li><a href="#products" class="text-gray-400 hover:text-pink-500 transition duration-300">Produits</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-pink-500 transition duration-300">Services</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-pink-500 transition duration-300">À propos</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-pink-500 transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Catégories</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#visage" class="text-gray-400 hover:text-pink-500 transition duration-300">Soins Visage</a></li>
+                        <li><a href="#face-care-toggle" class="text-gray-400 hover:text-pink-500 transition duration-300">Maquillage</a></li>
+                        <li><a href="#face-care-products" class="text-gray-400 hover:text-pink-500 transition duration-300">Corps & Bain</a></li>
+                        <li><a href="#face-care-toggle" class="text-gray-400 hover:text-pink-500 transition duration-300">Accessoires</a></li>
+                        <li><a href="#face-care-toggle" class="text-gray-400 hover:text-pink-500 transition duration-300">Nouveautés</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contact</h4>
+                    <address class="not-italic text-gray-400 space-y-2">
+                        <p>Porto novo non loin du marché  OUANDO,Dodji à 100m avant le feu en quittant le CEG DJEGAN-KPEVI,Cotonou quartier Zogo</p>
+                        <p>Email: alaoservice1@gmail.com</p>
+                        <p>Tél: +229 0151563219</p>
+                        <p>Tél: +229 0197903723</p>
+                        <p>Tél: +229 0144104328</p>
+                        <p>Tél: +229 0141803470</p>
+                        <p>Tél: +229 0194516481</p>
+                        <p>Tél: +229 0157024715</p>
+                        <p>Tél: +229 0157523222</p>
+                        <p>Tél: +229 0161656295</p>
+                        <p>Tél: +229 0161216534</p>
+                    </address>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 Beauté Élégante. Tous droits réservés.</p>
+                <div class="flex space-x-6">
+                    <a href="conditions.html#mention" class="text-gray-400 hover:text-pink-500 text-sm transition duration-300">Mentions légales</a>
+                    <a href="conditions.html#politique" class="text-gray-400 hover:text-pink-500 text-sm transition duration-300">Politique de confidentialité</a>
+                    <a href="conditions.html#condition" class="text-gray-400 hover:text-pink-500 text-sm transition duration-300">Conditions générales</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Search bar toggle
+        const searchBtn = document.getElementById('search-btn');
+        const searchBar = document.getElementById('search-bar');
+        
+        searchBtn.addEventListener('click', () => {
+            searchBar.classList.toggle('hidden');
+        });
+        
+        // Cart functionality
+        const cartBtn = document.getElementById('cart-btn');
+        const cartModal = document.getElementById('cart-modal');
+        const closeCart = document.getElementById('close-cart');
+        const continueShopping = document.getElementById('continue-shopping');
+        const cartCount = document.getElementById('cart-count');
+        const cartItemsContainer = document.getElementById('cart-items');
+        const cartSubtotal = document.getElementById('cart-subtotal');
+        const cartTotal = document.getElementById('cart-total');
+        
+        let cart = [];
+        
+        // Toggle cart modal
+        cartBtn.addEventListener('click', () => {
+            cartModal.classList.toggle('hidden');
+            updateCartDisplay();
+        });
+        
+        closeCart.addEventListener('click', () => {
+            cartModal.classList.add('hidden');
+        });
+        
+        continueShopping.addEventListener('click', () => {
+            cartModal.classList.add('hidden');
+        });
+        
+        // Add to cart functionality
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const id = button.getAttribute('data-id');
+                const name = button.getAttribute('data-name');
+                const price = parseFloat(button.getAttribute('data-price'));
+                
+                // Check if item already in cart
+                const existingItem = cart.find(item => item.id === id);
+                
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        id,
+                        name,
+                        price,
+                        quantity: 1
+                    });
+                }
+                
+                updateCartCount();
+                updateCartDisplay();
+                
+                // Add pulse animation to cart button
+                cartBtn.classList.add('cart-pulse');
+                setTimeout(() => {
+                    cartBtn.classList.remove('cart-pulse');
+                }, 1500);
+            });
+        });
+        
+        // Update cart count display
+        function updateCartCount() {
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            
+            if (totalItems > 0) {
+                cartCount.textContent = totalItems;
+                cartCount.classList.remove('hidden');
+            } else {
+                cartCount.classList.add('hidden');
+            }
+        }
+        
+        // Update cart display in modal
+        function updateCartDisplay() {
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p class="text-gray-500 text-center py-8">Votre panier est vide</p>';
+                cartSubtotal.textContent = 'FCFA 0';
+                cartTotal.textContent = 'FCFA 0';
+                return;
+            }
+            
+            let itemsHTML = '';
+            let subtotal = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+                
+                itemsHTML += `
+                    <div class="flex justify-between items-center py-4 border-b">
+                        <div>
+                            <h4 class="font-medium text-gray-800">${item.name}</h4>
+                            <p class="text-sm text-gray-500">FCFA ${item.price.toFixed(2)}</p>
+                        </div>
+                        <div class="flex items-center">
+                            <button class="decrease-quantity text-gray-500 hover:text-pink-500 px-2" data-id="${item.id}">
+                                <i class="fas fa-minus text-xs"></i>
+                            </button>
+                            <span class="mx-2 text-gray-700">${item.quantity}</span>
+                            <button class="increase-quantity text-gray-500 hover:text-pink-500 px-2" data-id="${item.id}">
+                                <i class="fas fa-plus text-xs"></i>
+                            </button>
+                            <button class="remove-item text-red-500 hover:text-red-700 ml-4" data-id="${item.id}">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            cartItemsContainer.innerHTML = itemsHTML;
+            cartSubtotal.textContent = `FCFA ${subtotal.toFixed(2)}`;
+            cartTotal.textContent = `FCFA ${subtotal.toFixed(2)}`;
+            
+            // Add event listeners to quantity buttons
+            document.querySelectorAll('.decrease-quantity').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const id = e.target.closest('button').getAttribute('data-id');
+                    const item = cart.find(item => item.id === id);
+                    
+                    if (item.quantity > 1) {
+                        item.quantity -= 1;
+                    } else {
+                        cart = cart.filter(item => item.id !== id);
+                    }
+                    
+                    updateCartCount();
+                    updateCartDisplay();
+                });
+            });
+            
+            document.querySelectorAll('.increase-quantity').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const id = e.target.closest('button').getAttribute('data-id');
+                    const item = cart.find(item => item.id === id);
+                    item.quantity += 1;
+                    
+                    updateCartCount();
+                    updateCartDisplay();
+                });
+            });
+            
+            document.querySelectorAll('.remove-item').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const id = e.target.closest('button').getAttribute('data-id');
+                    cart = cart.filter(item => item.id !== id);
+                    
+                    updateCartCount();
+                    updateCartDisplay();
+                });
+            });
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
