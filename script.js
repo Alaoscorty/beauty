@@ -1,4 +1,11 @@
-
+//Script qui permet de gérer le pré-loading
+document.addEventListener("DOMContentLoaded", function () {
+  // Simulez le chargement du contenu
+  setTimeout(function () {
+    document.getElementById("loader").style.display = "none";
+    document.getElementById("content").style.display = "block";
+  }, 3000);
+});
 // script qui permet de gérer la barre de recherche
   document.addEventListener("DOMContentLoaded", function () {
     const searchInput = document.querySelector('#search-bar input');

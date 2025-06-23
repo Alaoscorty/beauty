@@ -1,3 +1,89 @@
+/* style.css */
+.elegante{
+    font-size: 55vh;
+}
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #ffb6c1, #c084fc);;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.parallax-card {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  z-index: 1;
+}
+.card1 {
+  width: 200px;
+  height: 200px;
+  top: 7%;
+  left: 12%;
+  transform: rotate(10deg);
+}
+.card2 {
+  width: 300px;
+  height: 300px;
+  bottom: 10%;
+  right: 15%;
+  transform: rotate(-8deg);
+}
+.card3 {
+  width: 100px;
+  height: 100px;
+  top: 80%;
+  left: 30%;
+  transform: rotate(5deg);
+}
+.card4 {
+  width: 120px;
+  height: 120px;
+  top: 50%;
+  right: 25%;
+  transform: rotate(-12deg);
+}
+@keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+
+        .parallax-card {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .card-big-1 { animation-delay: 2s; }
+        .card-big-2 { animation-delay: 3s; }
+        .card-small-1 { animation-delay: 4s; }
+        .card-small-2 { animation-delay: 1s; }
+
+.spinner {
+  border: 8px solid rgba(0, 0, 0, 0.1);
+  border-top: 8px solid #be185d;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+  margin-top: 5vh;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .hero-section {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80');
     background-size: cover;
