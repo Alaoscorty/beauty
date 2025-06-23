@@ -2,56 +2,20 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Beauté Élégante - condition d'utilisations</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+    <title>Beauté Élégante - Votre destination beauté premium</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+</head>
     <style>
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background: #faf7f5;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-        nav {
-            background: #fff;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            padding: 1rem 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        nav .logo {
-            font-weight: bold;
-            font-size: 1.5rem;
-            color: #ec4899;
-            letter-spacing: 2px;
-        }
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-            margin: 0;
-            padding: 0;
-        }
-        nav ul li a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-        nav ul li a:hover {
-            color: #ec4899;
-        }
         .carousel-container {
             display: flex;
             flex-direction: column;
             gap: 2rem;
             margin: 3rem auto;
-            max-width: 600px;
+
             width: 100%;
             flex: 1;
         }
@@ -139,18 +103,187 @@
         }
     </style>
 </head>
-<body>
+<body class="font-sans bg-gray-50">
     <!-- Barre de navigation -->
-    <nav>
-        <div class="logo">BeautéElegante</div>
-        <ul>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="index.html#products">Produits</a></li>
-            <li><a href="index.html#services">Services</a></li>
-            <li><a href="index.html#about">À propos</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
-        </ul>
-    </nav>
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-spa text-2xl text-pink-500 mr-2"></i>
+                <a href="#" class="text-2xl font-bold text-gray-800">Beauté<span class="text-pink-500">Élégante</span></a>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-700 hover:text-pink-500 font-medium">Accueil</a>
+                <a href="formation.html" class="text-gray-700 hover:text-pink-500 font-medium">Nos formations</a>
+                <a href="index.html#products" class="text-gray-700 hover:text-pink-500 font-medium">Produits</a>
+                <a href="index.html#services" class="text-gray-700 hover:text-pink-500 font-medium">Services</a>
+                <a href="index.html#about" class="text-gray-700 hover:text-pink-500 font-medium">À propos</a>
+                <a href="index.html#contact" class="text-gray-700 hover:text-pink-500 font-medium">Contact</a>
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <a href="wa.me/51563219" class="relative text-gray-600 hover:text-pink-500">
+                    <i class="fas fa-phone text-xl"></i>
+                </a>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-600">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-4 px-4 shadow-lg">
+            <a href="index.html" class="block py-2 text-gray-700 hover:text-pink-500">Accueil</a>
+            <a href="formation.html" class="block py-2 text-gray-700 hover:text-pink-500">Nos formations</a>
+            <a href="index.html#products" class="block py-2 text-gray-700 hover:text-pink-500">Produits</a>
+            <a href="index.html#services" class="block py-2 text-gray-700 hover:text-pink-500">Services</a>
+            <a href="index.html#about" class="block py-2 text-gray-700 hover:text-pink-500">À propos</a>
+            <a href="index.html#contact" class="block py-2 text-gray-700 hover:text-pink-500">Contact</a>
+        </div>
+
+        <!-- Chat Messenger Widget -->
+        <div id="messenger-chat" class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+            <!-- Chat Button -->
+            
+            <button id="open-chat" class="bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg p-4 flex items-center justify-center focus:outline-none transition duration-300">
+                <i class="fab fa-facebook-messenger text-2xl"></i>
+            </button>
+            <!-- Chat Window -->
+            <div id="chat-window" class="hidden w-80 bg-white rounded-lg shadow-xl mt-4 overflow-hidden">
+                <div class="flex items-center bg-blue-600 px-4 py-3">
+                    <img src="https://scontent-lis1-1.xx.fbcdn.net/v/t39.30808-6/481274404_633810389361324_2341581396917416261_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeF1Bl3LARHJzN5h8i8lr5nriejG8YGfwmGJ6MbxgZ_CYc_XHoMkjqZFyVo3ITlI018l26YX0RxJG4Afg_1xFsrp&_nc_ohc=dGAy-CZnCnIQ7kNvwF9ruUC&_nc_oc=Adk0F_85CYWDY0DkXJoe581eGopJFuLCxAWWtGxip-SkAAk93bwsz51SBo3nE6tSPe8&_nc_zt=23&_nc_ht=scontent-lis1-1.xx&_nc_gid=eDEKAkjQsUsytSkeRgklPg&oh=00_AfLXlKnkCrRGDXmkKwZh8bB6m9hskmOVqhR9ERipLW_T8A&oe=683BC28C" alt="Messenger Logo" class="w-8 h-8 rounded-full mr-2">
+                    <span class="font-bold text-white text-lg">Beauté Élégante</span>
+                    <button id="close-chat" class="ml-auto text-white hover:text-blue-200 text-xl focus:outline-none">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div id="chat-messages" class="p-4 h-64 overflow-y-auto bg-gray-50 text-sm flex flex-col gap-3">
+                    <div class="flex items-start">
+                        <img src="https://scontent-lis1-1.xx.fbcdn.net/v/t39.30808-6/481970510_633808076028222_7144637731826429266_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeGmmi1YMNaqV9IP24NNA2ZheqVgesb40Wx6pWB6xvjRbI5ma3It03G8EsfRb30oSIwcTuuCrWMtsvoEN_oeZO6C&_nc_ohc=K10Qshbfma0Q7kNvwGBNwV9&_nc_oc=AdkxtMMw1f0BH6ZuRg1-SR7pZXrHz0aq-lcX5Y_J_NOV6s6he9i7L53tpX_QMrr8Rbk&_nc_zt=23&_nc_ht=scontent-lis1-1.xx&_nc_gid=Ri4pFAkKAuEhZJEb2TyB-w&oh=00_AfKK4Gnm_jQT_KgnxA62JMOrHfdn-x3GjZFlcpNeMaRg4Q&oe=683BC7E7" alt="Bot" class="w-7 h-7 rounded-full mr-2">
+                        <div class="bg-blue-100 text-gray-800 px-3 py-2 rounded-lg">
+                            Bonjour 👋 ! Je suis le bot Messenger Beauté Élégante.<br>
+                            Posez-moi une question sur nos produits, services, horaires, contact ou demandez un lien de connexion.
+                        </div>
+                    </div>
+                </div>
+                <form id="chat-form" class="flex border-t bg-white">
+                    <input id="chat-input" type="text" placeholder="Écrivez votre message..." autocomplete="off" class="flex-grow px-3 py-2 focus:outline-none text-gray-700">
+                    <button type="submit" class="px-4 text-blue-600 hover:text-blue-800 focus:outline-none">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <script>
+            // Chat open/close
+            const openChatBtn = document.getElementById('open-chat');
+            const closeChatBtn = document.getElementById('close-chat');
+            const chatWindow = document.getElementById('chat-window');
+            openChatBtn.addEventListener('click', () => {
+                chatWindow.classList.remove('hidden');
+                openChatBtn.classList.add('hidden');
+            });
+            closeChatBtn.addEventListener('click', () => {
+                chatWindow.classList.add('hidden');
+                openChatBtn.classList.remove('hidden');
+            });
+
+            // Chatbot logic
+            const chatForm = document.getElementById('chat-form');
+            const chatInput = document.getElementById('chat-input');
+            const chatMessages = document.getElementById('chat-messages');
+
+            function botReply(message) {
+                let reply = '';
+                let links = '';
+                const msg = message.toLowerCase();
+
+                if (msg.includes('produit')) {
+                    reply = "Nos produits phares incluent : Crème Hydratante Intense, Sérum Anti-Âge Premium, Masque Éclat Doré, Nettoyant Doux, Fond de Teint, Gloss Lèvres, Huile Satinée, Gommage Sucre & Café, Lait Corps Nourrissant, et bien d'autres. Découvrez-les dans la section Produits ou cliquez sur 'Voir tout'.";
+                    links = `<a href="#products" class="text-blue-600 underline">Voir les produits</a>`;
+                } else if (msg.includes('service')) {
+                    reply = "Nous proposons des soins visage premium, manucure professionnelle, extensions de cils, maquillage, pédicure, onglerie, tatouage, vernis simple et plus. Consultez la section Services pour plus d'infos ou réservez directement.";
+                    links = `<a href="#services" class="text-blue-600 underline">Voir les services</a> <br><a href="#formation" class="text-blue-600 underline">Réserver un service</a>`;
+                } else if (msg.includes('horaire')) {
+                    reply = "Nos horaires : Lundi - Vendredi : 9h - 19h, Samedi : 08h - 18h, Dimanche : 09h à 18h.";
+                } else if (msg.includes('contact')) {
+                    reply = "Vous pouvez nous contacter par email à alaoservice1@gmail.com ou alaoscorty@gmail.com, ou par téléphone au +229 0151563219, +229 0144104328, +229 41803470, +229 0197903723, +229 0194516481. Vous pouvez aussi utiliser le formulaire de contact.";
+                    links = `<a href="#contact" class="text-blue-600 underline">Formulaire de contact</a>`;
+                } else if (msg.includes('connexion') || msg.includes('compte') || msg.includes('login')) {
+                    reply = "Voici le lien pour vous connecter à votre compte Beauté Élégante :";
+                    links = `<a href="login.html" target="_blank" class="text-blue-600 underline">Se connecter</a>`;
+                } else if (msg.includes('connecter') || msg.includes('compte') || msg.includes('login')) {
+                    reply = "Voici le lien pour vous connecter à votre compte Beauté Élégante :";
+                    links = `<a href="login.html" target="_blank" class="text-blue-600 underline">Se connecter</a>`;
+                } else if (msg.includes('adresse')) {
+                    reply = "Nos adresses : Porto-Novo, quartier OUANDO non loin du marché ;Dodji à 100m avant le feu en quittant le CEG DJEGAN-KPEVI; Cotonou, quartier Zogbo.";
+                } else if (msg.includes('don') || msg.includes('donner')) {
+                    reply = "Vous souhaitez faire un don ? Cliquez ici pour accéder au formulaire de don sécurisé.";
+                    links = `<a href="#services" class="text-blue-600 underline">Faire un don</a>`;
+                } else if (msg.includes('groupe') || msg.includes('whatsapp')) {
+                    reply = "Pour recevoir nos offres, abonnez-vous à notre groupe WhatsApp en bas de page.";
+                    links = `<a href="#newsletter" class="text-blue-600 underline">S'abonner</a>`;
+                } else if (msg.includes('livraison')) {
+                    reply = "La livraison est gratuite pour toutes les commandes. Passez votre commande et choisissez votre mode de paiement.";
+                } else if (msg.includes('paiement')) {
+                    reply = "Nous acceptons les paiements par Mobile Money (MTN, Moov) et virement bancaire (Ecobank Bénin). De plus une fois que vous aurez confirmer votre paiement veillez soumettre le pdf de votre commande par whatsapp pour la réception de votre colis.";
+                } else if (msg.includes('réserver') || msg.includes('reservation')) {
+                    reply = "Vous pouvez réserver un service d'esthétique directement via notre formulaire de réservation.";
+                    links = `<a href="#formation" class="text-blue-600 underline">Réserver un service</a>`;
+                } else if (msg.includes('avis') || msg.includes('témoignage')) {
+                    reply = "Consultez les avis de nos clients dans la section Témoignages pour découvrir leurs expériences.";
+                    links = `<a href="#testimonials" class="text-blue-600 underline">Voir les témoignages</a>`;
+                } else {
+                    reply = "Je n'ai pas compris votre question. Essayez avec : produits, services, horaires, contact, connexion, adresse, don, groupe WhatsApp, livraison, paiement, réservation, avis. Pour toute autre demande, prenez rendez-vous ou contactez-nous directement.";
+                }
+
+                // Bot message
+                const botMsg = document.createElement('div');
+                botMsg.className = 'flex items-start';
+                botMsg.innerHTML = `
+                    <img src="https://scontent-lis1-1.xx.fbcdn.net/v/t39.30808-6/481970510_633808076028222_7144637731826429266_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeGmmi1YMNaqV9IP24NNA2ZheqVgesb40Wx6pWB6xvjRbI5ma3It03G8EsfRb30oSIwcTuuCrWMtsvoEN_oeZO6C&_nc_ohc=K10Qshbfma0Q7kNvwGBNwV9&_nc_oc=AdkxtMMw1f0BH6ZuRg1-SR7pZXrHz0aq-lcX5Y_J_NOV6s6he9i7L53tpX_QMrr8Rbk&_nc_zt=23&_nc_ht=scontent-lis1-1.xx&_nc_gid=Ri4pFAkKAuEhZJEb2TyB-w&oh=00_AfKK4Gnm_jQT_KgnxA62JMOrHfdn-x3GjZFlcpNeMaRg4Q&oe=683BC7E7" alt="Bot" class="w-7 h-7 rounded-full mr-2">
+                    <div class="bg-blue-100 text-gray-800 px-3 py-2 rounded-lg">${reply}${links ? '<br>' + links : ''}</div>
+                `;
+                chatMessages.appendChild(botMsg);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            chatForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const userMsg = chatInput.value.trim();
+                if (!userMsg) return;
+                // User message
+                const userDiv = document.createElement('div');
+                userDiv.className = 'flex items-end justify-end';
+                userDiv.innerHTML = `
+                    <div class="bg-blue-500 text-white px-3 py-2 rounded-lg mr-2">${userMsg}</div>
+                    <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Vous" class="w-7 h-7 rounded-full">
+                `;
+                chatMessages.appendChild(userDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                chatInput.value = '';
+                setTimeout(() => botReply(userMsg), 700);
+            });
+        </script>
+        <style>
+            #messenger-chat #chat-window::-webkit-scrollbar { width: 6px; }
+            #messenger-chat #chat-window::-webkit-scrollbar-thumb { background: #e5e7eb; border-radius: 3px; }
+        </style>
+        
+        <!-- Search Bar -->
+        <div id="search-bar" class="hidden bg-white py-3 px-4 shadow-md">
+            <div class="container mx-auto flex">
+                <input type="text" placeholder="Rechercher une formation..." class="flex-grow px-4 py-2 border border-gray-300 rounded-l focus:outline-none focus:ring-2 focus:ring-pink-500">
+                <button id="search-submit" class="bg-pink-500 text-white px-4 py-2 rounded-r hover:bg-pink-600">
+                    <i class="fas fa-search"></i>
+                </button>
+                <div id="search-no-result" class="hidden text-red-500 text-sm ml-4 flex items-center">
+                    Aucun résultat
+                </div>  
+            </div>
+        </div>
+    </header>
 
     <!-- Carrousels flottants -->
     <div class="carousel-container">
@@ -160,15 +293,18 @@
                 <div id="legal-content" style="display:none;">
                     <pre style="white-space: pre-wrap; font-family: inherit; background: none; border: none; padding: 0; margin: 0;">
                         Mentions légales et politique de confidentialité
-                        ● L'entreprise individuelle  [EXEMPLE : NOM DE VOTRE SOCIÉTÉ ] soucieuse des droits des individus, notamment au regard des traitements automatisés et dans une volonté de transparence avec ses clients, a mis en place une politique reprenant l'ensemble de ces traitements, des finalités poursuivies par ces derniers ainsi que des moyens d'actions à la disposition des individus afin qu'ils puissent au mieux exercer leurs droits. Pour toute information complémentaire sur la protection des données personnelles, nous vous invitons à consulter le site : https://www.cnil.fr/ La poursuite de la navigation sur ce site vaut acceptation sans réserve des dispositions et conditions d'utilisation qui suivent. La version actuellement en ligne de ces conditions d'utilisation est la seule opposable pendant toute la durée d'utilisation du site et jusqu'à ce qu'une nouvelle version la remplace.
+                        ● L'entreprise individuelle  Beauté Elegante soucieuse des droits des individus, notamment au regard des traitements automatisés et dans une volonté de transparence avec ses clients, a mis en place une politique reprenant l'ensemble de ces traitements, des finalités poursuivies par ces derniers ainsi que des moyens d'actions à la disposition des individus afin qu'ils puissent au mieux exercer leurs droits. Pour toute information complémentaire sur la protection des données personnelles, nous vous invitons à consulter le site : https://www.cnil.fr/ La poursuite de la navigation sur ce site vaut acceptation sans réserve des dispositions et conditions d'utilisation qui suivent. La version actuellement en ligne de ces conditions d'utilisation est la seule opposable pendant toute la durée d'utilisation du site et jusqu'à ce qu'une nouvelle version la remplace.
 
                         ● Article 1 - Mentions légales 1.1 Site (ci-après « le site »)
 
-                        1.2 Editeur (ci-après « l'éditeur») : L'entreprise individuelle [EXEMPLE : NOM DE VOTRE SOCIÉTÉ ]
+                        1.2 Editeur (ci-après « l'éditeur») : L'entreprise individuelle Beauté Elegante
 
-                        située : [EXEMPLE : ADRESSE]  de téléphone : [EXEMPLE : NUMÉRO DE TÉLÉPHONE] adresse mail : [EXEMPLE : E-MAIL]
+                        située : Porto novo non loin du marché  OUANDO,Dodji à 100m avant le feu en quittant le CEG DJEGAN-KPEVI,Cotonou quartier Zogo, numéro de téléphone : Tél: +229 0151563219
+Tél: +229 0197903723
+Tél: +229 0144104328
+Tél: +229 0141803470 adresse mail : alaoservice1@gmail.com
 
-                        1.3 Hébergeur (ci-après « l'hébergeur ») : [EXEMPLE : NOM DE VOTRE MARQUE] est hébergé par Shopify
+                        1.3 Hébergeur (ci-après « l'hébergeur ») : Beauté Elegante est hébergé par github
 
                         ● Article 2 - Accès au site L'accès au site et son utilisation sont réservés à un usage strictement personnel. Vous vous engagez à ne pas utiliser ce site et les informations ou données qui y figurent à des fins commerciales, politiques, publicitaires et pour toute forme de sollicitation commerciale et notamment l'envoi de courriers électroniques non sollicités
 
@@ -248,7 +384,7 @@
 
                         ● Article 15 - Loi applicable Les présentes conditions d'utilisation du site sont régies par la loi française et soumises à la compétence des tribunaux du siège social de l'éditeur, sous réserve d'une attribution de compétence spécifique découlant d'un texte de loi ou réglementaire particulier.
 
-                        ● Article 16 - Contactez-nous Pour toute question, information sur les produits présentés sur le site, ou concernant le site lui-même, vous pouvez laisser un message à l'adresse suivante : [EXEMPLE : E-MAIL]
+                        ● Article 16 - Contactez-nous Pour toute question, information sur les produits présentés sur le site, ou concernant le site lui-même, vous pouvez laisser un message à l'adresse suivante : alaoservice1@gmail.com
 
                         Numéro d'immatriculation: [EXEMPLE : NUMÉRO D'IMMATRICULATION]
 
@@ -261,11 +397,11 @@
 
                         Pour être éligible à un retour, votre article doit être dans le même état que vous l'avez reçu, non porté ou non utilisé, avec les étiquettes, et dans son emballage d'origine. Vous aurez également besoin du reçu ou de la preuve d'achat.
 
-                        Pour effectuer un retour, vous pouvez nous contacter à  [EXEMPLE : E-MAIL] . Veuillez noter que les retours devront être envoyés à l'adresse suivante :  ; [EXEMPLE : ADRESSE POUR LES RETOURS]
+                        Pour effectuer un retour, vous pouvez nous contacter à  alaoservice1@gmail.com . Veuillez noter que les retours devront être envoyés à l'adresse suivante :  ; [EXEMPLE : ADRESSE POUR LES RETOURS]
 
                         Si votre retour est accepté, nous vous enverrons une étiquette de retour, ainsi que des instructions sur la manière et le lieu d'envoi de votre colis. Les articles qui nous sont renvoyés sans demande préalable de retour ne seront pas acceptés.
 
-                        Vous pouvez toujours nous contacter pour toute question relative au retour à [EXEMPLE : E-MAIL]
+                        Vous pouvez toujours nous contacter pour toute question relative au retour à alaoservice1@gmail.com
 
                         Dommages et problèmes
                         Veuillez inspecter votre commande à la réception et nous contacter immédiatement si l'article est défectueux, endommagé ou si vous recevez le mauvais article, afin que nous puissions évaluer le problème et y remédier.
@@ -282,7 +418,7 @@
                         Nonobstant ce qui précède, si la marchandise est expédiée dans l'Union européenne, vous avez le droit d'annuler ou de retourner votre commande dans un délai de 14 jours, pour quelque raison que ce soit et sans justification. Comme ci-dessus, votre article doit être dans le même état que celui dans lequel vous l'avez reçu, non porté ou non utilisé, avec les étiquettes, et dans son emballage d'origine. Vous aurez également besoin du reçu ou de la preuve d'achat.
 
                         Remboursements
-                        Nous vous informerons une fois que nous aurons reçu et inspecté votre retour, et nous vous ferons savoir si le remboursement a été approuvé ou non. Si le remboursement est approuvé, vous serez automatiquement remboursé sur votre mode de paiement d'origine dans les 10 jours ouvrables. Si plus de 15 jours ouvrables se sont écoulés depuis l'approbation de votre retour, veuillez nous contacter à l'adresse [EXEMPLE : E-MAIL].
+                        Nous vous informerons une fois que nous aurons reçu et inspecté votre retour, et nous vous ferons savoir si le remboursement a été approuvé ou non. Si le remboursement est approuvé, vous serez automatiquement remboursé sur votre mode de paiement d'origine dans les 10 jours ouvrables. Si plus de 15 jours ouvrables se sont écoulés depuis l'approbation de votre retour, veuillez nous contacter à l'adresse alaoservice1@gmail.com.
 
                         Conditions générales de vente et d’utilisation
                         Conditions générales de vente et d’utilisation
@@ -301,7 +437,7 @@
 
                         Chacun des nouveaux outils ou fonctionnalités qui sont ajoutés à la présente boutique est également assujetti aux Conditions d'utilisation. Vous pouvez consulter la version la plus récente des Conditions d'utilisation à tout moment sur cette page. Nous nous réservons le droit de mettre à jour, modifier ou remplacer n'importe quelle partie des présentes Conditions d'utilisation en publiant lesdites mises à jour et/ou modifications sur notre site web. Il vous incombe de vérifier cette page de temps à autre pour voir si des changements y ont été apportés. En continuant à accéder au site web ou à l'utiliser après la publication des modifications, vous acceptez celles-ci.
 
-                        Notre boutique est hébergée sur Shopify Inc. Cette société nous fournit la plateforme e-commerce en ligne qui nous permet de vous vendre nos produits et services.
+                        Notre boutique est hébergée sur github Inc. Cette société nous fournit le nom de domaine.
 
                         SECTION 1 – CONDITIONS D'UTILISATION DE LA BOUTIQUE EN LIGNE
 
@@ -449,9 +585,9 @@
 
                         ARTICLE 20 – COORDONNÉES
 
-                        Les questions relatives aux Conditions d’utilisation doivent nous être envoyées à [EXEMPLE : E-MAIL].
+                        Les questions relatives aux Conditions d’utilisation doivent nous être envoyées à alaoservice1@gmail.com.
 
-                        [EXEMPLE : ADRESSE].
+                        Nous sommes situés à Porto novo non loin du marché  OUANDO,Dodji à 100m avant le feu en quittant le CEG DJEGAN-KPEVI,Cotonou quartier Zogo.
                     </pre>
                 </div>
             </div>
@@ -465,19 +601,90 @@
             <pre style="white-space: pre-wrap; font-family: inherit; background: none; border: none; padding: 0; margin: 0;">
                 Recevez votre commande rapidement ! Nous traitons et expédions généralement les commandes dans les 24 heures.
 
-                Dans le cadre de notre engagement continu en faveur de la durabilité. [EXEMPLE : NOM DE VOTRE MARQUE]  est expédié directement depuis nos sites de production.
+                Dans le cadre de notre engagement continu en faveur de la durabilité. Beauté Elegante est expédié directement depuis nos sites de production.
                 Arrivée prévue :
-                Entre [EXEMPLE :DÉLAI DE LIVRAISON] ouvrables.
+                Entre 2 à 3 heuresouvrables.
 
-                Alerte stock : [EXEMPLE : NOM DE VOTRE MARQUE]  s'envole des rayons ! Réservez le vôtre dès maintenant pour être sûr de ne pas le manquer !
+                Alerte stock : Beauté Elegante s'envole des rayons ! Réservez le vôtre dès maintenant pour être sûr de ne pas le manquer !
             </pre>
             <div class="icon"><i class="fa-solid fa-arrow-left"></i></div>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer>
-        &copy; 2025 BeautéElegante. Tous droits réservés.
+    <footer class="bg-gray-900 text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-spa text-2xl text-pink-500 mr-2"></i>
+                        <span class="text-xl font-bold">Beauté<span class="text-pink-500">Élégante</span></span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Votre destination beauté premium pour des produits et services d'exception.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/share/1GBHkW9umd/" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="wa.me/+22951563219" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                            <i class="fab fa-pinterest-p"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Liens rapides</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">Accueil</a></li>
+                        <li><a href="formation.html" class="text-gray-400 hover:text-pink-500 transition duration-300">Nos formations</a></li>
+                        <li><a href="index.html#products" class="text-gray-400 hover:text-pink-500 transition duration-300">Produits</a></li>
+                        <li><a href="index.html#services" class="text-gray-400 hover:text-pink-500 transition duration-300">Services</a></li>
+                        <li><a href="index.html#about" class="text-gray-400 hover:text-pink-500 transition duration-300">À propos</a></li>
+                        <li><a href="index.html#contact" class="text-gray-400 hover:text-pink-500 transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Catégories</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#visage" class="text-gray-400 hover:text-pink-500 transition duration-300">Soins Visage</a></li>
+                        <li><a href="index.html#face-care-toggle" class="text-gray-400 hover:text-pink-500 transition duration-300">Maquillage</a></li>
+                        <li><a href="index.html#face-care-products" class="text-gray-400 hover:text-pink-500 transition duration-300">Corps & Bain</a></li>
+                        <li><a href="index.html#face-care-toggle" class="text-gray-400 hover:text-pink-500 transition duration-300">Accessoires</a></li>
+                        <li><a href="index.html#face-care-toggle" class="text-gray-400 hover:text-pink-500 transition duration-300">Nouveautés</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contact</h4>
+                    <address class="not-italic text-gray-400 space-y-2">
+                        <p>Porto novo non loin du marché  OUANDO,Dodji à 100m avant le feu en quittant le CEG DJEGAN-KPEVI,Cotonou quartier Zogo</p>
+                        <p>Email: alaoservice1@gmail.com</p>
+                        <p>Tél: +229 0151563219</p>
+                        <p>Tél: +229 0197903723</p>
+                        <p>Tél: +229 0144104328</p>
+                        <p>Tél: +229 0141803470</p>
+                    </address>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 Beauté Élégante. Tous droits réservés.</p>
+                <div class="flex space-x-6">
+                    <a href="conditions.html#mention" class="text-gray-400 hover:text-pink-500 text-sm transition duration-300">Mentions légales</a>
+                    <a href="conditions.html#politique" class="text-gray-400 hover:text-pink-500 text-sm transition duration-300">Politique de confidentialité</a>
+                    <a href="conditions.html#condition" class="text-gray-400 hover:text-pink-500 text-sm transition duration-300">Conditions générales</a>
+                </div>
+            </div>
+        </div>
     </footer>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -497,5 +704,198 @@
             });
         });
         </script>
+
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Search bar toggle
+        const searchBtn = document.getElementById('search-btn');
+        const searchBar = document.getElementById('search-bar');
+        
+        searchBtn.addEventListener('click', () => {
+            searchBar.classList.toggle('hidden');
+        });
+        
+        // Cart functionality
+        const cartBtn = document.getElementById('cart-btn');
+        const cartModal = document.getElementById('cart-modal');
+        const closeCart = document.getElementById('close-cart');
+        const continueShopping = document.getElementById('continue-shopping');
+        const cartCount = document.getElementById('cart-count');
+        const cartItemsContainer = document.getElementById('cart-items');
+        const cartSubtotal = document.getElementById('cart-subtotal');
+        const cartTotal = document.getElementById('cart-total');
+        
+        let cart = [];
+        
+        // Toggle cart modal
+        cartBtn.addEventListener('click', () => {
+            cartModal.classList.toggle('hidden');
+            updateCartDisplay();
+        });
+        
+        closeCart.addEventListener('click', () => {
+            cartModal.classList.add('hidden');
+        });
+        
+        continueShopping.addEventListener('click', () => {
+            cartModal.classList.add('hidden');
+        });
+        
+        // Add to cart functionality
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const id = button.getAttribute('data-id');
+                const name = button.getAttribute('data-name');
+                const price = parseFloat(button.getAttribute('data-price'));
+                
+                // Check if item already in cart
+                const existingItem = cart.find(item => item.id === id);
+                
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        id,
+                        name,
+                        price,
+                        quantity: 1
+                    });
+                }
+                
+                updateCartCount();
+                updateCartDisplay();
+                
+                // Add pulse animation to cart button
+                cartBtn.classList.add('cart-pulse');
+                setTimeout(() => {
+                    cartBtn.classList.remove('cart-pulse');
+                }, 1500);
+            });
+        });
+        
+        // Update cart count display
+        function updateCartCount() {
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            
+            if (totalItems > 0) {
+                cartCount.textContent = totalItems;
+                cartCount.classList.remove('hidden');
+            } else {
+                cartCount.classList.add('hidden');
+            }
+        }
+        
+        // Update cart display in modal
+        function updateCartDisplay() {
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p class="text-gray-500 text-center py-8">Votre panier est vide</p>';
+                cartSubtotal.textContent = 'FCFA 0';
+                cartTotal.textContent = 'FCFA 0';
+                return;
+            }
+            
+            let itemsHTML = '';
+            let subtotal = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+                
+                itemsHTML += `
+                    <div class="flex justify-between items-center py-4 border-b">
+                        <div>
+                            <h4 class="font-medium text-gray-800">${item.name}</h4>
+                            <p class="text-sm text-gray-500">FCFA ${item.price.toFixed(2)}</p>
+                        </div>
+                        <div class="flex items-center">
+                            <button class="decrease-quantity text-gray-500 hover:text-pink-500 px-2" data-id="${item.id}">
+                                <i class="fas fa-minus text-xs"></i>
+                            </button>
+                            <span class="mx-2 text-gray-700">${item.quantity}</span>
+                            <button class="increase-quantity text-gray-500 hover:text-pink-500 px-2" data-id="${item.id}">
+                                <i class="fas fa-plus text-xs"></i>
+                            </button>
+                            <button class="remove-item text-red-500 hover:text-red-700 ml-4" data-id="${item.id}">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            cartItemsContainer.innerHTML = itemsHTML;
+            cartSubtotal.textContent = `FCFA ${subtotal.toFixed(2)}`;
+            cartTotal.textContent = `FCFA ${subtotal.toFixed(2)}`;
+            
+            // Add event listeners to quantity buttons
+            document.querySelectorAll('.decrease-quantity').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const id = e.target.closest('button').getAttribute('data-id');
+                    const item = cart.find(item => item.id === id);
+                    
+                    if (item.quantity > 1) {
+                        item.quantity -= 1;
+                    } else {
+                        cart = cart.filter(item => item.id !== id);
+                    }
+                    
+                    updateCartCount();
+                    updateCartDisplay();
+                });
+            });
+            
+            document.querySelectorAll('.increase-quantity').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const id = e.target.closest('button').getAttribute('data-id');
+                    const item = cart.find(item => item.id === id);
+                    item.quantity += 1;
+                    
+                    updateCartCount();
+                    updateCartDisplay();
+                });
+            });
+            
+            document.querySelectorAll('.remove-item').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const id = e.target.closest('button').getAttribute('data-id');
+                    cart = cart.filter(item => item.id !== id);
+                    
+                    updateCartCount();
+                    updateCartDisplay();
+                });
+            });
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+    <script src="script.js"></script>
 </body>
 </html>

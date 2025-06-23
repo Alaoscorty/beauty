@@ -62,9 +62,6 @@
     });
   });
 
-
-
-
 //script qui permet de gérer les cartes produits
 document.addEventListener('DOMContentLoaded', function () {
   // Affichage/masquage des catégories
