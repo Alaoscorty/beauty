@@ -29,13 +29,6 @@
   left: 12%;
   transform: rotate(10deg);
 }
-.card2 {
-  width: 300px;
-  height: 300px;
-  bottom: 10%;
-  right: 15%;
-  transform: rotate(-8deg);
-}
 .card3 {
   width: 100px;
   height: 100px;
@@ -44,9 +37,9 @@
   transform: rotate(5deg);
 }
 .card4 {
-  width: 120px;
-  height: 120px;
-  top: 50%;
+  width: 50px;
+  height: 50px;
+  top: 70%;
   right: 25%;
   transform: rotate(-12deg);
 }
