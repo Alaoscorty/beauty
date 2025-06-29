@@ -1,15 +1,7 @@
 
-  const signUpButton = document.getElementById('signUp');
-  const signInButton = document.getElementById('signIn');
+  const signUpButton = document.getElementById('signUpForm');
+  const signInButton = document.getElementById('signInForm');
   const container = document.getElementById('container');
-
-  signUpButton.addEventListener('click', () => {
-    container.classList.add('right-panel-active');
-  });
-
-  signInButton.addEventListener('click', () => {
-    container.classList.remove('right-panel-active');
-  });
 
   // Utilitaires : localStorage pour stocker les utilisateurs en mode hors ligne
   function getLocalUsers() {

@@ -1,0 +1,131 @@
+Créer moi une base de données sécurisée MongoDB Atlas dans un dossier api pour un projet React Native Expo. 
+La base de données doit se connecter automatiquement dans le fichier apk et elle permettra à l'utilisateur d'entrer son numéro de téléphone peut importe le pays, 
+de recevoir un code OTP par mail en utilisant nodemailer, 
+avoir la possibilité de valider le code par mail en cliquant sur un bouton "valider mon code". 
+Ensuite l'utilisateur sera créé avec un identifiant personnalisé comme : user_elagante_Xxx si c'est un client et Professionnels_elegante_xxx si c'est un professionnel. Un token sera généré. Lorsque l'utilisateur entre prochainement son numéro, s'il est dans la base de données il sera connecté immédiatement si non on lui envoie le code vérification pour créer son compte.
+
+*Base de données Utilisateurs*
+
+- La base de données Utilisateurs doit stocker les informations suivantes :
+- Numéro de téléphone
+- Code OTP
+- Identifiant personnalisé (user_elagante_Xxx ou Professionnels_elegante_xxx)
+- Token
+- Type d'utilisateur (client ou professionnel)
+- Les requêtes suivantes doivent être possibles :
+- Sauvegarder : créer un nouvel utilisateur
+- Modifier : modifier les informations d'un utilisateur
+- Supprimer : supprimer un utilisateur
+- Rechercher : rechercher un utilisateur par numéro de téléphone ou identifiant
+- Connecter : connecter un utilisateur avec son numéro de téléphone et son code OTP
+
+*Base de données Produits*
+
+- La base de données Produits doit stocker les informations suivantes :
+- Id
+- Nom
+- Description
+- Lien de l'image (stocké dans un service cloud comme AWS S3 ou Google Cloud Storage)
+- Badge
+- Prix
+- Réduction
+- Étoile
+- Les requêtes suivantes doivent être possibles :
+- Sauvegarder : créer un nouveau produit
+- Modifier : modifier les informations d'un produit
+- Supprimer : supprimer un produit
+- Rechercher : rechercher un produit par nom ou description
+
+*Base de données Réservations*
+
+- La base de données Réservations doit stocker les informations suivantes :
+- Id
+- Utilisateur
+- Produit
+- Date
+- Heure
+- Les requêtes suivantes doivent être possibles :
+- Sauvegarder : créer une nouvelle réservation
+- Modifier : modifier les informations d'une réservation
+- Supprimer : supprimer une réservation
+- Rechercher : rechercher les réservations d'un utilisateur ou d'un produit
+
+*Base de données Publications*
+
+- La base de données Publications doit stocker les informations suivantes :
+- Id
+- Utilisateur
+- Image
+- Texte
+- Nombre de j'aime
+- Nombre de commentaires
+- Nombre de partages
+- Temps
+- Nom de l'utilisateur
+- Avatar de l'utilisateur
+- Les requêtes suivantes doivent être possibles :
+- Sauvegarder : créer une nouvelle publication
+- Modifier : modifier les informations d'une publication
+- Supprimer : supprimer une publication
+- Rechercher : rechercher les publications d'un utilisateur ou par texte
+
+*Base de données Profils*
+
+- La base de données Profils doit stocker les informations suivantes :
+- Id
+- Utilisateur
+- Photo de profil
+- Bio
+- Liens
+- Spécialité
+- Produits
+- Évaluation
+- Badges
+- Les requêtes suivantes doivent être possibles :
+- Sauvegarder : créer un nouveau profil
+- Modifier : modifier les informations d'un profil
+- Supprimer : supprimer un profil
+- Rechercher : rechercher un profil par utilisateur ou nom
+
+*Base de données Statistiques*
+
+- La base de données Statistiques doit stocker les informations suivantes :
+- Id
+- Utilisateur
+- Ventes
+- RDV
+- Autres statistiques
+- Les requêtes suivantes doivent être possibles :
+- Sauvegarder : créer de nouvelles statistiques
+- Modifier : modifier les informations des statistiques
+- Supprimer : supprimer des statistiques
+- Rechercher : rechercher les statistiques d'un utilisateur
+
+*Base de données Routine*
+
+- La base de données Routine doit stocker les informations suivantes :
+- Id
+- Utilisateur
+- Activités
+- Les requêtes suivantes doivent être possibles :
+- Sauvegarder : créer une nouvelle routine
+- Modifier : modifier les informations de la routine
+- Supprimer : supprimer une routine
+- Rechercher : rechercher la routine d'un utilisateur
+
+*Base de donnée produits*
+id,
+name,
+price,
+oldPrice,
+description,
+imageUrl,
+badge,
+badgeColor,
+rating,
+reviewsCount,
+
+*Exigences*
+
+- La base de données doit être sécurisée et protégée par un mot de passe.
+- Les images doivent être stockées

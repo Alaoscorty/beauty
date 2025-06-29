@@ -1,0 +1,10 @@
+CREATE DATABASE IF NOT EXISTS beauté;
+USE beauté;
+
+CREATE TABLE IF NOT EXISTS contacts (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    fullname VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    phone VARCHAR(20) NOT NULL,
+    message TEXT NOT NULL
+);

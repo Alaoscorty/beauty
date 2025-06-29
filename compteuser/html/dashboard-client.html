@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauté Élégante - Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#F59E0B',
+                        light: '#F8FAFC',
+                        dark: '#1E293B',
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
+        }
+        
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tab-active {
+            position: relative;
+        }
+        
+        .tab-active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 3px;
+            background-color: #F59E0B;
+            border-radius: 3px;
+        }
+        
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 18px;
+            height: 18px;
+            background-color: #EF4444;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fadeIn {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-tr from-pink-300 via-pink-200 to-violet-300 min-h-screen text-dark">
+    <div id="app" class="min-h-screen flex flex-col md:flex-row">
+        <!-- Sidebar for desktop -->
+        <aside class="hidden md:flex md:w-64 flex-col bg-white shadow-lg">
+            <div class="p-6 flex items-center justify-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-spa text-3xl text-primary"></i>
+                    <span class="text-xl font-bold text-primary">Beauté Élégante</span>
+                </div>
+            </div>
+            
+            <nav class="flex-1 px-4 py-6">
+                <ul class="space-y-4">
+                    <li>
+                        <a href="#" class="flex items-center space-x-3 p-3 rounded-lg bg-primary bg-opacity-10 text-primary font-medium">
+                            <i class="fas fa-home text-lg"></i>
+                            <span>Accueil</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-100 text-gray-600 hover:text-dark transition">
+                            <i class="fas fa-comment-alt text-lg"></i>
+                            <span>Messagerie</span>
+                            <div class="notification-badge">3</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-100 text-gray-600 hover:text-dark transition">
+                            <i class="fas fa-calendar-check text-lg"></i>
+                            <span>Réservations</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-100 text-gray-600 hover:text-dark transition">
+                            <i class="fas fa-store text-lg"></i>
+                            <span>Boutique</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-100 text-gray-600 hover:text-dark transition">
+                            <i class="fas fa-user-circle text-lg"></i>
+                            <span>Mon Profil</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-100 text-gray-600 hover:text-dark transition">
+                            <i class="fas fa-cog text-lg"></i>
+                            <span>Paramètres</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="p-6">
+                <button class="w-full flex items-center justify-center space-x-2 bg-primary text-white py-3 px-6 rounded-lg hover:bg-opacity-90 transition">
+                    <i class="fas fa-plus"></i>
+                    <span>Créer une publication</span>
+                </button>
+            </div>
+        </aside>
+        
+        <!-- Main content -->
+        <main class="flex-1">
+            <!-- Mobile header -->
+            <header class="md:hidden bg-white shadow-sm p-4 flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-spa text-2xl text-primary"></i>
+                    <span class="text-lg font-bold text-primary">Beauté Élégante</span>
+                </div>
+                <button id="mobile-menu-button" class="text-gray-600">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </header>
+            
+            <!-- Mobile menu (hidden by default) -->
+            <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute w-full z-10">
+                <nav class="p-4">
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="#" class="flex items-center space-x-3 p-3 rounded-lg bg-primary bg-opacity-10 text-primary font-medium">
+                                <i class="fas fa-home text-lg"></i>
+                                <span>Accueil</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-100 text-gray-600 hover:text-dark transition">
+                                <i class="fas fa-comment-alt text-lg"></i>
+                                <span>Messagerie</span>
+                                <div class="notification-badge">3</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-100 text-gray-600 hover:text-dark transition">
+                                <i class="fas fa-calendar-check text-lg"></i>
+                                <span>Réservations</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-100 text-gray-600 hover:text-dark transition">
+                                <i class="fas fa-store text-lg"></i>
+                                <span>Boutique</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-100 text-gray-600 hover:text-dark transition">
+                                <i class="fas fa-user-circle text-lg"></i>
+                                <span>Mon Profil</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-100 text-gray-600 hover:text-dark transition">
+                                <i class="fas fa-cog text-lg"></i>
+                                <span>Paramètres</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <!-- Content -->
+            <div class="p-6">
+                <!-- Welcome section -->
+                <div class="flex items-center justify-between mb-8 animate-fadeIn">
+                    <div class="flex items-center space-x-4">
+                        <div class="relative">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Profile" class="w-16 h-16 rounded-full object-cover border-2 border-primary">
+                            <div class="absolute bottom-0 right-0 w-4 h-4 bg-green-500 rounded-full border-2 border-white"></div>
+                        </div>
+                        <div>
+                            <h1 class="text-xl font-bold">Bienvenue, Nadège</h1>
+                            <p class="text-gray-500">Professionnelle de beauté</p>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <button class="text-gray-600 hover:text-dark">
+                            <i class="fas fa-bell text-xl"></i>
+                            <div class="notification-badge">5</div>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Stats cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="card bg-white p-6 rounded-xl shadow-sm">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-500">Publications</p>
+                                <h3 class="text-2xl font-bold">24</h3>
+                            </div>
+                            <div class="p-3 rounded-full bg-primary bg-opacity-10 text-primary">
+                                <i class="fas fa-pen-fancy text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-gray-100 flex items-center text-sm text-green-500">
+                            <i class="fas fa-arrow-up mr-1"></i>
+                            <span>12% ce mois</span>
+                        </div>
+                    </div>
+                    
+                    <div class="card bg-white p-6 rounded-xl shadow-sm">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-500">Rendez-vous</p>
+                                <h3 class="text-2xl font-bold">5</h3>
+                            </div>
+                            <div class="p-3 rounded-full bg-secondary bg-opacity-10 text-secondary">
+                                <i class="fas fa-calendar-alt text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-gray-100 flex items-center text-sm text-green-500">
+                            <i class="fas fa-arrow-up mr-1"></i>
+                            <span>2 nouveaux</span>
+                        </div>
+                    </div>
+                    
+                    <div class="card bg-white p-6 rounded-xl shadow-sm">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-500">Messages</p>
+                                <h3 class="text-2xl font-bold">12</h3>
+                            </div>
+                            <div class="p-3 rounded-full bg-blue-100 text-blue-500">
+                                <i class="fas fa-envelope text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-gray-100 flex items-center text-sm text-yellow-500">
+                            <i class="fas fa-exclamation-circle mr-1"></i>
+                            <span>3 non lus</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Quick actions -->
+                <div class="mb-8">
+                    <button class="w-full flex items-center justify-center space-x-2 bg-primary text-white py-4 px-6 rounded-lg hover:bg-opacity-90 transition shadow-md">
+                        <i class="fas fa-plus"></i>
+                        <span class="font-medium">Créer une publication</span>
+                    </button>
+                </div>
+                
+                <!-- Charts section -->
+                <div class="card bg-white p-6 rounded-xl shadow-sm mb-8 animate-fadeIn">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-lg font-bold">Statistiques des réservations</h2>
+                        <select class="text-sm border border-gray-200 rounded-lg px-3 py-1 focus:outline-none focus:ring-1 focus:ring-primary">
+                            <option>Cette semaine</option>
+                            <option>Ce mois</option>
+                            <option>Cette année</option>
+                        </select>
+                    </div>
+                    
+                    <div class="h-64">
+                        <!-- Chart placeholder - in a real app you would use a charting library -->
+                        <div class="flex items-end h-48 space-x-2">
+                            <div class="flex-1 bg-primary bg-opacity-20 rounded-t-lg" style="height: 20%"></div>
+                            <div class="flex-1 bg-primary bg-opacity-40 rounded-t-lg" style="height: 40%"></div>
+                            <div class="flex-1 bg-primary bg-opacity-60 rounded-t-lg" style="height: 60%"></div>
+                            <div class="flex-1 bg-primary bg-opacity-80 rounded-t-lg" style="height: 80%"></div>
+                            <div class="flex-1 bg-primary rounded-t-lg" style="height: 100%"></div>
+                            <div class="flex-1 bg-primary bg-opacity-60 rounded-t-lg" style="height: 70%"></div>
+                            <div class="flex-1 bg-primary bg-opacity-40 rounded-t-lg" style="height: 50%"></div>
+                        </div>
+                        <div class="flex justify-between text-xs text-gray-500 mt-2 px-1">
+                            <span>Lun</span>
+                            <span>Mar</span>
+                            <span>Mer</span>
+                            <span>Jeu</span>
+                            <span>Ven</span>
+                            <span>Sam</span>
+                            <span>Dim</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recent reviews -->
+                <div class="card bg-white p-6 rounded-xl shadow-sm animate-fadeIn">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-lg font-bold">Derniers avis</h2>
+                        <a href="#" class="text-sm text-primary hover:underline">Voir tout</a>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-4">
+                            <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="User" class="w-10 h-10 rounded-full object-cover">
+                            <div class="flex-1">
+                                <div class="flex items-center justify-between">
+                                    <h4 class="font-medium">Aïcha K.</h4>
+                                    <div class="flex text-yellow-400 text-sm">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 text-sm mt-1">Nadège est une professionnelle exceptionnelle ! Mon maquillage était parfait pour mon mariage.</p>
+                                <p class="text-gray-400 text-xs mt-2">Il y a 2 jours</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="User" class="w-10 h-10 rounded-full object-cover">
+                            <div class="flex-1">
+                                <div class="flex items-center justify-between">
+                                    <h4 class="font-medium">Fatou D.</h4>
+                                    <div class="flex text-yellow-400 text-sm">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 text-sm mt-1">Très satisfaite de mes soins visage. L'environnement est propre et accueillant.</p>
+                                <p class="text-gray-400 text-xs mt-2">Il y a 1 semaine</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom navigation for mobile -->
+            <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white shadow-lg border-t border-gray-100">
+                <div class="flex justify-around">
+                    <a href="#" class="flex flex-col items-center justify-center p-3 text-primary">
+                        <i class="fas fa-home text-xl"></i>
+                        <span class="text-xs mt-1">Accueil</span>
+                    </a>
+                    <a href="#" class="flex flex-col items-center justify-center p-3 text-gray-500 relative">
+                        <i class="fas fa-comment-alt text-xl"></i>
+                        <span class="text-xs mt-1">Messages</span>
+                        <div class="notification-badge">3</div>
+                    </a>
+                    <a href="#" class="flex flex-col items-center justify-center p-3 text-gray-500">
+                        <i class="fas fa-calendar-check text-xl"></i>
+                        <span class="text-xs mt-1">Réservations</span>
+                    </a>
+                    <a href="#" class="flex flex-col items-center justify-center p-3 text-gray-500">
+                        <i class="fas fa-user-circle text-xl"></i>
+                        <span class="text-xs mt-1">Profil</span>
+                    </a>
+                </div>
+            </nav>
+        </main>
+    </div>
+    
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && e.target !== mobileMenuButton) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+        
+        // Add animation class to elements as they come into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeIn');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+<!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyDAgViRLvoIuOPqRyOlCEc7voEwWTuSYZQ",
+      authDomain: "beaute-elangante-tml.firebaseapp.com",
+      projectId: "beaute-elangante-tml",
+      storageBucket: "beaute-elangante-tml.appspot.com",
+      messagingSenderId: "1003880112192",
+      appId: "1:1003880112192:web:c9280d57013f08f432bfa5"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    auth.onAuthStateChanged(async user => {
+      if (user && user.emailVerified) {
+        const uid = user.uid;
+        const reservationsSnap = await db.collection('reservations').where('userId', '==', uid).get();
+        const messagesSnap = await db.collection('messages').where('receiverId', '==', uid).get();
+        const productsSnap = await db.collection('produits').get();
+
+        const nbReservations = reservationsSnap.size;
+        const nbMessages = messagesSnap.size;
+        const nbProduits = productsSnap.size;
+
+        document.getElementById('app').innerHTML = `
+          <main class='flex flex-col md:flex-row'>
+            <!-- Sidebar -->
+            <aside class='hidden md:flex md:w-64 flex-col bg-white shadow-lg'>
+              <div class='p-6 flex items-center justify-center'>
+                <div class='flex items-center space-x-2'>
+                  <i class='fas fa-spa text-3xl text-primary'></i>
+                  <span class='text-xl font-bold text-primary'>Beauté Élégante</span>
+                </div>
+              </div>
+              <nav class='flex-1 px-4 py-6'>
+                <ul class='space-y-4'>
+                  <li><a href='#' class='flex items-center space-x-3 p-3 rounded-lg bg-primary bg-opacity-10 text-primary font-medium'><i class='fas fa-home text-lg'></i><span>Accueil</span></a></li>
+                  <li><a href='#' class='flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-100 text-gray-600 hover:text-dark transition'><i class='fas fa-comment-alt text-lg'></i><span>Messagerie</span><div class='notification-badge'>${nbMessages}</div></a></li>
+                  <li><a href='#' class='flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-100 text-gray-600 hover:text-dark transition'><i class='fas fa-calendar-check text-lg'></i><span>Réservations</span></a></li>
+                  <li><a href='#' class='flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-100 text-gray-600 hover:text-dark transition'><i class='fas fa-store text-lg'></i><span>Boutique</span></a></li>
+                  <li><a href='#' class='flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-100 text-gray-600 hover:text-dark transition'><i class='fas fa-user-circle text-lg'></i><span>Mon Profil</span></a></li>
+                </ul>
+              </nav>
+              <div class='p-6'>
+                <button onclick='logout()' class='w-full flex items-center justify-center space-x-2 bg-secondary text-white py-3 px-6 rounded-lg hover:bg-opacity-90 transition'>
+                  <i class='fas fa-sign-out-alt'></i><span>Déconnexion</span>
+                </button>
+              </div>
+            </aside>
+
+            <!-- Main Content -->
+            <main class='flex-1 p-6'>
+              <h1 class='text-2xl font-bold text-primary mb-4'>Bienvenue, ${user.displayName || user.email}</h1>
+              <div class='grid grid-cols-1 md:grid-cols-3 gap-6'>
+                <div class='bg-white rounded-lg p-4 shadow-md'>
+                  <h2 class='text-lg font-semibold text-secondary'>Réservations</h2>
+                  <p class='text-3xl font-bold text-primary mt-2'>${nbReservations}</p>
+                </div>
+                <div class='bg-white rounded-lg p-4 shadow-md'>
+                  <h2 class='text-lg font-semibold text-secondary'>Messages</h2>
+                  <p class='text-3xl font-bold text-primary mt-2'>${nbMessages}</p>
+                </div>
+                <div class='bg-white rounded-lg p-4 shadow-md'>
+                  <h2 class='text-lg font-semibold text-secondary'>Produits</h2>
+                  <p class='text-3xl font-bold text-primary mt-2'>${nbProduits}</p>
+                </div>
+              </div>
+            </main>
+          </main>`;
+      } else {
+        window.location.href = '../../login.html';
+      }
+    });
+
+    function logout() {
+      auth.signOut().then(() => window.location.href = '../../login.html');
+    }
+  </script>
+</html>
