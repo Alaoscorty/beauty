@@ -285,7 +285,7 @@
           <button type="submit">S'inscrire</button>
         </form>
       </div>
-
+      <div id="customError"></div>
       <!-- Formulaire Connexion -->
       <div class="form-container sign-in-container">
         <form id="signInForm">
@@ -431,9 +431,23 @@
 
           if (!user.emailVerified) {
             await auth.signOut();
-            return alert(
-              "Veuillez vérifier votre email avant de vous connecter."
-            );
+            // Affiche le message d'erreur dans une div au lieu d'une alerte
+            let errorDiv = document.getElementById("customError");
+            if (!errorDiv) {
+              errorDiv = document.createElement("div");
+              errorDiv.id = "customError";
+              errorDiv.style.background = "#ffe0e6";
+              errorDiv.style.color = "#d72660";
+              errorDiv.style.padding = "15px";
+              errorDiv.style.margin = "15px 0";
+              errorDiv.style.borderRadius = "8px";
+              errorDiv.style.textAlign = "center";
+              errorDiv.style.fontWeight = "bold";
+              // Ajoute la div juste avant le formulaire de connexion
+              signInForm.parentNode.insertBefore(errorDiv, signInForm);
+            }
+            errorDiv.textContent = "Veuillez vérifier votre email avant de vous connecter.";
+            return;
           }
 
           const doc = await db.collection("users").doc(user.uid).get();
