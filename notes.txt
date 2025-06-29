@@ -1,0 +1,59 @@
+✅ Étapes pour héberger ton site sur Firebase :
+1. Ouvre ton terminal (dans le dossier racine de ton projet)
+bash
+Copier
+Modifier
+npm install -g firebase-tools
+2. Connecte ton terminal à ton compte Firebase
+bash
+Copier
+Modifier
+firebase login
+Une fenêtre va s'ouvrir pour te connecter à ton compte Google.
+
+3. Initialise Firebase dans ton projet
+bash
+Copier
+Modifier
+firebase init
+Sélectionne Hosting (espace avec flèches, barre d’espace pour cocher)
+
+Sélectionne ton projet Firebase (beaute-elangante-tml)
+
+Réponds aux questions :
+
+Public directory : tape public ou dist ou le dossier contenant index.html
+
+Configure as single-page app? : tape y si tu utilises un SPA (sinon n)
+
+Overwrite index.html ? : tape n si tu veux garder le tien
+
+4. Place ton projet dans le dossier public
+Si Firebase a créé un dossier public, mets tous tes fichiers dedans (index.html, CSS, JS, images, etc.)
+
+5. Déploie ton site !
+bash
+Copier
+Modifier
+firebase deploy
+✅ Firebase va te donner une URL du type :
+
+arduino
+Copier
+Modifier
+https://beaute-elangante-tml.web.app
+C’est le lien de ton site en ligne ! Tu peux le partager ou l'utiliser pour les redirections (window.location.href dans ton JS).
+
+📁 Arborescence finale (exemple)
+pgsql
+Copier
+Modifier
+mon-projet/
+├── public/
+│   ├── index.html
+│   ├── css/
+│   ├── js/
+│   ├── images/
+├── firebase.json
+Besoin de rediriger vers dashboard-client.html ou dashboard-pro.html ?
+Place ces fichiers aussi dans le dossier public/compteuser/html/.
