@@ -1,88 +1,588 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BeautéElegante - Connexion</title>
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+    />
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/11.9.1/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/11.9.1/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/11.9.1/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/11.9.1/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/11.9.1/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/11.9.1/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/11.9.1/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/11.9.1/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/11.9.1/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/11.9.1/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        height: 100%;
+        font-family: "Helvetica Neue", sans-serif;
+        background: linear-gradient(135deg, #ffb6c1, #c084fc);
+        overflow-x: hidden;
+      }
+      .parallax-card {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        animation: float 6s ease-in-out infinite;
+      }
+      @keyframes float {
+        0% {
+          transform: translateY(0) rotate(0);
+        }
+        50% {
+          transform: translateY(-10px) rotate(2deg);
+        }
+        100% {
+          transform: translateY(0) rotate(0);
+        }
+      }
+      .card1 {
+        width: 120px;
+        height: 120px;
+        top: 5%;
+        left: 5%;
+        animation-delay: 2s;
+      }
+      .card2 {
+        width: 180px;
+        height: 180px;
+        bottom: 10%;
+        right: 10%;
+        animation-delay: 3s;
+      }
+      .card3 {
+        width: 80px;
+        height: 80px;
+        top: 70%;
+        left: 30%;
+        animation-delay: 4s;
+      }
+      .card4 {
+        width: 100px;
+        height: 100px;
+        top: 50%;
+        right: 25%;
+        animation-delay: 1s;
+      }
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
+      .container {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 14px 28 rgba(0, 0, 0, 0.25), 0 10px 10 rgba(0, 0, 0, 0.22);
+        position: relative;
+        overflow: hidden;
+        width: 80%;
+        max-width: 900px;
+        min-height: 600px;
+        margin: 80px auto;
+        display: flex;
+      }
+
+      .form-container {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 50%;
+        transition: all 0.6s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 15px 40px;
+        text-align: center;
+      }
+      .sign-up-container {
+        left: 0;
+        opacity: 0;
+        z-index: 1;
+      }
+      .sign-in-container {
+        left: 0;
+        z-index: 2;
+      }
+
+      .container.right-panel-active .sign-up-container {
+        transform: translateX(100%);
+        opacity: 1;
+        z-index: 5;
+      }
+      .container.right-panel-active .sign-in-container {
+        transform: translateX(100%);
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 360px;
+      }
+      input,
+      button {
+        margin: 8px 0;
+        padding: 12px;
+        border: none;
+        border-radius: 20px;
+      }
+      input {
+        background: #eee;
+        width: 100%;
+      }
+      button {
+        background: #ff69b4;
+        color: #fff;
+        font-weight: bold;
+        cursor: pointer;
+        transition: transform 80ms ease-in;
+      }
+      button.ghost {
+        background: transparent;
+        border: 2px solid #fff;
+      }
+
+      .social-container {
+        margin: 20px 0;
+      }
+      .social {
+        margin: 0 5px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 50%;
+        color: #ff69b4;
+        text-decoration: none;
+      }
+
+      .overlay-container {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 50%;
+        height: 100%;
+        overflow: hidden;
+        transition: transform 0.6s ease-in-out;
+        z-index: 100;
+      }
+      .container.right-panel-active .overlay-container {
+        transform: translateX(-100%);
+        
+      }
+      .overlay {
+        background: linear-gradient(to right, #d946ef, #f472b6);
+        position: relative;
+        left: -100%;
+        width: 200%;
+        height: 100%;
+        transform: translateX(0);
+        transition: transform 0.6s ease-in-out;
+      }
+      .container.right-panel-active .overlay {
+        transform: translateX(50%);
+      }
+      .overlay-panel {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0 40px;
+        text-align: center;
+        top: 0;
+        height: 100%;
+        width: 50%;
+        transition: transform 0.6s ease-in-out;
+        color: #fff;
+        
+      }
+      .overlay-left {
+        transform: translateX(-20%);
+
+      }
+      .container.right-panel-active .overlay-left {
+        transform: translateX(0);
+        
+      }
+      .overlay-right {
+        right: 0;
+        transform: translateX(0);
+      }
+      .container.right-panel-active .overlay-right {
+        transform: translateX(30%);
+        
+      }
+
+      .footer {
+        text-align: center;
+        margin: 20px 0;
+        color: #fff;
+        position: relative;
+      }
+      .footer .icons i {
+        margin: 0 10px;
+        font-size: 20px;
+        color: #fff;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          flex-direction: column;
+          width: 95%;
+          min-height: auto;
+          margin: 40px auto;
+          padding: 10px;
+          padding-top: 20px;
+          padding-bottom: 20px;
+        }
+        .form-container,
+        .overlay-container {
+          position: relative;
+          width: 100%;
+          transform: none !important;
+          opacity: 1 !important;
+          z-index: 2;
+        }
+        .overlay {
+          display: none;
+        }
       }
     </style>
   </head>
   <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+    <!-- Cartes de fond animées (parallax) -->
+    <div class="parallax-card card1"></div>
+    <div class="parallax-card card2"></div>
+    <div class="parallax-card card3"></div>
+    <div class="parallax-card card4"></div>
+
+    <!-- Conteneur principal -->
+    <div class="container" id="container">
+      <!-- Formulaire Inscription -->
+      <div class="form-container sign-up-container">
+        <form id="signUpForm">
+          <h1>Créer un compte</h1>
+          <div class="social-container">
+            <a href="#" class="social" id="facebookBtn"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="social" id="googleBtn"
+              ><i class="fab fa-google"></i
+            ></a>
+            <a href="#" class="social" id="githubBtn"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a href="#" class="social" id="instagramBtn"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" class="social" id="facebookBtn"
+              ><i class="fab fa-facebook"></i
+            ></a>
+            <a href="#" class="social" id="linkedinBtn"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+          </div>
+          <span>ou utilisez votre email</span>
+          <input type="text" id="nameSignUp" placeholder="Nom" required />
+          <input type="email" id="emailSignUp" placeholder="Email" required />
+          <input
+            type="password"
+            id="passwordSignUp"
+            placeholder="Mot de passe"
+            autocomplete="new-password"
+            required
+          />
+          <select
+            id="roleSelect"
+            required
+            style="margin: 8px 0; padding: 12px; border-radius: 20px"
+          >
+            <option value="">-- Choisir un rôle --</option>
+            <option value="client">Client</option>
+            <option value="pro">Professionnel</option>
+          </select>
+
+          <button type="submit">S'inscrire</button>
+        </form>
+      </div>
+      <div id="customError"></div>
+      <!-- Formulaire Connexion -->
+      <div class="form-container sign-in-container connect">
+        <form id="signInForm">
+          <h1>Se connecter</h1>
+          <div class="social-container">
+            <a href="#" class="social" id="facebookBtn"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="social" id="googleBtn"
+              ><i class="fab fa-google"></i
+            ></a>
+            <a href="#" class="social" id="githubBtn"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a href="#" class="social" id="instagramBtn"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" class="social" id="facebookBtn"
+              ><i class="fab fa-facebook"></i
+            ></a>
+            <a href="#" class="social" id="linkedinBtn"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+
+          </div>
+          <span>ou utilisez votre compte</span>
+          <input type="email" id="emailSignIn" placeholder="Email" required />
+          <input
+            type="password"
+            id="passwordSignIn"
+            placeholder="Mot de passe"
+            required
+          />
+          <a href="#" id="resetPassword" style="margin: 10px 0"
+            >Mot de passe oublié ?</a
+          >
+          <button type="submit">Se connecter</button>
+        </form>
+      </div>
+
+      <!-- Overlay gauche/droite -->
+      <div class="overlay-container">
+        <div class="overlay">
+          <div class="overlay-panel overlay-left">
+            <h1>Ravie de te revoir !</h1>
+            <p>Connecte-toi pour continuer ton voyage beauté</p>
+            <button class="ghost" id="signIn">Se connecter</button>
+          </div>
+          <div class="overlay-panel overlay-right">
+            <h1>Bienvenue !</h1>
+            <p>Inscris-toi et découvre le monde de BeautéElegante</p>
+            <button class="ghost" id="signUp">S'inscrire</button>
+          </div>
+        </div>
+      </div>
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
+
+    <!-- Pied de page -->
+    <div class="footer">
+      <b>Suivez-nous</b>
+      <div class="icons">
+        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
 
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+      const firebaseConfig = {
+        apiKey: "AIzaSyDAgViRLvoIuOPqRyOlCEc7voEwWTuSYZQ",
+        authDomain: "beaute-elangante-tml.firebaseapp.com",
+        projectId: "beaute-elangante-tml",
+        storageBucket: "beaute-elangante-tml.appspot.com",
+        messagingSenderId: "1003880112192",
+        appId: "1:1003880112192:web:c9280d57013f08f432bfa5",
+      };
 
+      firebase.initializeApp(firebaseConfig);
+      const auth = firebase.auth();
+      const db = firebase.firestore();
+
+      const container = document.getElementById("container");
+      const signUpBtn = document.getElementById("signUp");
+      const signInBtn = document.getElementById("signIn");
+      const signUpForm = document.getElementById("signUpForm");
+      const emailSignUp = document.getElementById("emailSignUp");
+      const passwordSignUp = document.getElementById("passwordSignUp");
+      const roleSelect = document.getElementById("roleSelect");
+      const signInForm = document.getElementById("signInForm");
+      const emailSignIn = document.getElementById("emailSignIn");
+      const passwordSignIn = document.getElementById("passwordSignIn");
+      const resetBtn = document.getElementById("resetPassword");
+      const googleBtn = document.getElementById("googleBtn");
+      const facebookBtn = document.getElementById("facebookBtn");
+
+      
+
+      signUpBtn.addEventListener("click", () =>
+        container.classList.add("right-panel-active")
+      );
+      signInBtn.addEventListener("click", () =>
+        container.classList.remove("right-panel-active")
+      );
+
+      // INSCRIPTION
+      signUpForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const role = roleSelect?.value || "client";
         try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+          const userCred = await auth.createUserWithEmailAndPassword(
+            emailSignUp.value,
+            passwordSignUp.value
+          );
+          const user = userCred.user;
+
+          await user.sendEmailVerification({
+            url: window.location.href, // Lien de retour si cliqué
+          });
+
+          await db.collection("users").doc(user.uid).set({
+            email: user.email,
+            role: role,
+            createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+          });
+
+          // Message personnalisé
+          const message = `
+        <div style="text-align:center;">
+          <p>Inscription réussie !</p>
+          <p>Un email de vérification a été envoyé à <b>${user.email}</b>.</p>
+          <p>Veuillez vérifier votre boîte de réception.</p>
+          <button onclick="window.open('https://mail.google.com','_blank')" style="margin-top:10px;padding:10px 20px;border:none;border-radius:5px;background-color:#ff69b4;color:white;font-weight:bold;cursor:pointer;">Vérifier l'email</button>
+        </div>
+      `;
+          document.body.innerHTML = message;
+        } catch (err) {
+          alert("Erreur inscription : " + err.message);
         }
+      });
+
+      // CONNEXION
+      signInForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        try {
+          const userCred = await auth.signInWithEmailAndPassword(
+            emailSignIn.value,
+            passwordSignIn.value
+          );
+          const user = userCred.user;
+
+          if (!user.emailVerified) {
+            await auth.signOut();
+            // Affiche le message d'erreur dans une div au lieu d'une alerte
+            let errorDiv = document.getElementById("customError");
+            if (!errorDiv) {
+              errorDiv = document.createElement("div");
+              errorDiv.id = "customError";
+              errorDiv.style.background = "#ffe0e6";
+              errorDiv.style.color = "#d72660";
+              errorDiv.style.padding = "15px";
+              errorDiv.style.margin = "15px 0";
+              errorDiv.style.borderRadius = "8px";
+              errorDiv.style.textAlign = "center";
+              errorDiv.style.fontWeight = "bold";
+              // Ajoute la div juste avant le formulaire de connexion
+              signInForm.parentNode.insertBefore(errorDiv, signInForm);
+            }
+            errorDiv.textContent = "Veuillez vérifier votre email avant de vous connecter.";
+            return;
+          }
+
+          const doc = await db.collection("users").doc(user.uid).get();
+          const role = doc.data()?.role;
+
+          if (role === "client") {
+            window.location.href = "compteuser/html/dashboard-client.html";
+          } else if (role === "pro") {
+            window.location.href = "compteuser/html/dashboard-pro.html";
+          } else {
+            alert("Rôle non défini. Contactez l’administrateur.");
+          }
+        } catch (err) {
+          alert("Erreur connexion : " + err.message);
+        }
+      });
+
+      // RÉINITIALISATION MOT DE PASSE
+      resetBtn?.addEventListener("click", async () => {
+        const email = prompt(
+          "Entrez votre email pour réinitialiser votre mot de passe :"
+        );
+        if (!email) return;
+        try {
+          await auth.sendPasswordResetEmail(email);
+          alert("Email de réinitialisation envoyé !");
+        } catch (err) {
+          alert("Erreur : " + err.message);
+        }
+      });
+
+      // OAUTH (GOOGLE & FACEBOOK)
+      const oauthLogin = async (provider) => {
+        try {
+          const result = await auth.signInWithPopup(provider);
+          const user = result.user;
+
+          const userRef = db.collection("users").doc(user.uid);
+          const userDoc = await userRef.get();
+
+          if (!userDoc.exists) {
+            await userRef.set({
+              email: user.email,
+              role: "client",
+              createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+            });
+          }
+
+          const role = (await userRef.get()).data()?.role || "client";
+          if (role === "client") {
+            window.location.href = "compteuser/html/dashboard-client.html";
+          } else {
+            window.location.href = "compteuser/html/dashboard-pro.html";
+          }
+        } catch (err) {
+          if (err.code === "auth/account-exists-with-different-credential") {
+            const methods = await auth.fetchSignInMethodsForEmail(err.email);
+            alert(
+              `Cet email est déjà utilisé via ${methods[0]}. Veuillez vous connecter via ce mode.`
+            );
+          } else {
+            alert("Erreur OAuth : " + err.message);
+          }
+        }
+      };
+
+      googleBtn?.addEventListener("click", () =>
+        oauthLogin(new firebase.auth.GoogleAuthProvider())
+      );
+      facebookBtn?.addEventListener("click", () =>
+        oauthLogin(new firebase.auth.FacebookAuthProvider())
+      );
+
+      // REDIRECTION AUTO SI CONNECTÉ
+      auth.onAuthStateChanged(async (user) => {
+        if (user && user.emailVerified) {
+          const doc = await db.collection("users").doc(user.uid).get();
+          const role = doc.data()?.role;
+          if (role === "client") {
+            window.location.href = "compteuser/html/dashboard-client.html";
+          } else if (role === "pro") {
+            window.location.href = "compteuser/html/dashboard-pro.html";
+          }
+        }
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const loginForm = document.getElementById("loginInForm");
+        const signInForm = document.getElementById("signInForm");
+
+        // Attacher l'événement click
+        signUpBtn.addEventListener("click", function() {
+          // Masquer le formulaire de connexion 
+          loginForm.style.display = "block";
+          // Afficher le formulaire d'inscription
+          signInForm.style.display = "none";
+        });
       });
     </script>
   </body>

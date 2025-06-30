@@ -1,0 +1,2424 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauté Élégante - Votre destination beauté premium</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+</head>
+
+<body class="font-sans bg-gray-50" id="content">
+    <!-- Div de chargement  -->
+    <div id="loader" class="loader">
+        <div class="parallax-card card1"></div>
+        <div class="parallax-card card4"></div>
+        <div class="parallax-card card3"></div>
+        <div class="flex items-center">
+            <i class="fas fa-spa text-2xxl text-pink-500 mr-2"></i>
+            <a href="#" class="text-2xxl font-bold text-gray-800" class="elegante">Beauté<span class="text-pink-500">Élégante</span></a>
+        </div>
+        <div class="spinner"></div>
+    </div>
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-spa text-2xl text-pink-500 mr-2"></i>
+                <a href="#" class="text-2xl font-bold text-gray-800">Beauté<span class="text-pink-500">Élégante</span></a>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-700 hover:text-pink-500 font-medium">Accueil</a>
+                <a href="formation.html" class="text-gray-700 hover:text-pink-500 font-medium">Nos formations</a>
+                <a href="index.html#products" class="text-gray-700 hover:text-pink-500 font-medium">Produits</a>
+                <a href="index.html#services" class="text-gray-700 hover:text-pink-500 font-medium">Services</a>
+                <a href="index.html#about" class="text-gray-700 hover:text-pink-500 font-medium">À propos</a>
+                <a href="index.html#contact" class="text-gray-700 hover:text-pink-500 font-medium">Contact</a>
+            </nav>
+            <!--Section pour afficher la barre de recherche et la carte-->
+            <div class="flex items-center space-x-4">
+                <a href="wa.me/+22951563219" class="relative text-gray-600 hover:text-pink-500">
+                    <i class="fas fa-phone text-xl"></i>
+                </a>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-600">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-4 px-4 shadow-lg">
+            <a href="index.html" class="block py-2 text-gray-700 hover:text-pink-500">Accueil</a>
+            <a href="formation.html" class="block py-2 text-gray-700 hover:text-pink-500">Nos formations</a>
+            <a href="index.html#products" class="block py-2 text-gray-700 hover:text-pink-500">Produits</a>
+            <a href="index.html#services" class="block py-2 text-gray-700 hover:text-pink-500">Services</a>
+            <a href="index.html#about" class="block py-2 text-gray-700 hover:text-pink-500">À propos</a>
+            <a href="index.html#contact" class="block py-2 text-gray-700 hover:text-pink-500">Contact</a>
+        </div>
+
+        <!-- Chat Messenger Widget -->
+        <div id="messenger-chat" class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+            <!-- Chat Button -->
+            
+            <button id="open-chat" class="bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg p-4 flex items-center justify-center focus:outline-none transition duration-300">
+                <i class="fab fa-facebook-messenger text-2xl"></i>
+            </button>
+            <!-- Chat Window -->
+            <div id="chat-window" class="hidden w-80 bg-white rounded-lg shadow-xl mt-4 overflow-hidden">
+                <div class="flex items-center bg-blue-600 px-4 py-3">
+                    <img src="https://scontent-lis1-1.xx.fbcdn.net/v/t39.30808-6/481274404_633810389361324_2341581396917416261_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeF1Bl3LARHJzN5h8i8lr5nriejG8YGfwmGJ6MbxgZ_CYc_XHoMkjqZFyVo3ITlI018l26YX0RxJG4Afg_1xFsrp&_nc_ohc=dGAy-CZnCnIQ7kNvwF9ruUC&_nc_oc=Adk0F_85CYWDY0DkXJoe581eGopJFuLCxAWWtGxip-SkAAk93bwsz51SBo3nE6tSPe8&_nc_zt=23&_nc_ht=scontent-lis1-1.xx&_nc_gid=eDEKAkjQsUsytSkeRgklPg&oh=00_AfLXlKnkCrRGDXmkKwZh8bB6m9hskmOVqhR9ERipLW_T8A&oe=683BC28C" alt="Messenger Logo" class="w-8 h-8 rounded-full mr-2">
+                    <span class="font-bold text-white text-lg">Beauté Élégante</span>
+                    <button id="close-chat" class="ml-auto text-white hover:text-blue-200 text-xl focus:outline-none">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div id="chat-messages" class="p-4 h-64 overflow-y-auto bg-gray-50 text-sm flex flex-col gap-3">
+                    <div class="flex items-start">
+                        <img src="https://scontent-lis1-1.xx.fbcdn.net/v/t39.30808-6/481970510_633808076028222_7144637731826429266_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeGmmi1YMNaqV9IP24NNA2ZheqVgesb40Wx6pWB6xvjRbI5ma3It03G8EsfRb30oSIwcTuuCrWMtsvoEN_oeZO6C&_nc_ohc=K10Qshbfma0Q7kNvwGBNwV9&_nc_oc=AdkxtMMw1f0BH6ZuRg1-SR7pZXrHz0aq-lcX5Y_J_NOV6s6he9i7L53tpX_QMrr8Rbk&_nc_zt=23&_nc_ht=scontent-lis1-1.xx&_nc_gid=Ri4pFAkKAuEhZJEb2TyB-w&oh=00_AfKK4Gnm_jQT_KgnxA62JMOrHfdn-x3GjZFlcpNeMaRg4Q&oe=683BC7E7" alt="Bot" class="w-7 h-7 rounded-full mr-2">
+                        <div class="bg-blue-100 text-gray-800 px-3 py-2 rounded-lg">
+                            Bonjour 👋 ! Je suis le bot Messenger Beauté Élégante.<br>
+                            Posez-moi une question sur nos produits, services, horaires, contact ou demandez un lien de connexion.
+                        </div>
+                    </div>
+                </div>
+                <form id="chat-form" class="flex border-t bg-white">
+                    <input id="chat-input" type="text" placeholder="Écrivez votre message..." autocomplete="off" class="flex-grow px-3 py-2 focus:outline-none text-gray-700">
+                    <button type="submit" class="px-4 text-blue-600 hover:text-blue-800 focus:outline-none">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <script>
+            // Chat open/close
+            const openChatBtn = document.getElementById('open-chat');
+            const closeChatBtn = document.getElementById('close-chat');
+            const chatWindow = document.getElementById('chat-window');
+            openChatBtn.addEventListener('click', () => {
+                chatWindow.classList.remove('hidden');
+                openChatBtn.classList.add('hidden');
+            });
+            closeChatBtn.addEventListener('click', () => {
+                chatWindow.classList.add('hidden');
+                openChatBtn.classList.remove('hidden');
+            });
+
+            // Chatbot logic
+            const chatForm = document.getElementById('chat-form');
+            const chatInput = document.getElementById('chat-input');
+            const chatMessages = document.getElementById('chat-messages');
+
+            function botReply(message) {
+                let reply = '';
+                let links = '';
+                const msg = message.toLowerCase();
+
+                if (msg.includes('produit')) {
+                    reply = "Nos produits phares incluent : Crème Hydratante Intense, Sérum Anti-Âge Premium, Masque Éclat Doré, Nettoyant Doux, Fond de Teint, Gloss Lèvres, Huile Satinée, Gommage Sucre & Café, Lait Corps Nourrissant, et bien d'autres. Découvrez-les dans la section Produits ou cliquez sur 'Voir tout'.";
+                    links = `<a href="#products" class="text-blue-600 underline">Voir les produits</a>`;
+                } else if (msg.includes('service')) {
+                    reply = "Nous proposons des soins visage premium, manucure professionnelle, extensions de cils, maquillage, pédicure, onglerie, tatouage, vernis simple et plus. Consultez la section Services pour plus d'infos ou réservez directement.";
+                    links = `<a href="#services" class="text-blue-600 underline">Voir les services</a> <br><a href="#formation" class="text-blue-600 underline">Réserver un service</a>`;
+                } else if (msg.includes('horaire')) {
+                    reply = "Nos horaires : Lundi - Vendredi : 9h - 19h, Samedi : 08h - 18h, Dimanche : 09h à 18h.";
+                } else if (msg.includes('contact')) {
+                    reply = "Vous pouvez nous contacter par email à alaoservice1@gmail.com ou alaoscorty@gmail.com, ou par téléphone au +229 0151563219, +229 0144104328, +229 41803470, +229 0197903723, +229 0194516481. Vous pouvez aussi utiliser le formulaire de contact.";
+                    links = `<a href="#contact" class="text-blue-600 underline">Formulaire de contact</a>`;
+                } else if (msg.includes('connexion') || msg.includes('compte') || msg.includes('login')) {
+                    reply = "Voici le lien pour vous connecter à votre compte Beauté Élégante :";
+                    links = `<a href="beaute-elangante-tml.web.app" target="_blank" class="text-blue-600 underline">Se connecter</a>`;
+                } else if (msg.includes('connecter') || msg.includes('compte') || msg.includes('login')) {
+                    reply = "Voici le lien pour vous connecter à votre compte Beauté Élégante :";
+                    links = `<a href="beaute-elangante-tml.web.app" target="_blank" class="text-blue-600 underline">Se connecter</a>`;
+                } else if (msg.includes('adresse')) {
+                    reply = "Nos adresses : Porto-Novo, quartier OUANDO non loin du marché ;Dodji à 100m avant le feu en quittant le CEG DJEGAN-KPEVI; Cotonou, quartier Zogbo.";
+                } else if (msg.includes('don') || msg.includes('donner')) {
+                    reply = "Vous souhaitez faire un don ? Cliquez ici pour accéder au formulaire de don sécurisé.";
+                    links = `<a href="#services" class="text-blue-600 underline">Faire un don</a>`;
+                } else if (msg.includes('groupe') || msg.includes('whatsapp')) {
+                    reply = "Pour recevoir nos offres, abonnez-vous à notre groupe WhatsApp en bas de page.";
+                    links = `<a href="#newsletter" class="text-blue-600 underline">S'abonner</a>`;
+                } else if (msg.includes('livraison')) {
+                    reply = "La livraison est gratuite pour toutes les commandes. Passez votre commande et choisissez votre mode de paiement.";
+                } else if (msg.includes('paiement')) {
+                    reply = "Nous acceptons les paiements par Mobile Money (MTN, Moov) et virement bancaire (Ecobank Bénin). De plus une fois que vous aurez confirmer votre paiement veillez soumettre le pdf de votre commande par whatsapp pour la réception de votre colis.";
+                } else if (msg.includes('réserver') || msg.includes('reservation')) {
+                    reply = "Vous pouvez réserver un service d'esthétique directement via notre formulaire de réservation.";
+                    links = `<a href="#formation" class="text-blue-600 underline">Réserver un service</a>`;
+                } else if (msg.includes('avis') || msg.includes('témoignage')) {
+                    reply = "Consultez les avis de nos clients dans la section Témoignages pour découvrir leurs expériences.";
+                    links = `<a href="#testimonials" class="text-blue-600 underline">Voir les témoignages</a>`;
+                } else {
+                    reply = "Je n'ai pas compris votre question. Essayez avec : produits, services, horaires, contact, connexion, adresse, don, groupe WhatsApp, livraison, paiement, réservation, avis. Pour toute autre demande, prenez rendez-vous ou contactez-nous directement.";
+                }
+
+                // Bot message
+                const botMsg = document.createElement('div');
+                botMsg.className = 'flex items-start';
+                botMsg.innerHTML = `
+                    <img src="https://scontent-lis1-1.xx.fbcdn.net/v/t39.30808-6/481970510_633808076028222_7144637731826429266_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeGmmi1YMNaqV9IP24NNA2ZheqVgesb40Wx6pWB6xvjRbI5ma3It03G8EsfRb30oSIwcTuuCrWMtsvoEN_oeZO6C&_nc_ohc=K10Qshbfma0Q7kNvwGBNwV9&_nc_oc=AdkxtMMw1f0BH6ZuRg1-SR7pZXrHz0aq-lcX5Y_J_NOV6s6he9i7L53tpX_QMrr8Rbk&_nc_zt=23&_nc_ht=scontent-lis1-1.xx&_nc_gid=Ri4pFAkKAuEhZJEb2TyB-w&oh=00_AfKK4Gnm_jQT_KgnxA62JMOrHfdn-x3GjZFlcpNeMaRg4Q&oe=683BC7E7" alt="Bot" class="w-7 h-7 rounded-full mr-2">
+                    <div class="bg-blue-100 text-gray-800 px-3 py-2 rounded-lg">${reply}${links ? '<br>' + links : ''}</div>
+                `;
+                chatMessages.appendChild(botMsg);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            chatForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const userMsg = chatInput.value.trim();
+                if (!userMsg) return;
+                // User message
+                const userDiv = document.createElement('div');
+                userDiv.className = 'flex items-end justify-end';
+                userDiv.innerHTML = `
+                    <div class="bg-blue-500 text-white px-3 py-2 rounded-lg mr-2">${userMsg}</div>
+                    <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Vous" class="w-7 h-7 rounded-full">
+                `;
+                chatMessages.appendChild(userDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                chatInput.value = '';
+                setTimeout(() => botReply(userMsg), 700);
+            });
+        </script>
+        <style>
+            #messenger-chat #chat-window::-webkit-scrollbar { width: 6px; }
+            #messenger-chat #chat-window::-webkit-scrollbar-thumb { background: #e5e7eb; border-radius: 3px; }
+        </style>
+        
+        <!-- Search Bar -->
+        <div id="search-bar" class="hidden bg-white py-3 px-4 shadow-md">
+            <div class="container mx-auto flex">
+                <input type="text" placeholder="Rechercher une formation..." class="flex-grow px-4 py-2 border border-gray-300 rounded-l focus:outline-none focus:ring-2 focus:ring-pink-500">
+                <button id="search-submit" class="bg-pink-500 text-white px-4 py-2 rounded-r hover:bg-pink-600">
+                    <i class="fas fa-search"></i>
+                </button>
+                <div id="search-no-result" class="hidden text-red-500 text-sm ml-4 flex items-center">
+                    Aucun résultat
+                </div>  
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section flex items-center justify-center text-center text-white">
+        <div class="px-4">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Votre Beauté, Notre Passion</h1>
+            <p class="text-xl md:text-2xl mb-8">Découvrez nos produits premium et services d'esthétique exclusifs</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#products" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-6 rounded-full transition duration-300">Nos Produits</a>
+                <a href="#services" class="bg-white hover:bg-gray-100 text-pink-500 font-bold py-3 px-6 rounded-full transition duration-300">Nos Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catégories des produits -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Nos Catégories</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="category-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <div class="h-40 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/13/c6/29/13c62986f6b867fcfeedd7843cd0f453.jpg');"></div>
+                    <div class="p-4 cursor-pointer" id="face-care-toggle">
+                        <h3 class="font-semibold text-lg mb-2 text-gray-800">produit de beauté</h3>
+                        <p class="text-gray-600 text-sm">Crèmes, sérums et masques</p>
+                    </div>
+                    <div id="face-care-products" class="hidden p-4 border-t bg-white">
+                        <ul class="space-y-2 text-gray-700 text-sm">
+                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="hydratante">Crème Hydratante Intense</li>
+                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="serum">Sérum Anti-Âge Premium</li>
+                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="masque">Masque Éclat Doré</li>
+                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="nettoyant">Nettoyant Doux</li>
+                        </ul>
+                    </div>
+                    <!-- Conteneur pour afficher la carte produit -->
+                    <div id="product-detail" class="hidden mt-6"></div>
+                </div>
+
+                <div class="category-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <div class="h-40 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/8a/1f/41/8a1f418ea4df22d85ff69a288057650a.jpg');"></div>
+                    <div class="p-4 cursor-pointer" id="face-care-toggle">
+                        <h3 class="font-semibold text-lg mb-2 text-gray-800">Soins Corps</h3>
+                        <p class="text-gray-600 text-sm">Laits, gommages et huiles</p>
+                    </div>
+                    <div id="face-care-products" class="hidden p-4 border-t bg-white">
+                        <ul class="space-y-2 text-gray-700 text-sm">
+                            <li class="product-item cursor-pointer hover:text-pink-500" data-product="Huilesatinee">Huile Satinée</li>
+                            <li class="product-item cursor-pointer hover:text-pink-500" data-product="Laitcorps">Lait Corps Nourrissant</li>
+                            <li class="product-item cursor-pointer hover:text-pink-500" data-product="Gommagesucre">Gommage Sucre & Café</li>
+                            <li class="product-item cursor-pointer hover:text-pink-500" data-product="Mainreparatrice">Crème Mains Réparatrice</li>
+                        </ul>
+                        <!-- Conteneur pour afficher la carte produit -->
+                        <div id="product-detail" class="hidden mt-6"></div>
+                    </div>
+                </div>
+            
+
+                <div class="category-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <div class="h-40 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/db/7c/f8/db7cf86b8bf0b3585562cdc4cafdc0df.jpg');"></div>
+                    <div class="p-4 cursor-pointer" id="face-care-toggle">
+                            <h3 class="font-semibold text-lg mb-2 text-gray-800">Maquillage</h3>
+                            <p class="text-gray-600 text-sm">Produits professionnels</p>
+                    </div>
+                    <div id="face-care-products" class="hidden p-4 border-t bg-white">
+                        <ul class="space-y-2 text-gray-700 text-sm">
+                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="Shampooingfortifiant">Fond de Teint Haute Tenue</li>
+                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="Paletteyeux">Palette Yeux Pigmentée</li>
+                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="rougelevre">Rouge à Lèvres Mat</li>
+                            <li class="product-item cursor-pointer text-gray-700 hover:text-pink-500" data-product="fixateur">Fixateur de Maquillage</li>
+                        </ul>
+                        <!-- Conteneur pour afficher la carte produit -->
+                        <div id="product-detail" class="hidden mt-6"></div>
+                    </div>
+                </div>
+                        
+                    
+                <div class="category-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <div class="h-40 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/2a/14/51/2a1451148093a68e524c3e6b8c911ccc.jpg');"></div>
+                    <div class="p-4 cursor-pointer" id="face-care-toggle">
+                        <h3 class="font-semibold text-lg mb-2 text-gray-800">Soins Capillaires</h3>
+                        <p class="text-gray-600 text-sm">Nutrition, réparation et brillance</p>
+                    </div>
+                    <div id="face-care-products" class="hidden p-4 border-t bg-white">
+                        <ul class="space-y-2 text-gray-700 text-sm">
+                            <li class="product-item cursor-pointer hover:text-pink-500" data-product="Shampooingfortifiant">Shampooing Fortifiant</li>
+                            <li class="product-item cursor-pointer hover:text-pink-500" data-product="Masquereparateur">Masque Réparateur Intense</li>
+                            <li class="product-item cursor-pointer hover:text-pink-500" data-product="serum">Sérum Anti-Frisottis</li>
+                            <li class="product-item cursor-pointer hover:text-pink-500" data-product="Capillairebrillance">Huile Capillaire Brillance</li>
+                        </ul>
+                        <!-- Conteneur pour afficher la carte produit -->
+                        <div id="product-detail" class="hidden mt-6"></div>
+                    </div>
+                </div>
+
+                <div class="category-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <div class="h-40 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/f5/13/99/f5139906cc4bc5f8337c1767189dcd18.jpg');"></div>
+                        <div class="p-4 cursor-pointer" id="face-care-toggle">
+                            <h3 class="font-semibold text-lg mb-2 text-gray-800">Soins Naturels</h3>
+                            <p class="text-gray-600 text-sm">Ingrédients bio et doux</p>
+                        </div>
+                        <div id="face-care-products" class="hidden p-4 border-t bg-white">
+                            <ul class="space-y-2 text-gray-700 text-sm">
+                                <li class="product-item cursor-pointer hover:text-pink-500" data-product="Aloevera">Gel Aloe Vera Pur</li>
+                                <li class="product-item cursor-pointer hover:text-pink-500" data-product="Jojoba">Huile de Jojoba Bio</li>
+                                <li class="product-item cursor-pointer hover:text-pink-500" data-product="Argileverte">Argile Verte Detox</li>
+                                <li class="product-item cursor-pointer hover:text-pink-500" data-product="Eauderose">Eau FlEcole de Rose</li>
+                            </ul>
+                            <!-- Conteneur pour afficher la carte produit -->
+                            <div id="product-detail" class="hidden mt-6"></div>
+                        </div>
+                    </div>
+                </div>
+                    
+                <div class="category-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <div class="h-40 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/8c/69/5f/8c695fa49cd55f8bb3712db1ec85509b.jpg');"></div>
+                    <div class="p-4 cursor-pointer" id="face-care-toggle">
+                        <h3 class="font-semibold text-lg mb-2 text-gray-800">Bain & Relaxation</h3>
+                        <p class="text-gray-600 text-sm">Moments bien-être à la maison</p>
+                    </div>
+                    <div id="face-care-products" class="hidden p-4 border-t bg-white">
+                        <ul class="space-y-2 text-gray-700 text-sm">
+                            <li class="product-item cursor-pointer hover:text-pink-500" data-product="selsdebain">Sels de Bain Relaxants</li>
+                            <li class="product-item cursor-pointer hover:text-pink-500" data-product="huilelavande">Huile Essentielle Lavande</li>
+                            <li class="product-item cursor-pointer hover:text-pink-500" data-product="geldouche">Gel Douche Apaisant</li>
+                            <li class="product-item cursor-pointer hover:text-pink-500" data-product="laitdebain">Lait de Bain Nourrissant</li>
+                        </ul>
+                        <!-- Conteneur pour afficher la carte produit -->
+                        <div id="product-detail" class="hidden mt-6"></div>
+                    </div>
+                </div>
+                    
+                <div class="category-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <div class="h-40 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/13/dc/9b/13dc9b64a9ba91d6948d05d6b0b75cca.jpg');"></div>
+                    <div class="p-4 cursor-pointer" id="outils-products-toggle">
+                        <h3 class="font-semibold text-lg mb-2 text-gray-800">Accessoires</h3>
+                        <p class="text-gray-600 text-sm">Outils professionnels</p>
+                    </div>
+                    <div class="p-4 cursor-pointer" id="face-care-products" class="hidden p-4 border-t bg-white">
+                        <ul class="space-y-2 text-gray-700 text-sm">
+                            <li class="product-item cursor-pointer hover:text-pink-500" data-product="pinceaux">Pinceaux de Maquillage</li>
+                            <li class="product-item cursor-pointer hover:text-pink-500" data-product="blender">Éponge Blender</li>
+                            <li class="product-item cursor-pointer hover:text-pink-500" data-product="rouleau">Rouleau de Jade</li>
+                            <li class="product-item cursor-pointer hover:text-pink-500" data-product="brossevisage">Brosse Nettoyante Visage</li>
+                            </ul>
+                            <!-- Conteneur pour afficher la carte produit -->
+                        <div id="product-detail" class="hidden mt-6"></div>
+                    </div>
+                    
+                </div>
+                    
+                <div class="category-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <div class="h-40 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/13/c6/29/13c62986f6b867fcfeedd7843cd0f453.jpg');"></div>
+                    <div class="p-4 cursor-pointer" id="face-care-toggle">
+                        <h3 class="font-semibold text-lg mb-2 text-gray-800">produit de beauté</h3>
+                                <p class="text-gray-600 text-sm">Crèmes, sérums et masques</p>
+                    </div>
+                    <div id="face-care-products" class="hidden p-4 border-t bg-white">
+                        <li class="product-item cursor-pointer hover:text-pink-500" data-product="hydratante">Crème Hydratante Intense</li>
+                                <li class="product-item cursor-pointer hover:text-pink-500" data-product="serum">Sérum Anti-Âge Premium</li>
+                                <li class="product-item cursor-pointer hover:text-pink-500" data-product="masque">Masque Éclat Doré</li>
+                                <li class="product-item cursor-pointer hover:text-pink-500" data-product="nettoyant">Nettoyant Doux</li>
+                        </ul>
+                        <!-- Conteneur pour afficher la carte produit -->
+                        <div id="product-detail" class="hidden mt-6"></div>
+                    </div>
+                    <!-- Conteneur pour afficher la carte produit -->
+                    <div id="product-detail" class="hidden mt-6"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold text-gray-800">Nos Produits Phares</h2>
+                <a href="#" id="see-all-products"  class="text-pink-500 hover:text-pink-600 font-medium">Voir tout →</a>
+            </div>
+            <!-- div pour afficher les produits disponibles sur le site à faire -->
+            <div>
+                <!-- Produit 1 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300"  data-nom-produit="Fond de Teint Matifiant" >
+                    <img src="https://i.pinimg.com/736x/76/26/61/762661c8a845c75fd4717c98d4fd4589.jpg" alt="Fond de teint" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-bold text-lg text-gray-800 mb-2">Fond de Teint Matifiant - Teint Ebony</h4>
+                        <p class="text-pink-500 font-bold mb-2">FCFA 2000</p>
+                        <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="1" data-name="Fond de Teint Matifiant" data-price="2000">
+                            Ajouter
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Produit 2 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <img src="https://i.pinimg.com/736x/94/07/1b/94071bc19094a5592074be93fee3f56a.jpg" alt="Gloss lèvres" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-bold text-lg text-gray-800 mb-2">Gloss Lèvres Hydratant - Fraise</h4>
+                        <p class="text-pink-500 font-bold mb-2">FCFA 500 à 1000 FCFA</p>
+                        <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="2" data-name="Gloss Lèvres Hydratant" data-price="500">
+                            Ajouter
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Produit 3 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <img src="https://i.pinimg.com/736x/ba/1f/d4/ba1fd4e1cf467e5fecf4a8478dd1b133.jpg" alt="Masque visage" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-bold text-lg text-gray-800 mb-2">Masque Visage Purifiant - Argile Verte</h4>
+                        <p class="text-pink-500 font-bold mb-2">FCFA 5000</p>
+                        <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="3" data-name="Masque Purifiant" data-price="5000">
+                            Ajouter
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Produit 4 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <img src="https://i.pinimg.com/736x/fd/46/d5/fd46d5dde8747673efb7a831d4d1d31f.jpg" alt="Huile corporelle" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-bold text-lg text-gray-800 mb-2">Huile Corporelle Éclat Naturel</h4>
+                        <p class="text-pink-500 font-bold mb-2">FCFA 3000</p>
+                        <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="4" data-name="Huile Éclat Naturel" data-price="3000">
+                            Ajouter
+                        </button>
+                    </div>
+                </div>
+                <!-- Produit 5 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <img src="https://i.pinimg.com/736x/46/8f/b4/468fb4a851d201eb76d0034a3e3f758c.jpg" alt="Palette fards à paupières" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-bold text-lg text-gray-800 mb-2">Palette Fards à Paupières - Couleurs Tropicales</h4>
+                        <p class="text-pink-500 font-bold mb-2">FCFA 5000</p>
+                        <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="5" data-name="Palette Tropicale" data-price="5000">
+                            Ajouter
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Produit 6 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <img src="https://i.pinimg.com/736x/65/f1/38/65f138ca0135c2ab8161a7a432fc85a5.jpg" alt="Démaquillant" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-bold text-lg text-gray-800 mb-2">Eau Micellaire Démaquillante + lingette</h4>
+                        <p class="text-pink-500 font-bold mb-2">FCFA 4000</p>
+                        <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="6" data-name="Eau Micellaire + lingette" data-price="4000">
+                            Ajouter
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Produit 7 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <img src="https://i.pinimg.com/736x/56/b0/15/56b015bc8140d33a013a2f7a0d4029c1.jpg" alt="Rouge à lèvres" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-bold text-lg text-gray-800 mb-2">Rouge à Lèvres Velours - Rouge Passion</h4>
+                        <p class="text-pink-500 font-bold mb-2">FCFA 1500</p>
+                        <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="7" data-name="Rouge à Lèvres Velours" data-price="1500">
+                            Ajouter
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Produit 8 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <img src="https://i.pinimg.com/736x/7c/3e/74/7c3e74c4cc986d5b3b3191bd5e2f1c73.jpg" alt="Poudre compacte" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-bold text-lg text-gray-800 mb-2">Poudre Compacte Anti-Brillance - Caramel</h4>
+                        <p class="text-pink-500 font-bold mb-2">FCFA 2000</p>
+                        <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="8" data-name="Poudre Compacte" data-price="2000">
+                            Ajouter
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Modal Produits "Voir tout" -->
+        <div id="all-products-modal" class="fixed inset-0 z-50 hidden overflow-y-auto">
+            <div class="flex items-center justify-center min-h-screen px-4">
+                <div class="fixed inset-0 bg-gray-900 opacity-60"></div>
+                <div class="bg-white rounded-lg shadow-lg max-w-4xl w-full z-10 p-8 relative">
+                    <button id="close-all-products" class="absolute top-3 right-3 text-gray-400 hover:text-pink-500 text-xl">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <h3 class="text-2xl font-bold text-center mb-8 text-pink-500">Nos produits de beauté</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+
+                        <!-- Produit 1 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300"  data-nom-produit="Fond de Teint Matifiant" >
+                            <img src="https://i.pinimg.com/736x/76/26/61/762661c8a845c75fd4717c98d4fd4589.jpg" alt="Fond de teint" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Fond de Teint Matifiant - Teint Ebony</h4>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 2000</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="1" data-name="Fond de Teint Matifiant" data-price="2000">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 2 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/94/07/1b/94071bc19094a5592074be93fee3f56a.jpg" alt="Gloss lèvres" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Gloss Lèvres Hydratant - Fraise</h4>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 500 à 1000 FCFA</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="2" data-name="Gloss Lèvres Hydratant" data-price="500">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 3 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/ba/1f/d4/ba1fd4e1cf467e5fecf4a8478dd1b133.jpg" alt="Masque visage" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Masque Visage Purifiant - Argile Verte</h4>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 5000</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="3" data-name="Masque Purifiant" data-price="5000">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 4 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/fd/46/d5/fd46d5dde8747673efb7a831d4d1d31f.jpg" alt="Huile corporelle" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Huile Corporelle Éclat Naturel</h4>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 3000</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="4" data-name="Huile Éclat Naturel" data-price="3000">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Produit 5 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/46/8f/b4/468fb4a851d201eb76d0034a3e3f758c.jpg" alt="Palette fards à paupières" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Palette Fards à Paupières - Couleurs Tropicales</h4>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 5000</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="5" data-name="Palette Tropicale" data-price="5000">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 6 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/65/f1/38/65f138ca0135c2ab8161a7a432fc85a5.jpg" alt="Démaquillant" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Eau Micellaire Démaquillante + lingette</h4>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 4000</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="6" data-name="Eau Micellaire + lingette" data-price="4000">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 7 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/56/b0/15/56b015bc8140d33a013a2f7a0d4029c1.jpg" alt="Rouge à lèvres" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Rouge à Lèvres Velours - Rouge Passion</h4>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 1500</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="7" data-name="Rouge à Lèvres Velours" data-price="1500">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 8 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/7c/3e/74/7c3e74c4cc986d5b3b3191bd5e2f1c73.jpg" alt="Poudre compacte" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Poudre Compacte Anti-Brillance - Caramel</h4>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 2000</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="8" data-name="Poudre Compacte" data-price="2000">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 9 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/0c/3a/58/0c3a58c816e23bc68cde2ddc55fa1116.jpg" alt="Lotion tonique" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Lotion Tonique à l'Hibiscus</h4>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 5000</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="9" data-name="Lotion Hibiscus" data-price="5000">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 10 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/96/ef/f4/96eff4c3537ff33fbbae6faade923571.jpg" alt="Savon noir africain" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Savon Noir Traditionnel - Peau Mixte</h4>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 1500</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="10" data-name="Savon Noir Traditionnel" data-price="1500">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 11 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/07/4b/b5/074bb561ff0a0d786e4168acabe0db35.jpg" alt="Spray fixateur" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Spray Fixateur Longue Tenue</h4>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 2000 à 3000</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="11" data-name="Spray Fixateur" data-price="3000">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 12 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/cc/2e/7a/cc2e7a7e1cf347bd3fa3c45df148c988.jpg" alt="Huile visage" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Huile Visage Anti-Imperfections - Neem & Tea Tree</h4>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 15000</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="12" data-name="Huile Visage Neem" data-price="15000">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 13 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/a4/72/c6/a472c6db1627c0feebc4a0b47c13fe30.jpg" alt="Gel douche" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Gel Douche Hydratant - Karité & Miel</h4>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 2500</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="13" data-name="Gel Douche Karité" data-price="2500">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 14 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/af/d0/d6/afd0d6c2e5a806b18165651d4d478909.jpg" alt="Mascara" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Mascara Volume Extrême - Noir Intense</h4>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 500 à 2000</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="14" data-name="Mascara Volume" data-price="500">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 15 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/c6/22/c3/c622c3b9328e6d357c1bc58a66495114.jpg" alt="Gommage corps" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Gommage Corps Sucre & Coco</h4>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 3000</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="15" data-name="Gommage Coco" data-price="3000">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 16 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/a0/f4/21/a0f421ab7a3d5e39239b102e814383e1.jpg" alt="Eyeliner" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Eyeliner Waterproof - Pointe Précise</h4>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 500 à 1500</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="16" data-name="Eyeliner Waterproof" data-price="800">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                            <!-- Produit 17 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/3a/58/35/3a5835cecbdee269ddfeaf25fb222c3c.jpg" alt="Cils faux" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Cils Faux Volumineux</h4>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 2000 à 3000</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="17" data-name="Cils Faux Volumineux" data-price="2500">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 18 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/52/d2/ea/52d2ea8b66a380f596eeea1b52ffa2d4.jpg" alt="Vernis à ongles" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Vernis à Ongles - Rouge Brillant</h4>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 300 à 2000 l'unité</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="18" data-name="Vernis Rouge Brillant" data-price="350">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 19 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="hhttps://i.pinimg.com/736x/69/ac/8a/69ac8a89fdc67c0a981d97dcbec26c63.jpg" alt="Coton" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Coton Démaquillant - 100g</h4>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 500</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="19" data-name="Coton Démaquillant" data-price="500">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 20 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/fa/0a/5f/fa0a5f62d24da3d6884ff5e6a3996d60.jpg" alt="Dissolvant" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Dissolvant Sans Acétone - 100ml</h4>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 200</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="20" data-name="Dissolvant Sans Acétone" data-price="250">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 21 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/25/c9/38/25c938f6306d894681af1d3423be4155.jpg" alt="Pied de biche" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Pied de Biche - Outil Manucure</h4>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 100</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="21" data-name="Pied de Biche Manucure" data-price="100">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 22 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/41/ad/77/41ad779d73c01277cf6a9a8eafd25b47.jpg" alt="Lime à ongles" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Lime à Ongles Professionnelle</h4>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 150 à 1000</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="22" data-name="Lime Ongles" data-price="200">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 23 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/d5/b9/26/d5b926faa0ca1f59d5b4c63e04c35952.jpg" alt="Soin des ongles" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">combo accessoires soin Renforçateur Ongles</h4>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 40000</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="23" data-name="combo accessoires soin Renforçateur" data-price="40000">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 24 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/be/e1/4b/bee14b3caaed6cf46fea6bb4b4277e15.jpg" alt="Super glue" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Super Glue Extra Forte - 5g</h4>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 150</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="24" data-name="Super Glue Extra Forte" data-price="150">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 25 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/33/c4/5e/33c45eb93e13209748ff74289ff0913c.jpg" alt="Chapeau de bain" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Chapeau de Bain Silicone</h4>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 200</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="25" data-name="Chapeau de Bain Silicone" data-price="200">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 26 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/05/0a/bc/050abcbc6273085e204d28fd95fc1add.jpg" alt="Crayon yeux" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Crayon Yeux Waterproof - Noir</h4>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 200</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="26" data-name="Crayon Yeux Waterproof" data-price="250">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 27 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/d5/74/45/d574459f0fd6576b79a03ea03678dee1.jpg" alt="Boucles d'oreilles" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Boucles d'Oreilles Créoles Argentées</h4>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 500</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="27" data-name="Boucles d'Oreilles Créoles" data-price="600">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 28 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/30/af/c1/30afc1e65d7b46da10ac9101c4f61254.jpg" alt="Queue de cheval" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Queue de Cheval Naturelle - Châtain</h4>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 3000</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="28" data-name="Queue de Cheval Naturelle" data-price="3000">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 29 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/82/3f/14/823f143a0cfc33dc7d8e39c3e1e3a68f.jpg" alt="Chaîne homme" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Chaîne Homme Acier Inoxydable</h4>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 2500</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="29" data-name="Chaîne Homme Acier" data-price="2500">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 30 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/ff/06/60/ff0660dccc98f5d6e40bfdf631750ff4.jpg" alt="Chaîne femme" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Chaîne Femme Dorée Élégante</h4>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 500 à 5000</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="30" data-name="Chaîne Femme Dorée" data-price="5000">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 31 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/91/c2/87/91c287d88535de8bbebc24196e24707b.jpg" alt="Cils naturels" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Cils Naturels Réutilisables</h4>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 2500</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="31" data-name="Cils Naturels" data-price="2700">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 32 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/d8/63/0e/d8630e70d0e5f5afc37fd9d59985a3fa.jpg" alt="Vernis transparent" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Vernis Transparent Protecteur</h4>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 1000</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="32" data-name="Vernis Transparent" data-price="1000">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 33 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/3e/6a/99/3e6a99b8e730f117bd26c366fe17c77c.jpg" alt="Coton bio" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Coton Bio Naturel - 100g</h4>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 150 à 1500</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="33" data-name="Coton Bio" data-price="200">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 34 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/0a/6e/d4/0a6ed49794de002e5fe0251f6376bda1.jpg" alt="Dissolvant bio" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2"> Lait corporelle </h4>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 2000</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="34" data-name="Dissolvant Bio" data-price="2000">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 35 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/bf/60/79/bf6079a573adc0e8cdf84f467e281a6c.jpg" alt="Pied de biche pro" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Pied de Biche Professionnel</h4>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 5000</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="35" data-name="Pied de Biche Pro" data-price="5000">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 36 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/c7/29/b6/c729b63ec26de68779219ecf59490322.jpg" alt="Lime vernie" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Raquette</h4>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 500</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="36" data-name="Raquette" data-price="500">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 37 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/84/6f/98/846f986dfb3175cb33b84f55921b829e.jpg" alt="Soin ongles naturel" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Raquette en plastique</h4>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 500</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="37" data-name="Raquette plastique" data-price="500">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 38 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/33/69/e3/3369e32ff2e0f575ec67fa003115eb33.jpg" alt="Super glue rapide" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Razoire en plastique</h4>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 1000</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="38" data-name="razoire en plastique" data-price="1000">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 39 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/20/a3/36/20a3367c14f7017c7a4edfba52d62b0c.jpg" alt="Chapeau bain lys" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Gant visage </h4>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 500</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="39" data-name="gant visage" data-price="500">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 40 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/57/b8/7e/57b87e1c4d80c74e8c636edc7cdb0c7b.jpg" alt="Crayon lèvres" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Acessoire pédicure</h4>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 1100</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="40" data-name="Acessoire pédicure" data-price="1100">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 41 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/8a/f8/3e/8af83eed90291dde4fb39c2f1ffcb765.jpg" alt="Bague couleur or" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Bague couleur or</h4>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 500 à 3500</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="41" data-name="Bague couleur or" data-price="500">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 42 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/c4/9b/42/c49b426ef323b47d576d488a06845133.jpg" alt="Bague en or" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Bague Dorée Tendance</h4>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 500 à 3000</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="42" data-name="Bague Dorée Tendance" data-price="500">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 43 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/1b/89/2c/1b892c0fdecd59cfc133af80e014318c.jpg" alt="Huile Satinée" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Huile Satinée</h4>
+                                <p class="text-gray-600 text-sm mb-2">Une huile qui nourrit la peau en profondeur et laisse un fini soyeux.</p>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 10 000</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="43" data-name="Huile Satinée" data-price="10000">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 44 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/60/0e/54/600e540b2886cb7195511c6d8b1eb7c0.jpg" alt="Crème Hydratante Intense" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Crème Hydratante Intense</h4>
+                                <p class="text-gray-600 text-sm mb-2">Crème riche conçue pour hydrater intensément les peaux sèches.</p>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 15 000</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="44" data-name="Crème Hydratante Intense" data-price="15000">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 45 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/5f/06/bf/5f06bf55271c7489b8a375c8aef2adb9.jpg" alt="Masque Éclat Doré" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Masque Éclat Doré</h4>
+                                <p class="text-gray-600 text-sm mb-2">Masque illuminant à base d'extraits naturels pour un teint radieux.</p>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 3 000</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="45" data-name="Masque Éclat Doré" data-price="3000">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 46 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/6f/c0/3e/6fc03ee4ee8f56d73c27a3eda2ae3462.jpg" alt="Nettoyant Doux" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Nettoyant Doux</h4>
+                                <p class="text-gray-600 text-sm mb-2">Nettoyant visage sans sulfate adapté aux peaux sensibles.</p>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 5 000</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="46" data-name="Nettoyant Doux" data-price="5000">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 47 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/75/97/64/7597645b096ef404252c1fc7d74cbd3b.jpg" alt="Lait Corps Nourrissant" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Lait Corps Nourrissant</h4>
+                                <p class="text-gray-600 text-sm mb-2">Hydrate et adoucit la peau du corps grâce à une formule enrichie.</p>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 2 500</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="47" data-name="Lait Corps Nourrissant" data-price="2500">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 48 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/03/35/36/033536ea8eff5c3aa2d7d49d57042c07.jpg" alt="Gommage Sucre & Café" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Gommage Sucre & Café</h4>
+                                <p class="text-gray-600 text-sm mb-2">Exfolie en douceur pour une peau lisse et tonifiée.</p>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 7 500</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="48" data-name="Gommage Sucre & Café" data-price="7500">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 49 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/1f/5d/41/1f5d414f0b4b118d194eeea0acacdf81.jpg" alt="Crème Mains Réparatrice" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Crème Mains Réparatrice</h4>
+                                <p class="text-gray-600 text-sm mb-2">Apaise et répare les mains sèches et abîmées.</p>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 4 000</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="49" data-name="Crème Mains Réparatrice" data-price="4000">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 50 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/07/fb/0c/07fb0cb4b1c84996252afa3acb04cccd.jpg" alt="Shampooing Fortifiant" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Shampooing Fortifiant</h4>
+                                <p class="text-gray-600 text-sm mb-2">Renforce la fibre capillaire et limite la casse.</p>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 10 000</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="50" data-name="Shampooing Fortifiant" data-price="10000">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 51 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/00/17/09/001709e19d7113a6a83b4532270ea497.jpg" alt="Masque Réparateur Intense" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Masque Réparateur Intense</h4>
+                                <p class="text-gray-600 text-sm mb-2">Soin profond pour cheveux abîmés ou traités chimiquement.</p>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 11 500</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="51" data-name="Masque Réparateur Intense" data-price="11500">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 52 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/2a/45/ad/2a45ad3d16c2c0f042ed60c3510d2c6a.jpg" alt="Huile Capillaire Brillance" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Huile Capillaire Brillance</h4>
+                                <p class="text-gray-600 text-sm mb-2">Apporte éclat et douceur sans alourdir les cheveux.</p>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 9 500</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="52" data-name="Huile Capillaire Brillance" data-price="9500">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 53 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/c8/0b/d9/c80bd9504d441301ae349138a354f4c6.jpg" alt="Sérum Anti-Frisottis" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Sérum Anti-Frisottis</h4>
+                                <p class="text-gray-600 text-sm mb-2">Lisse les cheveux rebelles et protège contre l’humidité.</p>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 12 000</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="53" data-name="Sérum Anti-Frisottis" data-price="12000">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 54 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/8d/fb/67/8dfb67f324f61bf2ca9335c9f162f107.jpg" alt="Huile Capillaire Brillance" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Huile Capillaire Brillance</h4>
+                                <p class="text-gray-600 text-sm mb-2">Idéale pour sublimer la chevelure avec une brillance naturelle.</p>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 9 500</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="54" data-name="Huile Capillaire Brillance" data-price="9500">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 55 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/c6/4c/b6/c64cb632db7f82cb6d21e423b5fd7455.jpg" alt="Sérum Anti-Frisottis" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Sérum Anti-Frisottis</h4>
+                                <p class="text-gray-600 text-sm mb-2">Contrôle les frisottis et adoucit la texture capillaire.</p>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 12 000</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="55" data-name="Sérum Anti-Frisottis" data-price="12000">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 56 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/c3/b8/e0/c3b8e0d12daf660c1691682482868afc.jpg" alt="Gel Aloe Vera Pur" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Gel Aloe Vera Pur</h4>
+                                <p class="text-gray-600 text-sm mb-2">Apaise et hydrate la peau avec 99% d'aloe vera bio.</p>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 6 000</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="56" data-name="Gel Aloe Vera Pur" data-price="6000">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 57 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/4b/5b/c9/4b5bc90a26687361c70c2174f1765485.jpg" alt="Huile de Jojoba Bio" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Huile de Jojoba Bio</h4>
+                                <p class="text-gray-600 text-sm mb-2">Régule le sébum et hydrate sans graisser.</p>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 7 000</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="57" data-name="Huile de Jojoba Bio" data-price="7000">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 58 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/b4/b6/bd/b4b6bdd0025e8a17b427664a56be4d9c.jpg" alt="Argile Verte Detox" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Argile Verte Detox</h4>
+                                <p class="text-gray-600 text-sm mb-2">Purifie les peaux grasses et mixtes, effet matifiant immédiat.</p>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 5 500</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="58" data-name="Argile Verte Detox" data-price="5500">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 59 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/78/f7/ec/78f7ecd842617b8f53112d3b5225ca91.jpg" alt="Eau FlEcole de Rose" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Eau FlEcole de Rose</h4>
+                                <p class="text-gray-600 text-sm mb-2">Tonifie et rafraîchit le visage en douceur.</p>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 5 000</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="59" data-name="Eau FlEcole de Rose" data-price="5000">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 60 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/38/c2/78/38c278274026ddd250664a9af7bf2735.jpg" alt="Crème Hydratante Intense" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Crème Hydratante Intense</h4>
+                                <p class="text-gray-600 text-sm mb-2">Une crème riche qui hydrate en profondeur, parfaite pour les peaux sèches.</p>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 8 000</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="60" data-name="Crème Hydratante Intense" data-price="8000">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Produit 61 -->
+                        <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                            <img src="https://i.pinimg.com/736x/bf/f3/58/bff358931791e7b8acc8f486fc02358e.jpg" alt="Masque Éclat Doré" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg text-gray-800 mb-2">Masque Éclat Doré</h4>
+                                <p class="text-gray-600 text-sm mb-2">Un masque éclat avec des extraits de perle pour illuminer le teint.</p>
+                                <p class="text-pink-500 font-bold mb-2">FCFA 4 000</p>
+                                <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="61" data-name="Masque Éclat Doré" data-price="4000">
+                                    Ajouter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // Ouvre le modal "Voir tout"
+            document.getElementById('see-all-products').addEventListener('click', function(e) {
+                e.preventDefault();
+                document.getElementById('all-products-modal').classList.remove('hidden');
+            });
+            // Ferme le modal
+            document.getElementById('close-all-products').onclick = function() {
+                document.getElementById('all-products-modal').classList.add('hidden');
+            };
+            // Ajout au panier depuis le modal (délégation d'événement)
+            document.getElementById('all-products-modal').addEventListener('click', function(e) {
+                if (e.target.closest('.add-to-cart')) {
+                    const btn = e.target.closest('.add-to-cart');
+                    const id = btn.getAttribute('data-id');
+                    const name = btn.getAttribute('data-name');
+                    const price = parseFloat(btn.getAttribute('data-price'));
+                    // Cherche la variable cart globale
+                    if (typeof cart !== 'undefined') {
+                        const existingItem = cart.find(item => item.id === id);
+                        if (existingItem) {
+                            existingItem.quantity += 1;
+                        } else {
+                            cart.push({ id, name, price, quantity: 1 });
+                        }
+                        updateCartCount();
+                        updateCartDisplay();
+                        cartBtn.classList.add('cart-pulse');
+                        setTimeout(() => { cartBtn.classList.remove('cart-pulse'); }, 1500);
+                    }
+                }
+            });
+        </script>
+            
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            <!-- Product 1 -->
+            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1888&q=80" alt="Crème hydratante" class="w-full h-64 object-cover">
+                    <div class="absolute top-2 right-2 bg-pink-500 text-white text-xs font-bold px-2 py-1 rounded-full">Nouveau</div>
+                </div>
+                <div class="p-4">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-gray-800">Crème Hydratante Intense</h3>
+                        <span class="text-pink-500 font-bold">FCFA 5500</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">Hydratation 24h pour une peau éclatante</p>
+                    <div class="flex justify-between items-center">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="text-gray-600 text-xs ml-1">(42)</span>
+                        </div>
+                        <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="1" data-name="Crème Hydratante Intense" data-price="5500">
+                            Ajouter
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                <div class="relative">
+                    <img src="https://i.pinimg.com/736x/b0/98/ad/b098add8327997ca928c40bd1c1fb176.jpg" alt="Sérum anti-âge" class="w-full h-64 object-cover">
+                    <div class="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">-50%</div>
+                </div>
+                <div class="p-4">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-gray-800">Sérum Anti-Âge Premium</h3>
+                        <span class="text-pink-500 font-bold">FCFA 25000</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">Ride réduites en 28 jours</p>
+                    <div class="flex justify-between items-center">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="text-gray-600 text-xs ml-1">(128)</span>
+                        </div>
+                        <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="2" data-name="Sérum Anti-Âge Premium" data-price="25000">
+                            Ajouter
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                <img src="https://i.pinimg.com/736x/ad/e4/6a/ade46aa01a6c3b4235bdd28cbf7705e3.jpg" alt="Masque facial" class="w-full h-64 object-cover">
+                <div class="p-4">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-gray-800">Masque Éclat Doré</h3>
+                        <span class="text-pink-500 font-bold">FCFA 3000</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">Éclat immédiat pour votre peau</p>
+                    <div class="flex justify-between items-center">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span class="text-gray-600 text-xs ml-1">(76)</span>
+                        </div>
+                        <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="3" data-name="Masque Éclat Doré" data-price="3000">
+                            Ajouter
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 4 -->
+            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                <div class="relative">
+                    <img src="https://i.pinimg.com/736x/b0/cd/38/b0cd38da7c0b45a05af0f81e720ffa4d.jpg"  alt="Nettoyant visage" class="w-full h-64 object-cover">
+                    <div class="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">Nouveau</div>
+                </div>
+                <div class="p-4">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-gray-800">Nettoyant Doux</h3>
+                        <div>
+                            <span class="text-gray-400 text-sm line-through mr-2">FCFA 10000</span>
+                            <span class="text-pink-500 font-bold">FCFA 8000</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">Purifie sans agresser</p>
+                    <div class="flex justify-between items-center">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="text-gray-600 text-xs ml-1">(93)</span>
+                        </div>
+                        <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="4" data-name="Nettoyant Doux" data-price="8000">
+                            Ajouter
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Nos Services d'Esthétique</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/44/79/db/4479dbd89fd3ebc91b4ba92127d07f7c.jpg');"></div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-pink-100 text-pink-500 p-3 rounded-full mr-4">
+                                <i class="fas fa-spa text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-xl text-gray-800">Soin du Visage Premium</h3>
+                        </div>
+                       <p class="text-gray-600 mb-4">Manucure haut de gamme incluant traitement, modelage et vernis pour des ongles parfaitement dessinés.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-pink-500 font-bold">À partir de FCFA 8000</span>
+                            <a href="#reservation" class="text-pink-500 hover:text-pink-600 font-medium text-sm open-reservation-modal">Réserver →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/b0/cd/38/b0cd38da7c0b45a05af0f81e720ffa4d.jpg');"></div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-pink-100 text-pink-500 p-3 rounded-full mr-4">
+                                <i class="fas fa-hand-sparkles text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-xl text-gray-800">Manucure Professionnelle</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Soin des mains et vernis semi-permanent avec une finition impeccable.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-pink-500 font-bold">À partir de FCFA 10000</span>
+                            <a href="#reservation" class="text-pink-500 hover:text-pink-600 font-medium text-sm open-reservation-modal">Réserver →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://i..pinimg.com/736x/05/9d/42/059d4215fed19bfb43cfac68d60d97fe.jpg');"></div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-pink-100 text-pink-500 p-3 rounded-full mr-4">
+                                <i class="fas fa-eye text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-xl text-gray-800">Extensions de Cils</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Extensions cils à cils pour un regard intense et naturel.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-pink-500 font-bold">À partir de FCFA 5000</span>
+                            <a href="#reservation" class="text-pink-500 hover:text-pink-600 font-medium text-sm open-reservation-modal">Réserver →</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Service 4 -->
+                <div class="service-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/ab/4e/46/ab4e46b5021ed0327aa1e8355c32e8c4.jpg');"></div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-pink-100 text-pink-500 p-3 rounded-full mr-4">
+                                <i class="fa-solid fa-web-awesome"></i>
+                            </div>
+                            <h3 class="font-bold text-xl text-gray-800">Make-up Premium</h3>
+                        </div>
+                       <p class="text-gray-600 mb-4">Manucure haut de gamme incluant traitement, modelage et vernis pour des ongles parfaitement dessinés.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-pink-500 font-bold">À partir de FCFA 4500</span>
+                            <a href="#reservation" class="text-pink-500 hover:text-pink-600 font-medium text-sm open-reservation-modal">Réserver →</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Service 5 -->
+                <div class="service-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/5d/ff/b1/5dffb1dab5704bcf259546a451edd9f6.jpg');"></div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-pink-100 text-pink-500 p-3 rounded-full mr-4">
+                                <i class="fa-solid fa-chart-simple"></i>
+                            </div>
+                            <h3 class="font-bold text-xl text-gray-800">Pédicure Premium</h3>
+                        </div>
+                       <p class="text-gray-600 mb-4">Manucure haut de gamme incluant traitement, modelage et vernis pour des ongles parfaitement dessinés.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-pink-500 font-bold">À partir de FCFA 5000</span>
+                            <a href="#reservation" class="text-pink-500 hover:text-pink-600 font-medium text-sm open-reservation-modal">Réserver →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="service-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/05/cf/be/05cfbea3605981c57e628240a6f879ca.jpg');"></div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-pink-100 text-pink-500 p-3 rounded-full mr-4">
+                               <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            </div>
+                            <h3 class="font-bold text-xl text-gray-800">Manucure Premium</h3>
+                        </div>
+                       <p class="text-gray-600 mb-4">Manucure haut de gamme incluant traitement, modelage et vernis pour des ongles parfaitement dessinés.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-pink-500 font-bold">À partir de FCFA 3000</span>
+                            <a href="#reservation" class="text-pink-500 hover:text-pink-600 font-medium text-sm open-reservation-modal">Réserver →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <a href="#" class="center bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full transition duration-300"><i class="fa-solid fa-heart-circle-plus"></i></a>
+             <!-- Donation Modal -->
+            <div id="donation-modal" class="fixed inset-0 z-50 hidden overflow-y-auto">
+                <div class="flex items-center justify-center min-h-screen px-4">
+                    <div class="fixed inset-0 bg-gray-900 opacity-60"></div>
+                    <div class="bg-white rounded-lg shadow-lg max-w-md w-full z-10 p-8 relative">
+                        <button id="close-donation" class="absolute top-3 right-3 text-gray-400 hover:text-pink-500 text-xl">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        <h3 class="text-2xl font-bold text-center mb-4 text-pink-500">Faire un don</h3>
+                        <form id="donation-form" class="space-y-5">
+                            <div>
+                                <label for="donor-name" class="block text-gray-700 font-medium mb-1">Nom complet</label>
+                                <input type="text" id="donor-name" required class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                            </div>
+                            <div>
+                                <label for="donor-email" class="block text-gray-700 font-medium mb-1">Email</label>
+                                <input type="email" id="donor-email" required class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                            </div>
+                            <div>
+                                <label for="donation-amount" class="block text-gray-700 font-medium mb-1">Montant (FCFA )</label>
+                                <input type="number" id="donation-amount" min="100" required class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-1">Méthode de paiement</label>
+                                <select id="donation-method" required class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                                    <option value="">Sélectionnez une méthode</option>
+                                    <option value="mobile">Mobile Money (MTN, Moov, etc.)</option>
+                                    <option value="bank">Virement bancaire (Bénin)</option>
+                                </select>
+                            </div>
+                            <div id="mobile-info" class="hidden">
+                                <p class="text-sm text-gray-600 mt-2">
+                                    Envoyez votre don via MTN Mobile Money au <span class="font-bold text-pink-500">+229 51563219</span>ou par Moov Mobile money au <span class="font-bold text-pink-500">+229 64517494</span> puis entrez le numéro de transaction ci-dessous.
+                                </p>
+                                <input type="text" id="mobile-transaction" placeholder="Numéro de transaction" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                            </div>
+                            <div id="bank-info" class="hidden">
+                                <p class="text-sm text-gray-600 mt-2">
+                                    Faites un virement à la banque :<br>
+                                    <span class="font-bold">Banque : Ecobank Bénin</span><br>
+                                    <span class="font-bold">IBAN : BJ6600100100000000123456789</span><br>
+                                    <span class="font-bold">Nom : Beauté Élégante ou AMOUSSA Sayidi A.O</span>
+                                </p>
+                                <input type="text" id="bank-reference" placeholder="Référence du virement" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                            </div>
+                            <button type="submit" class="w-full bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 rounded transition duration-300">Valider le don</button>
+                            <div id="donation-success" class="hidden text-green-600 text-center font-medium mt-4">Merci pour votre don !</div>
+                        </form>
+                    </div>
+                    </div>
+            </div>
+            <script>
+                // Show donation modal
+                document.querySelector('.fa-heart-circle-plus').closest('a').addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.getElementById('donation-modal').classList.remove('hidden');
+                });
+                // Close modal
+                document.getElementById('close-donation').onclick = function() {
+                    document.getElementById('donation-modal').classList.add('hidden');
+                    };
+                // Payment method toggle
+                document.getElementById('donation-method').addEventListener('change', function() {
+                    document.getElementById('mobile-info').classList.toggle('hidden', this.value !== 'mobile');
+                    document.getElementById('bank-info').classList.toggle('hidden', this.value !== 'bank');
+                });
+                // Handle form submit
+                document.getElementById('donation-form').addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    document.getElementById('donation-success').classList.remove('hidden');
+                    setTimeout(() => {
+                        document.getElementById('donation-modal').classList.add('hidden');
+                        document.getElementById('donation-success').classList.add('hidden');
+                        this.reset();
+                        document.getElementById('mobile-info').classList.add('hidden');
+                        document.getElementById('bank-info').classList.add('hidden');
+                    }, 2000);
+                });
+            </script>
+            <script>
+                // Affiche plus de produits dans la section "Nos Produits Phares"
+                document.getElementById('show-more-products').addEventListener('click', function () {
+                    const productsSection = document.getElementById('products');
+                    if (productsSection) {
+                        productsSection.scrollIntoView({ behavior: 'smooth' });
+                        // Optionnel : afficher plus de produits dynamiquement ici
+                        // Par exemple, ajouter une classe ou charger plus de produits via JS
+                    }
+                });
+            </script>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-gradient-to-r from-pink-50 to-purple-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Ce que disent nos clients</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card p-6 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sophie L." class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold text-gray-800">Sophie L.</h4>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"La crème hydratante a transformé ma peau en seulement 2 semaines d'utilisation. Je recommande vivement!"</p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card p-6 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Émilie T." class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold text-gray-800">Émilie T.</h4>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Le soin du visage premium est exceptionnel. Mon esthéticienne était très professionnelle et attentive."</p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card p-6 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Claire D." class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold text-gray-800">Claire D.</h4>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"J'ai testé plusieurs produits et services, tous sont de très haute qualité. Un vrai plaisir de prendre soin de soi ici."</p>
+                </div>
+                <!-- Formulaire d'avis Google -->
+                <div class="testimonial-card p-6 rounded-lg shadow-sm bg-white">
+                    <h4 class="font-bold text-gray-800 mb-2">Laisser un avis</h4>
+                    <form id="google-review-form" class="space-y-3">
+                        <input type="text" id="review-name" placeholder="Votre nom" required class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                        <textarea id="review-message" placeholder="Votre commentaire" required rows="3" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500"></textarea>
+                        <button type="submit" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded transition duration-300 w-full">Poster sur Google</button>
+                    </form>
+                    <div id="review-success" class="hidden text-green-600 text-center font-medium mt-3">Merci ! votre avis nous ai d'une grande utilité, veillez partager nos services avec vos proches.</div>
+                    <a id="google-review-link" href="#" target="_blank" class="hidden mt-3 inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 w-full text-center">Retour</a>
+                </div>
+                <!-- Affichage des avis Google -->
+                <div id="google-reviews" class="col-span-1 md:col-span-3 mt-8">
+                    <h4 class="font-bold text-gray-800 mb-4">Avis Google récents</h4>
+                    <div id="google-reviews-list" class="space-y-4 text-gray-700 text-sm">
+                        <div>Chargement des avis...</div>
+                    </div>
+                </div>
+                <script>
+                // Formulaire d'avis Google
+                    document.getElementById('google-review-form').addEventListener('submit', function(e) {
+                        e.preventDefault();
+                        const name = document.getElementById('review-name').value.trim();
+                        const message = document.getElementById('review-message').value.trim();
+                        // Prépare le lien Google avec un message pré-rempli
+                        const reviewUrl = `https://g.page/r/CcHxLxja3zemEAE/`;                    
+                        document.getElementById('google-review-link').href = reviewUrl;
+                        document.getElementById('review-success').classList.remove('hidden');
+                        document.getElementById('google-review-link').classList.remove('hidden');
+                    });
+
+                    // Récupération des avis Google (affichage statique, car l'API Google Places nécessite une clé et ne peut pas être appelée côté client sans proxy)
+                    // Remplacez ce tableau par un appel API côté serveur si besoin
+                    const googleReviews = [
+                        {
+                            name: "Fatou S.",
+                            rating: 5,
+                            text: "Service impeccable, produits de qualité et accueil chaleureux. Je recommande !"
+                        },
+                        {
+                            name: "Aminata D.",
+                            rating: 5,
+                            text: "J'ai adoré le soin visage, ma peau est éclatante. Merci à toute l'équipe !"
+                        },
+                        {
+                            name: "Nadia K.",
+                            rating: 4,
+                            text: "Très bon rapport qualité/prix, je reviendrai pour tester d'autres services."
+                        }
+                    ];
+
+                    function displayGoogleReviews() {
+                        const container = document.getElementById('google-reviews-list');
+                        if (!googleReviews.length) {
+                            container.innerHTML = "<div>Aucun avis Google pour le moment.</div>";
+                            return;
+                        }
+                        container.innerHTML = googleReviews.map(r => `
+                            <div class="bg-gray-50 p-4 rounded shadow-sm">
+                                <div class="flex items-center mb-1">
+                                    <span class="font-bold text-gray-800 mr-2">${r.name}</span>
+                                    <span class="flex text-yellow-400 text-xs">
+                                        ${'<i class="fas fa-star"></i>'.repeat(r.rating)}
+                                        ${r.rating < 5 ? '<i class="far fa-star"></i>'.repeat(5 - r.rating) : ''}
+                                    </span>
+                                </div>
+                                <div class="text-gray-700">${r.text}</div>
+                            </div>
+                        `).join('');
+                    }
+                    displayGoogleReviews();
+                </script>
+            </div>
+        </div>
+    </section>
+
+    <!-- formulaire de réservation -->
+    <section id="reservation" class="py-16 bg-gray-50 mb-5">
+        <div class="container mx-auto px-4 max-w-xl">
+            <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">Réserver un service</h2>
+            <form id="whatsapp-reservation-form" class="space-y-6 bg-white p-8 rounded-lg shadow-md">
+                <div>
+                    <label for="res-name" class="block text-gray-700 font-medium mb-2">Nom complet</label>
+                    <input type="text" id="res-name" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                </div>
+                <div>
+                    <label for="res-phone" class="block text-gray-700 font-medium mb-2">Téléphone</label>
+                    <input type="tel" id="res-phone" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                </div>
+                <div>
+                    <label for="res-service" class="block text-gray-700 font-medium mb-2">Service souhaité</label>
+                    <select id="res-service" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                        <option value="">Sélectionnez un service</option>
+                        <option>Soin du Visage Premium</option>
+                        <option>Manucure Professionnelle</option>
+                        <option>Extensions de Cils</option>
+                        <option>Tatouage</option>
+                        <option>Vernis simple</option>
+                        <option>Onglerie simple</option>
+                        <option>Autre</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="res-date" class="block text-gray-700 font-medium mb-2">Date souhaitée</label>
+                    <input type="date" id="res-date" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                </div>
+                <div>
+                    <label for="res-message" class="block text-gray-700 font-medium mb-2">Message (optionnel)</label>
+                    <textarea id="res-message" rows="3" class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500"></textarea>
+                </div>
+                <script>
+                // Lors de la soumission du formulaire de réservation, stocke la réservation dans le localStorage
+                document.getElementById('whatsapp-reservation-form').addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const name = document.getElementById('res-name').value.trim();
+                    const phone = document.getElementById('res-phone').value.trim();
+                    const service = document.getElementById('res-service').value.trim();
+                    const date = document.getElementById('res-date').value.trim();
+                    const message = document.getElementById('res-message').value.trim();
+
+                    // Récupère les réservations existantes ou initialise un tableau
+                    let reservations = [];
+                    try {
+                        reservations = JSON.parse(localStorage.getItem('reservations')) || [];
+                    } catch (err) {
+                        reservations = [];
+                    }
+                    // Ajoute la nouvelle réservation
+                    reservations.push({
+                        name,
+                        phone,
+                        service,
+                        date,
+                        message,
+                        createdAt: new Date().toISOString()
+                    });
+                    localStorage.setItem('reservations', JSON.stringify(reservations));
+
+                    // Optionnel : affiche un message de confirmation
+                    alert('Votre réservation a bien été enregistrée !');
+
+                    // Redirige vers dashboard.html (optionnel)
+                    // window.location.href = 'dashboard.html';
+                });
+                </script>
+                <button type="submit" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-6 rounded transition duration-300 w-full">Envoyer</button>
+            </form>
+        </div>  
+    </section>
+
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-8 lg:mb-0 lg:pr-12">
+                    <h2 class="text-3xl font-bold mb-6 text-gray-800">Notre Philosophie</h2>
+                    <p class="text-gray-600 mb-4">Fondée en 2008, Beauté Élégante s'engage à offrir des produits et services d'esthétique de la plus haute qualité, alliant innovation scientifique et ingrédients naturels.</p>
+                    <p class="text-gray-600 mb-6">Notre mission est de vous aider à révéler votre beauté naturelle tout en prenant soin de votre peau avec des formulations sûres et efficaces.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex items-center bg-gray-50 px-4 py-2 rounded-full">
+                            <i class="fas fa-leaf text-green-500 mr-2"></i>
+                            <span class="text-sm font-medium text-gray-700">Naturel</span>
+                        </div>
+                        <div class="flex items-center bg-gray-50 px-4 py-2 rounded-full">
+                            <i class="fas fa-flask text-blue-500 mr-2"></i>
+                            <span class="text-sm font-medium text-gray-700">Scientifique</span>
+                        </div>
+                        <div class="flex items-center bg-gray-50 px-4 py-2 rounded-full">
+                            <i class="fas fa-heart text-pink-500 mr-2"></i>
+                            <span class="text-sm font-medium text-gray-700">Éthique</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <div class="bg-gray-100 rounded-lg overflow-hidden aspect-video">
+                        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" alt="Notre équipe" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rejoindre le groupe -->
+    <section class="py-16 bg-pink-500 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">Abonnez-vous à notre groupe whatsapp</h2>
+            <p class="text-pink-100 mb-8 max-w-2xl mx-auto">Recevez nos offres exclusives, conseils beauté et nouveautés directement sur whatsapp</p>
+            <form id="whatsapp-group-form" class="flex flex-col sm:flex-row max-w-md mx-auto sm:max-w-xl">
+                <input type="tel" id="whatsapp-phone" placeholder="Votre numéro de téléphone" required class="flex-grow px-4 py-3 rounded sm:rounded-r-none focus:outline-none text-gray-800">
+                <button type="submit" class="bg-gray-900 hover:bg-gray-800 text-white font-bold px-6 py-3 rounded sm:rounded-l-none mt-2 sm:mt-0 transition duration-300">Rejoindre</button>
+                <script>
+                    document.getElementById('whatsapp-group-form').addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // Remplacez ce lien par celui de votre groupe WhatsApp
+                    const whatsappGroupLink = "https://chat.whatsapp.com/I8GTvwRGSUjAqHcqouuSlA";
+                    window.open(whatsappGroupLink, '_blank');
+                    });
+                </script>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Contactez-nous</h2>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <form id="contact-whatsapp-form" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Nom complet</label>
+                            <input type="email" id="email" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-gray-700 font-medium mb-2">Sujet</label>
+                            <select id="subject" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                                <option value="">Sélectionnez un sujet</option>
+                                <option value="products">Question sur les produits</option>
+                                <option value="services">Réservation de service</option>
+                                <option value="other">Autre demande</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                            <textarea id="message" rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500"></textarea>
+                        </div>
+                        <button id="contact-send-btn" type="submit" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-6 rounded transition duration-300">Envoyer le message</button>
+                    </form>
+                    <script>
+                        document.getElementById('contact-whatsapp-form').addEventListener('submit', function(e) {
+                            e.preventDefault();
+                            var btn = document.getElementById('contact-send-btn');
+                            btn.disabled = true;
+                            btn.textContent = 'Envoi en cours...';
+
+                            var name = document.getElementById('name').value.trim();
+                            var email = document.getElementById('email').value.trim();
+                            var subject = document.getElementById('subject').options[document.getElementById('subject').selectedIndex].text;
+                            var message = document.getElementById('message').value.trim();
+
+                            var text = `Nouveau message depuis le site Beauté Élégante:%0A%0A*Nom complet:* ${name}%0A*Email:* ${email}%0A*Sujet:* ${subject}%0A*Message:* ${message}`;
+                            var phone = '22951563219';
+                            var url = `https://wa.me/${phone}?text=${text}`;
+
+                            setTimeout(function() {
+                                window.open(url, '_blank');
+                                btn.disabled = false;
+                                btn.textContent = 'Envoyer le message';
+                            }, 800);
+                        });
+                    </script>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-gray-50 p-8 rounded-lg h-full">
+                    <h3 class="text-xl font-bold mb-6 text-gray-800">Nos coordonnées</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="bg-pink-100 text-pink-500 p-3 rounded-full mr-4">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Adresse</h4>
+                                    <p class="text-gray-600">Porto novo non loin du marché  OUANDO, cotonou quartier Zogo,  </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-pink-100 text-pink-500 p-3 rounded-full mr-4">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Téléphone</h4>
+                                    <p class="text-gray-600"><a href="wa.me/+22997903723" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                                    <i class="fab fa-whatsapp"></i></a> +229 0197903723</p>
+                                    <p class="text-gray-600"> <a href="wa.me/+22951563219" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                                    <i class="fab fa-whatsapp"></i></a>+229 0151563219</p>
+                                    <p class="text-gray-600"> <a href="wa.me/+22941803470" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                                    <i class="fab fa-whatsapp"></i></a>+229 0141803470</p>
+                                    <p class="text-gray-600"> <a href="wa.me/+22944104328" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                                    <i class="fab fa-whatsapp"></i></a>+229 0144104328</p>
+                                    <p class="text-gray-600"> <a href="wa.me/+22994516481" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                                    <i class="fab fa-whatsapp"></i></a>+229 0194516481</p>
+                                    <p class="text-gray-600"> <a href="wa.me/+22957024715" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                                    <i class="fab fa-whatsapp"></i></a>+229 0157024715</p>
+                                    <p class="text-gray-600"> <a href="wa.me/+22957523222" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                                    <i class="fab fa-whatsapp"></i></a>+229 0157523222</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-pink-100 text-pink-500 p-3 rounded-full mr-4">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Email</h4>
+                                    <p class="text-gray-600">alaoservice1@gmail.com</p>
+                                    <p class="text-gray-600">alaoscorty@gmail.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-pink-100 text-pink-500 p-3 rounded-full mr-4">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Horaires</h4>
+                                    <p class="text-gray-600">Lundi - Vendredi: 8h - 18h</p>
+                                    <p class="text-gray-600">Samedi: 08h - 19h</p>
+                                    <p class="text-gray-600">Dimanche: 09h à 18h</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Modal pour le paiement -->
+    <div id="cart-modal" class="fixed inset-0 z-50 hidden overflow-y-auto">
+        <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+                <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+            </div>
+            
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+            
+            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="flex justify-between items-center border-b pb-4">
+                        <h3 class="text-lg font-bold text-gray-800">Votre Panier</h3>
+                        <button id="close-cart" class="text-gray-500 hover:text-gray-700">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    
+                    <div id="cart-items" class="max-h-96 overflow-y-auto py-4">
+                        <!-- Cart items will be added here dynamically -->
+                        <p class="text-gray-500 text-center py-8">Votre panier est vide</p>
+                    </div>
+                    
+                    <div class="border-t pt-4">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium text-gray-700">Sous-total</span>
+                            <span id="cart-subtotal" class="font-medium">FCFA 0</span>
+                        </div>
+                        <div class="flex justify-between mb-4">
+                            <span class="font-medium text-gray-700">Livraison</span>
+                            <span class="font-medium">Gratuite</span>
+                        </div>
+                        <div class="flex justify-between border-t pt-4">
+                            <span class="font-bold text-lg text-gray-800">Total</span>
+                            <span id="cart-total" class="font-bold text-lg text-pink-500">FCFA 0</span>
+                             <!-- Total enregistré dans le localStorage -->
+                            
+                            <script>
+                                // Met à jour le total dans le localStorage et l'affiche
+                                function updateCartTotalLocal() {
+                                    const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+                                    localStorage.setItem('cartTotal', total);
+                                    document.getElementById('cart-total-local').textContent = `FCFA ${total.toFixed(2)}`;
+                                }
+                                // Appelle la fonction à chaque mise à jour du panier
+                                const _oldUpdateCartDisplay = updateCartDisplay;
+                                updateCartDisplay = function() {
+                                    _oldUpdateCartDisplay();
+                                    updateCartTotalLocal();
+                                };
+                                // Initialise à l'ouverture du panier
+                                updateCartTotalLocal();
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                    <button id="checkout-btn" type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-pink-500 text-base font-medium text-white hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 sm:ml-3 sm:w-auto sm:text-sm transition duration-300">
+                        Passer la commande
+                    </button>
+                    <script>
+                        document.getElementById('checkout-btn').addEventListener('click', function() {
+                            // Récupère le nombre de commandes dans le localStorage ou 0
+                            let ordersCount = parseInt(localStorage.getItem('ordersCount') || '0', 10);
+                            ordersCount += 1;
+                            localStorage.setItem('ordersCount', ordersCount);
+                        });
+                    </script>
+                    <!-- Modal Paiement -->
+                    <div id="payment-modal" class="fixed inset-0 z-60 hidden overflow-y-auto">
+                        <div class="flex items-center justify-center min-h-screen px-4">
+                            <div class="fixed inset-0 bg-gray-900 opacity-60"></div>
+                            <div class="bg-white rounded-lg shadow-lg max-w-md w-full z-10 p-8 relative">
+                                <button id="close-payment-modal" class="absolute top-3 right-3 text-gray-400 hover:text-pink-500 text-xl">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                                <h3 class="text-2xl font-bold text-center mb-4 text-pink-500">Paiement de la commande</h3>
+                                <form id="payment-form" class="space-y-5">
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-1">Méthode de paiement</label>
+                                        <select id="payment-method" required class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                                            <option value="">Sélectionnez une méthode</option>
+                                            <option value="mobile">Mobile Money (MTN, Moov, etc.)</option>
+                                            <option value="bank">Virement bancaire (Bénin)</option>
+                                        </select>
+                                    </div>
+                                    <div id="mobile-info-pay" class="hidden">
+                                        <p class="text-sm text-gray-600 mt-2">
+                                            Payez via MTN Mobile Money au <span class="font-bold text-pink-500">+229 51563219</span> ou Moov au <span class="font-bold text-pink-500">+229 94516481</span> puis entrez le numéro de transaction ci-dessous.
+                                        </p>
+                                        <input type="text" id="mobile-transaction-pay" placeholder="Numéro de transaction" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                                    </div>
+                                    <div id="bank-info-pay" class="hidden">
+                                        <p class="text-sm text-gray-600 mt-2">
+                                            Faites un virement à la banque :<br>
+                                            <span class="font-bold">Banque : Ecobank Bénin</span><br>
+                                            <span class="font-bold">IBAN : BJ6600100100000000123456789</span><br>
+                                            <span class="font-bold">Nom : Beauté Élégante ou AMOUSSA Sayidi A.O</span>
+                                        </p>
+                                        <input type="text" id="bank-reference-pay" placeholder="Référence du virement" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                                    </div>
+                                    <button type="submit" class="w-full bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 rounded transition duration-300">Confirmer le paiement</button>
+                                    <div id="payment-success" class="hidden text-green-600 text-center font-medium mt-4">Paiement confirmé ! Génération du PDF...</div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+                    <script>
+                    document.getElementById('checkout-btn').onclick = function() {
+                        document.getElementById('payment-modal').classList.remove('hidden');
+                    };
+                    document.getElementById('close-payment-modal').onclick = function() {
+                        document.getElementById('payment-modal').classList.add('hidden');
+                    };
+                    document.getElementById('payment-method').addEventListener('change', function() {
+                        document.getElementById('mobile-info-pay').classList.toggle('hidden', this.value !== 'mobile');
+                        document.getElementById('bank-info-pay').classList.toggle('hidden', this.value !== 'bank');
+                    });
+                    document.getElementById('payment-form').addEventListener('submit', function(e) {
+                        e.preventDefault();
+                        document.getElementById('payment-success').classList.remove('hidden');
+                        setTimeout(() => {
+                            // Génération du PDF de commande
+                            const { jsPDF } = window.jspdf;
+                            const doc = new jsPDF();
+                            doc.setFontSize(16);
+                            doc.text("Beauté Élégante - Réçu de votre commande", 10, 15);
+                            doc.setFontSize(12);
+                            let y = 30;
+                            doc.text("Produits :", 10, y);
+                            y += 8;
+                            let total = 0;
+                            cart.forEach(item => {
+                                doc.text(`${item.name} x${item.quantity} - FCFA ${(item.price * item.quantity).toFixed(2)}`, 12, y);
+                                y += 7;
+                                total += item.price * item.quantity;
+                            });
+                            y += 5;
+                            doc.text(`Total : FCFA ${total.toFixed(2)}`, 10, y);
+                            y += 10;
+                            doc.text("Merci pour votre commande !", 10, y);
+
+                            // Génère le PDF en blob
+                            doc.save("votrecommande.pdf");
+
+                            // Prépare le message WhatsApp
+                            const phone = "22994516481";
+                            const text = encodeURIComponent("Bonjour, j'ai effectué mon paiement. Veuillez trouver ci-joint le PDF de ma commande.");
+                            // Ouvre WhatsApp (l'utilisateur doit joindre le PDF manuellement)
+                            window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
+
+                            document.getElementById('payment-modal').classList.add('hidden');
+                            document.getElementById('payment-success').classList.add('hidden');
+                            document.getElementById('payment-form').reset();
+                            document.getElementById('mobile-info-pay').classList.add('hidden');
+                            document.getElementById('bank-info-pay').classList.add('hidden');
+                        }, 1200);
+                    });
+                    </script>
+                    <button id="continue-shopping" type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm transition duration-300">
+                        Continuer mes achats
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-spa text-2xl text-pink-500 mr-2"></i>
+                        <span class="text-xl font-bold">Beauté<span class="text-pink-500">Élégante</span></span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Votre destination beauté premium pour des produits et services d'exception.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/share/1GBHkW9umd/" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://x.com/AlaoScorty?t=3MIBEbsDRXE8tu_mljMJUS&s=09" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="wa.me/+22951563219" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                            <i class="fab fa-pinterest-p"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Liens rapides</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">Accueil</a></li>
+                        <a href="formation.html" class="text-gray-700 hover:text-pink-500 font-medium">Nos formations</a>
+                        <li><a href="#products" class="text-gray-400 hover:text-pink-500 transition duration-300">Produits</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-pink-500 transition duration-300">Services</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-pink-500 transition duration-300">À propos</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-pink-500 transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Catégories</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#visage" class="text-gray-400 hover:text-pink-500 transition duration-300">Soins Visage</a></li>
+                        <li><a href="#face-care-toggle" class="text-gray-400 hover:text-pink-500 transition duration-300">Maquillage</a></li>
+                        <li><a href="#face-care-products" class="text-gray-400 hover:text-pink-500 transition duration-300">Corps & Bain</a></li>
+                        <li><a href="#face-care-toggle" class="text-gray-400 hover:text-pink-500 transition duration-300">Accessoires</a></li>
+                        <li><a href="#face-care-toggle" class="text-gray-400 hover:text-pink-500 transition duration-300">Nouveautés</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contact</h4>
+                    <address class="not-italic text-gray-400 space-y-2">
+                        <p>Porto novo non loin du marché  OUANDO,Dodji à 100m avant le feu en quittant le CEG DJEGAN-KPEVI, Cotonou quartier Zogo</p>
+                        <p>Email: alaoservice1@gmail.com</p>
+                        <p>Tél: +229 0151563219</p>
+                        <p>Tél: +229 0197903723</p>
+                        <p>Tél: +229 0144104328</p>
+                        <p>Tél: +229 0141803470</p>
+                    </address>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 Beauté Élégante. Tous droits réservés.</p>
+                <div class="flex space-x-6">
+                    <a href="conditions.html#mention" class="text-gray-400 hover:text-pink-500 text-sm transition duration-300">Mentions légales</a>
+                    <a href="conditions.html#politique" class="text-gray-400 hover:text-pink-500 text-sm transition duration-300">Politique de confidentialité</a>
+                    <a href="conditions.html#condition" class="text-gray-400 hover:text-pink-500 text-sm transition duration-300">Conditions générales</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Search bar toggle
+        const searchBtn = document.getElementById('search-btn');
+        const searchBar = document.getElementById('search-bar');
+        
+        searchBtn.addEventListener('click', () => {
+            searchBar.classList.toggle('hidden');
+        });
+        
+        // Cart functionality
+        const cartBtn = document.getElementById('cart-btn');
+        const cartModal = document.getElementById('cart-modal');
+        const closeCart = document.getElementById('close-cart');
+        const continueShopping = document.getElementById('continue-shopping');
+        const cartCount = document.getElementById('cart-count');
+        const cartItemsContainer = document.getElementById('cart-items');
+        const cartSubtotal = document.getElementById('cart-subtotal');
+        const cartTotal = document.getElementById('cart-total');
+        
+        let cart = [];
+        
+        // Toggle cart modal
+        cartBtn.addEventListener('click', () => {
+            cartModal.classList.toggle('hidden');
+            updateCartDisplay();
+        });
+        
+        closeCart.addEventListener('click', () => {
+            cartModal.classList.add('hidden');
+        });
+        
+        continueShopping.addEventListener('click', () => {
+            cartModal.classList.add('hidden');
+        });
+        
+        // Add to cart functionality
+        const addToCartButtons = document.querySelectEcoll('.add-to-cart');
+        
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const id = button.getAttribute('data-id');
+                const name = button.getAttribute('data-name');
+                const price = parseFloat(button.getAttribute('data-price'));
+                
+                // Check if item already in cart
+                const existingItem = cart.find(item => item.id === id);
+                
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        id,
+                        name,
+                        price,
+                        quantity: 1
+                    });
+                }
+                
+                updateCartCount();
+                updateCartDisplay();
+                
+                // Add pulse animation to cart button
+                cartBtn.classList.add('cart-pulse');
+                setTimeout(() => {
+                    cartBtn.classList.remove('cart-pulse');
+                }, 1500);
+            });
+        });
+        
+        // Update cart count display
+        function updateCartCount() {
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            
+            if (totalItems > 0) {
+                cartCount.textContent = totalItems;
+                cartCount.classList.remove('hidden');
+            } else {
+                cartCount.classList.add('hidden');
+            }
+        }
+        
+        // Update cart display in modal
+        function updateCartDisplay() {
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p class="text-gray-500 text-center py-8">Votre panier est vide</p>';
+                cartSubtotal.textContent = 'FCFA 0';
+                cartTotal.textContent = 'FCFA 0';
+                return;
+            }
+            
+            let itemsHTML = '';
+            let subtotal = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+                
+                itemsHTML += `
+                    <div class="flex justify-between items-center py-4 border-b">
+                        <div>
+                            <h4 class="font-medium text-gray-800">${item.name}</h4>
+                            <p class="text-sm text-gray-500">FCFA ${item.price.toFixed(2)}</p>
+                        </div>
+                        <div class="flex items-center">
+                            <button class="decrease-quantity text-gray-500 hover:text-pink-500 px-2" data-id="${item.id}">
+                                <i class="fas fa-minus text-xs"></i>
+                            </button>
+                            <span class="mx-2 text-gray-700">${item.quantity}</span>
+                            <button class="increase-quantity text-gray-500 hover:text-pink-500 px-2" data-id="${item.id}">
+                                <i class="fas fa-plus text-xs"></i>
+                            </button>
+                            <button class="remove-item text-red-500 hover:text-red-700 ml-4" data-id="${item.id}">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            cartItemsContainer.innerHTML = itemsHTML;
+            cartSubtotal.textContent = `FCFA ${subtotal.toFixed(2)}`;
+            cartTotal.textContent = `FCFA ${subtotal.toFixed(2)}`;
+            
+            // Add event listeners to quantity buttons
+            document.querySelectEcoll('.decrease-quantity').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const id = e.target.closest('button').getAttribute('data-id');
+                    const item = cart.find(item => item.id === id);
+                    
+                    if (item.quantity > 1) {
+                        item.quantity -= 1;
+                    } else {
+                        cart = cart.filter(item => item.id !== id);
+                    }
+                    
+                    updateCartCount();
+                    updateCartDisplay();
+                });
+            });
+            
+            document.querySelectEcoll('.increase-quantity').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const id = e.target.closest('button').getAttribute('data-id');
+                    const item = cart.find(item => item.id === id);
+                    item.quantity += 1;
+                    
+                    updateCartCount();
+                    updateCartDisplay();
+                });
+            });
+            
+            document.querySelectEcoll('.remove-item').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const id = e.target.closest('button').getAttribute('data-id');
+                    cart = cart.filter(item => item.id !== id);
+                    
+                    updateCartCount();
+                    updateCartDisplay();
+                });
+            });
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectEcoll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
