@@ -37,17 +37,30 @@
                 <a href="index.html#services" class="text-gray-700 hover:text-pink-500 font-medium">Services</a>
                 <a href="index.html#about" class="text-gray-700 hover:text-pink-500 font-medium">À propos</a>
                 <a href="index.html#contact" class="text-gray-700 hover:text-pink-500 font-medium">Contact</a>
+                <div class="container mx-auto px-4 py-2 flex justify-end md:justify-end">
+            <a href="login.html" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-5 rounded-full transition duration-300 flex items-center gap-2">
+                <i class="fas fa-user"></i>
+                Connexion
+            </a>
+        </div>
             </nav>
             <!--Section pour afficher la barre de recherche et la carte-->
             <div class="flex items-center space-x-4">
-                <a href="wa.me/+22951563219" class="relative text-gray-600 hover:text-pink-500">
-                    <i class="fas fa-phone text-xl"></i>
-                </a>
+                <button id="search-btn" class="text-gray-600 hover:text-pink-500">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button id="cart-btn" class="relative text-gray-600 hover:text-pink-500">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-pink-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center hidden">0</span>
+                </button>
                 <button id="mobile-menu-btn" class="md:hidden text-gray-600">
                     <i class="fas fa-bars text-xl"></i>
                 </button>
             </div>
         </div>
+        </div>
+
+        
         
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white py-4 px-4 shadow-lg">
