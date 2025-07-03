@@ -38,29 +38,26 @@
                 <a href="index.html#about" class="text-gray-700 hover:text-pink-500 font-medium">À propos</a>
                 <a href="index.html#contact" class="text-gray-700 hover:text-pink-500 font-medium">Contact</a>
                 <div class="container mx-auto px-4 py-2 flex justify-end md:justify-end">
-            <a href="login.html" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-5 rounded-full transition duration-300 flex items-center gap-2">
+                <a href="beaute-elangante-tml.web.app" target="_blank" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-5 rounded-full transition duration-300 flex items-center gap-2">
                 <i class="fas fa-user"></i>
                 Connexion
             </a>
-        </div>
             </nav>
-            <!--Section pour afficher la barre de recherche et la carte-->
-            <div class="flex items-center space-x-4">
-                <button id="search-btn" class="text-gray-600 hover:text-pink-500">
-                    <i class="fas fa-search"></i>
-                </button>
-                <button id="cart-btn" class="relative text-gray-600 hover:text-pink-500">
-                    <i class="fas fa-shopping-cart text-xl"></i>
-                    <span id="cart-count" class="absolute -top-2 -right-2 bg-pink-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center hidden">0</span>
-                </button>
-                <button id="mobile-menu-btn" class="md:hidden text-gray-600">
-                    <i class="fas fa-bars text-xl"></i>
-                </button>
-            </div>
         </div>
-        </div>
-
         
+        <!--Section pour afficher la barre de recherche et la carte-->
+        <div class="flex items-center space-x-4">
+            <button id="search-btn" class="text-gray-600 hover:text-pink-500">
+                <i class="fas fa-search"></i>
+            </button>
+            <button id="cart-btn" class="relative text-gray-600 hover:text-pink-500">
+                <i class="fas fa-shopping-cart text-xl"></i>
+                <span id="cart-count" class="absolute -top-2 -right-2 bg-pink-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center hidden">0</span>
+            </button>
+            <button id="mobile-menu-btn" class="md:hidden text-gray-600">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
         
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white py-4 px-4 shadow-lg">
@@ -2620,7 +2617,7 @@
         });
         
         // Add to cart functionality
-        const addToCartButtons = document.querySelectEcoll('.add-to-cart');
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
         
         addToCartButtons.forEach(button => {
             button.addEventListener('click', () => {
@@ -2708,7 +2705,7 @@
             cartTotal.textContent = `FCFA ${subtotal.toFixed(2)}`;
             
             // Add event listeners to quantity buttons
-            document.querySelectEcoll('.decrease-quantity').forEach(button => {
+            document.querySelectorAll('.decrease-quantity').forEach(button => {
                 button.addEventListener('click', (e) => {
                     const id = e.target.closest('button').getAttribute('data-id');
                     const item = cart.find(item => item.id === id);
@@ -2724,7 +2721,7 @@
                 });
             });
             
-            document.querySelectEcoll('.increase-quantity').forEach(button => {
+            document.querySelectorAll('.increase-quantity').forEach(button => {
                 button.addEventListener('click', (e) => {
                     const id = e.target.closest('button').getAttribute('data-id');
                     const item = cart.find(item => item.id === id);
@@ -2735,7 +2732,7 @@
                 });
             });
             
-            document.querySelectEcoll('.remove-item').forEach(button => {
+            document.querySelectorAll('.remove-item').forEach(button => {
                 button.addEventListener('click', (e) => {
                     const id = e.target.closest('button').getAttribute('data-id');
                     cart = cart.filter(item => item.id !== id);
@@ -2747,7 +2744,7 @@
         }
         
         // Smooth scrolling for anchor links
-        document.querySelectEcoll('a[href^="#"]').forEach(anchor => {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 
