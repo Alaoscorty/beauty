@@ -169,7 +169,6 @@
       }
       .container.right-panel-active .overlay-container {
         transform: translateX(-100%);
-        
       }
       .overlay {
         background: linear-gradient(to right, #d946ef, #f472b6);
@@ -196,15 +195,12 @@
         width: 50%;
         transition: transform 0.6s ease-in-out;
         color: #fff;
-        
       }
       .overlay-left {
         transform: translateX(-20%);
-
       }
       .container.right-panel-active .overlay-left {
         transform: translateX(0);
-        
       }
       .overlay-right {
         right: 0;
@@ -212,7 +208,6 @@
       }
       .container.right-panel-active .overlay-right {
         transform: translateX(30%);
-        
       }
 
       .footer {
@@ -277,7 +272,6 @@
             <a href="#" class="social" id="facebookBtn"
               ><i class="fab fa-facebook"></i
             ></a>
-            
           </div>
           <span>ou utilisez votre email</span>
           <input type="text" id="nameSignUp" placeholder="Nom" required />
@@ -302,7 +296,7 @@
           <button type="submit">S'inscrire</button>
         </form>
       </div>
-      <div id="customError"></div>
+
       <!-- Formulaire Connexion -->
       <div class="form-container sign-in-container connect">
         <form id="signInForm">
@@ -320,8 +314,6 @@
             <a href="#" class="social" id="facebookBtn"
               ><i class="fab fa-facebook"></i
             ></a>
-
-
           </div>
           <span>ou utilisez votre compte</span>
           <input type="email" id="emailSignIn" placeholder="Email" required />
@@ -336,6 +328,10 @@
           >
           <button type="submit">Se connecter</button>
         </form>
+        <div
+          id="customError"
+          stlye="background:gray;padding:10px; border-raduis:10px;"
+        ></div>
       </div>
 
       <!-- Overlay gauche/droite -->
@@ -400,8 +396,6 @@
       const resetBtn = document.getElementById("resetPassword");
       const googleBtn = document.getElementById("googleBtn");
       const facebookBtn = document.getElementById("facebookBtn");
-
-      
 
       signUpBtn.addEventListener("click", () =>
         container.classList.add("right-panel-active")
@@ -473,7 +467,8 @@
               // Ajoute la div juste avant le formulaire de connexion
               signInForm.parentNode.insertBefore(errorDiv, signInForm);
             }
-            errorDiv.textContent = "Veuillez vérifier votre email avant de vous connecter.";
+            errorDiv.textContent =
+              "Veuillez vérifier votre email avant de vous connecter.";
             return;
           }
 
@@ -551,24 +546,41 @@
       // REDIRECTION AUTO SI CONNECTÉ
       auth.onAuthStateChanged(async (user) => {
         if (user && user.emailVerified) {
-          const doc = await db.collection("users").doc(user.uid).get();
-          const role = doc.data()?.role;
-          if (role === "client") {
-            window.location.href = "compteuser/html/dashboard-client.html";
-          } else if (role === "pro") {
-            window.location.href = "compteuser/html/dashboard-pro.html";
+          try {
+            const docSnap = await db.collection("users").doc(user.uid).get();
+            if (!docSnap.exists) {
+              alert(
+                "Erreur : Document utilisateur introuvable dans Firestore."
+              );
+              return;
+            }
+
+            const role = docSnap.data()?.role;
+
+            if (role === "client") {
+              window.location.href = "compteuser/html/dashboard-client.html";
+            } else if (role === "pro") {
+              window.location.href = "compteuser/html/dashboard-pro.html";
+            } else {
+              alert("Rôle non défini. Contactez l’administrateur.");
+            }
+          } catch (err) {
+            alert(
+              "Impossible de récupérer les données utilisateur. Vérifiez votre connexion."
+            );
+            console.error("Erreur Firestore :", err);
           }
         }
       });
     </script>
     <script>
-      document.addEventListener("DOMContentLoaded", function() {
+      document.addEventListener("DOMContentLoaded", function () {
         const loginForm = document.getElementById("loginInForm");
         const signInForm = document.getElementById("signInForm");
 
         // Attacher l'événement click
-        signUpBtn.addEventListener("click", function() {
-          // Masquer le formulaire de connexion 
+        signUpBtn.addEventListener("click", function () {
+          // Masquer le formulaire de connexion
           loginForm.style.display = "block";
           // Afficher le formulaire d'inscription
           signInForm.style.display = "none";
