@@ -84,6 +84,13 @@
     height: 80vh;
 }
 
+.hero-section1 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://i.pinimg.com/736x/ca/b2/90/cab290084446a0382b6dec0ba0f62d6a.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+}
+
 .product-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
