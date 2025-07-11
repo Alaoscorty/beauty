@@ -123,7 +123,8 @@
         max-width: 360px;
       }
       input,
-      button {
+      button,
+      select {
         margin: 8px 0;
         padding: 12px;
         border: none;
@@ -260,18 +261,9 @@
         <form id="signUpForm">
           <h1>Créer un compte</h1>
           <div class="social-container">
-            <a href="#" class="social" id="facebookBtn"
-              ><i class="fab fa-facebook-f"></i
-            ></a>
-            <a href="#" class="social" id="googleBtn"
-              ><i class="fab fa-google"></i
-            ></a>
-            <a href="#" class="social" id="githubBtn"
-              ><i class="fab fa-github"></i
-            ></a>
-            <a href="#" class="social" id="facebookBtn"
-              ><i class="fab fa-facebook"></i
-            ></a>
+            <a href="#" class="social facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social google"><i class="fab fa-google"></i></a>
+            <a href="#" class="social github"><i class="fab fa-github"></i></a>
           </div>
           <span>ou utilisez votre email</span>
           <input type="text" id="nameSignUp" placeholder="Nom" required />
@@ -283,54 +275,33 @@
             autocomplete="new-password"
             required
           />
-          <select
-            id="roleSelect"
-            required
-            style="margin: 8px 0; padding: 12px; border-radius: 20px"
-          >
+          <select id="roleSelect" required>
             <option value="">-- Choisir un rôle --</option>
             <option value="client">Client</option>
             <option value="pro">Professionnel</option>
           </select>
-
           <button type="submit">S'inscrire</button>
         </form>
       </div>
 
       <!-- Formulaire Connexion -->
-      <div class="form-container sign-in-container connect">
+      <div class="form-container sign-in-container">
         <form id="signInForm">
           <h1>Se connecter</h1>
           <div class="social-container">
-            <a href="#" class="social" id="facebookBtn"
-              ><i class="fab fa-facebook-f"></i
-            ></a>
-            <a href="#" class="social" id="googleBtn"
-              ><i class="fab fa-google"></i
-            ></a>
-            <a href="#" class="social" id="githubBtn"
-              ><i class="fab fa-github"></i
-            ></a>
-            <a href="#" class="social" id="facebookBtn"
-              ><i class="fab fa-facebook"></i
-            ></a>
+            <a href="#" class="social facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social google"><i class="fab fa-google"></i></a>
+            <a href="#" class="social github"><i class="fab fa-github"></i></a>
           </div>
           <span>ou utilisez votre compte</span>
           <input type="email" id="emailSignIn" placeholder="Email" required />
-          <input
-            type="password"
-            id="passwordSignIn"
-            placeholder="Mot de passe"
-            required
-          />
-          <a href="#" id="resetPassword" style="margin: 10px 0"
-            >Mot de passe oublié ?</a
-          >
+          <input type="password" id="passwordSignIn" placeholder="Mot de passe" required />
+          <a href="#" id="resetPassword" style="margin: 10px 0;">Mot de passe oublié ?</a>
           <button type="submit">Se connecter</button>
         </form>
         <div
           id="customError"
-          stlye="background:gray;padding:10px; border-raduis:10px;"
+          style="background:#ffe0e6;padding:10px; border-radius:10px; color:#d72660; font-weight:bold; text-align:center; margin-top:10px;"
         ></div>
       </div>
 
@@ -355,16 +326,14 @@
     <div class="footer">
       <b>Suivez-nous</b>
       <div class="icons">
-        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
       </div>
     </div>
-
     <!-- Firebase SDK -->
-    <!-- Firebase SDKs -->
     <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
@@ -394,8 +363,6 @@
       const emailSignIn = document.getElementById("emailSignIn");
       const passwordSignIn = document.getElementById("passwordSignIn");
       const resetBtn = document.getElementById("resetPassword");
-      const googleBtn = document.getElementById("googleBtn");
-      const facebookBtn = document.getElementById("facebookBtn");
 
       signUpBtn.addEventListener("click", () =>
         container.classList.add("right-panel-active")
@@ -416,7 +383,7 @@
           const user = userCred.user;
 
           await user.sendEmailVerification({
-            url: window.location.href, // Lien de retour si cliqué
+            url: window.location.href,
           });
 
           await db.collection("users").doc(user.uid).set({
@@ -425,16 +392,14 @@
             createdAt: firebase.firestore.FieldValue.serverTimestamp(),
           });
 
-          // Message personnalisé
-          const message = `
-        <div style="text-align:center;">
-          <p>Inscription réussie !</p>
-          <p>Un email de vérification a été envoyé à <b>${user.email}</b>.</p>
-          <p>Veuillez vérifier votre boîte de réception.</p>
-          <button onclick="window.open('https://mail.google.com','_blank')" style="margin-top:10px;padding:10px 20px;border:none;border-radius:5px;background-color:#ff69b4;color:white;font-weight:bold;cursor:pointer;">Vérifier l'email</button>
-        </div>
-      `;
-          document.body.innerHTML = message;
+          document.body.innerHTML = `
+            <div style="text-align:center; padding:40px;">
+              <h2>Inscription réussie !</h2>
+              <p>Un email de vérification a été envoyé à <b>${user.email}</b>.</p>
+              <p>Veuillez vérifier votre boîte de réception.</p>
+              <button onclick="window.open('https://mail.google.com','_blank')" style="margin-top:20px;padding:10px 20px;border:none;border-radius:5px;background-color:#ff69b4;color:white;font-weight:bold;cursor:pointer;">Vérifier l'email</button>
+            </div>
+          `;
         } catch (err) {
           alert("Erreur inscription : " + err.message);
         }
@@ -452,23 +417,11 @@
 
           if (!user.emailVerified) {
             await auth.signOut();
-            // Affiche le message d'erreur dans une div au lieu d'une alerte
-            let errorDiv = document.getElementById("customError");
-            if (!errorDiv) {
-              errorDiv = document.createElement("div");
-              errorDiv.id = "customError";
-              errorDiv.style.background = "#ffe0e6";
-              errorDiv.style.color = "#d72660";
-              errorDiv.style.padding = "15px";
-              errorDiv.style.margin = "15px 0";
-              errorDiv.style.borderRadius = "8px";
-              errorDiv.style.textAlign = "center";
-              errorDiv.style.fontWeight = "bold";
-              // Ajoute la div juste avant le formulaire de connexion
-              signInForm.parentNode.insertBefore(errorDiv, signInForm);
+            const errorDiv = document.getElementById("customError");
+            if (errorDiv) {
+              errorDiv.textContent =
+                "Veuillez vérifier votre email avant de vous connecter.";
             }
-            errorDiv.textContent =
-              "Veuillez vérifier votre email avant de vous connecter.";
             return;
           }
 
@@ -487,7 +440,7 @@
         }
       });
 
-      // RÉINITIALISATION MOT DE PASSE
+      // MOT DE PASSE OUBLIÉ
       resetBtn?.addEventListener("click", async () => {
         const email = prompt(
           "Entrez votre email pour réinitialiser votre mot de passe :"
@@ -536,24 +489,19 @@
         }
       };
 
-      googleBtn?.addEventListener("click", () =>
+      document.querySelector(".google")?.addEventListener("click", () =>
         oauthLogin(new firebase.auth.GoogleAuthProvider())
       );
-      facebookBtn?.addEventListener("click", () =>
+      document.querySelector(".facebook")?.addEventListener("click", () =>
         oauthLogin(new firebase.auth.FacebookAuthProvider())
       );
 
-      // REDIRECTION AUTO SI CONNECTÉ
+      // REDIRECTION SI DÉJÀ CONNECTÉ
       auth.onAuthStateChanged(async (user) => {
         if (user && user.emailVerified) {
           try {
             const docSnap = await db.collection("users").doc(user.uid).get();
-            if (!docSnap.exists) {
-              alert(
-                "Erreur : Document utilisateur introuvable dans Firestore."
-              );
-              return;
-            }
+            if (!docSnap.exists) return;
 
             const role = docSnap.data()?.role;
 
@@ -561,30 +509,11 @@
               window.location.href = "compteuser/html/dashboard-client.html";
             } else if (role === "pro") {
               window.location.href = "compteuser/html/dashboard-pro.html";
-            } else {
-              alert("Rôle non défini. Contactez l’administrateur.");
             }
           } catch (err) {
-            alert(
-              "Impossible de récupérer les données utilisateur. Vérifiez votre connexion."
-            );
-            console.error("Erreur Firestore :", err);
+            alert("Erreur chargement utilisateur : " + err.message);
           }
         }
-      });
-    </script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const loginForm = document.getElementById("loginInForm");
-        const signInForm = document.getElementById("signInForm");
-
-        // Attacher l'événement click
-        signUpBtn.addEventListener("click", function () {
-          // Masquer le formulaire de connexion
-          loginForm.style.display = "block";
-          // Afficher le formulaire d'inscription
-          signInForm.style.display = "none";
-        });
       });
     </script>
   </body>
