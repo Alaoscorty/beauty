@@ -155,7 +155,8 @@
                     links = `<a href="beaute-elangante-tml.web.app" target="_blank" class="text-blue-600 underline">Se connecter</a>`;
                 } else if (msg.includes('connecter') || msg.includes('compte') || msg.includes('login')) {
                     reply = "Voici le lien pour vous connecter à votre compte Beauté Élégante :";
-                    links = `<a href="beaute-elangante-tml.web.app" target="_blank" class="text-blue-600 underline">Se connecter</a>`;
+                    links = `<a target="_blank" 
+                    rel="noopener noreferrer" href="beaute-elangante-tml.web.app" target="_blank" class="text-blue-600 underline">Se connecter</a>`;
                 } else if (msg.includes('adresse')) {
                     reply = "Nos adresses : Porto-Novo, quartier OUANDO non loin du marché ;Dodji à 100m avant le feu en quittant le CEG DJEGAN-KPEVI; Cotonou, quartier Zogbo.";
                 } else if (msg.includes('don') || msg.includes('donner')) {
@@ -1616,6 +1617,25 @@
             <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Nos Services d'Esthétique</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Service 1 -->
+                <div class="service-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/37/af/e4/37afe4350f08aad5d2759774db8b9298.jpg');"></div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-pink-100 text-pink-500 p-3 rounded-full mr-4">
+                                <i class="fas fa-hand-sparkles text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-xl text-gray-800">Hénné professionel</h3>
+                        </div>
+                       <p class="text-gray-600 mb-4">Faire du hénné pour vos mariages et sorties </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-pink-500 font-bold">À partir de FCFA 2000</span>
+                            <a href="#reservation" class="text-pink-500 hover:text-pink-600 font-medium text-sm open-reservation-modal">Réserver →</a>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Service 1 -->
                 <div class="service-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
                     <div class="h-48 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/a3/31/04/a331045835f13a657999f24e4047a4c9.jpg');"></div>
@@ -2327,19 +2347,26 @@
                                 </div>
                                 <div>
                                     <h4 class="font-bold text-gray-800">Téléphone</h4>
-                                    <p class="text-gray-600"><a href="wa.me/+22997903723" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                                    <p class="text-gray-600"><a target="_blank" 
+                    rel="noopener noreferrer" href="wa.me/+22997903723" class="text-gray-400 hover:text-pink-500 transition duration-300">
                                     <i class="fab fa-whatsapp"></i></a> +229 0197903723</p>
-                                    <p class="text-gray-600"> <a href="wa.me/+22951563219" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                                    <p class="text-gray-600"> <a target="_blank" 
+                    rel="noopener noreferrer" href="wa.me/+22951563219" class="text-gray-400 hover:text-pink-500 transition duration-300">
                                     <i class="fab fa-whatsapp"></i></a>+229 0151563219</p>
-                                    <p class="text-gray-600"> <a href="wa.me/+22941803470" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                                    <p class="text-gray-600"> <a target="_blank" 
+                    rel="noopener noreferrer" href="wa.me/+22941803470" class="text-gray-400 hover:text-pink-500 transition duration-300">
                                     <i class="fab fa-whatsapp"></i></a>+229 0141803470</p>
-                                    <p class="text-gray-600"> <a href="wa.me/+22944104328" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                                    <p class="text-gray-600"> <a target="_blank" 
+                    rel="noopener noreferrer" href="wa.me/+22944104328" class="text-gray-400 hover:text-pink-500 transition duration-300">
                                     <i class="fab fa-whatsapp"></i></a>+229 0144104328</p>
-                                    <p class="text-gray-600"> <a href="wa.me/+22994516481" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                                    <p class="text-gray-600"> <a target="_blank" 
+                    rel="noopener noreferrer" href="wa.me/+22994516481" class="text-gray-400 hover:text-pink-500 transition duration-300">
                                     <i class="fab fa-whatsapp"></i></a>+229 0194516481</p>
-                                    <p class="text-gray-600"> <a href="wa.me/+22957024715" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                                    <p class="text-gray-600"> <a target="_blank" 
+                    rel="noopener noreferrer" href="wa.me/+22957024715" class="text-gray-400 hover:text-pink-500 transition duration-300">
                                     <i class="fab fa-whatsapp"></i></a>+229 0157024715</p>
-                                    <p class="text-gray-600"> <a href="wa.me/+22957523222" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                                    <p class="text-gray-600"> <a target="_blank" 
+                    rel="noopener noreferrer" href="wa.me/+22957523222" class="text-gray-400 hover:text-pink-500 transition duration-300">
                                     <i class="fab fa-whatsapp"></i></a>+229 0157523222</p>
                                 </div>
                             </div>
@@ -2549,11 +2576,13 @@
     <p class="text-xl md:text-2xl mb-8">Découvrez notre application en la téléchargeant ici</p>
     <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
       <!-- Lien Play Store -->
-      <a href="https://fauxlien.com/playstore" target="_blank">
+      <a target="_blank" 
+                    rel="noopener noreferrer" href="https://fauxlien.com/playstore" target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_FR.svg" alt="Télécharger sur Google Play" class="h-16">
       </a>
       <!-- Lien App Store -->
-      <a href="https://fauxlien.com/appstore" target="_blank">
+      <a target="_blank" 
+                    rel="noopener noreferrer" href="https://fauxlien.com/appstore" target="_blank">
         <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Télécharger sur l'App Store" class="h-16">
       </a>
     </div>
@@ -2572,19 +2601,24 @@
                     </div>
                     <p class="text-gray-400 mb-4">Votre destination beauté premium pour des produits et services d'exception.</p>
                     <div class="flex space-x-4">
-                        <a href="https://www.facebook.com/share/1GBHkW9umd/" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                        <a target="_blank" 
+                    rel="noopener noreferrer" href="https://www.facebook.com/share/1GBHkW9umd/" class="text-gray-400 hover:text-pink-500 transition duration-300">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="https://x.com/AlaoScorty?t=3MIBEbsDRXE8tu_mljMJUS&s=09" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                        <a target="_blank" 
+                    rel="noopener noreferrer" href="https://x.com/AlaoScorty?t=3MIBEbsDRXE8tu_mljMJUS&s=09" class="text-gray-400 hover:text-pink-500 transition duration-300">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                        <a target="_blank" 
+                    rel="noopener noreferrer" href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">
                             <i class="fab fa-facebook"></i>
                         </a>
-                        <a href="wa.me/+22951563219" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                        <a target="_blank" 
+                    rel="noopener noreferrer" href="wa.me/+22951563219" class="text-gray-400 hover:text-pink-500 transition duration-300">
                             <i class="fab fa-whatsapp"></i>
                         </a>
-                        <a href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                        <a target="_blank" 
+                    rel="noopener noreferrer" href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">
                             <i class="fab fa-pinterest-p"></i>
                         </a>
                     </div>
