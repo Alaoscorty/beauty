@@ -83,7 +83,7 @@
         </div>
 
         <!-- Chat Messenger Widget -->
-        <div id="messenger-chat" class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+        <div id="messenger-chat" class="fixed bottom-12 right-5 z-50 flex flex-col items-end">
             <!-- Chat Button -->
             
             <button id="open-chat" class="bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg p-4 flex items-center justify-center focus:outline-none transition duration-300">
@@ -353,23 +353,23 @@
                         <div id="product-detail" class="hidden mt-6"></div>
                     </div>
                 </div>
-                    
+
                 <div class="category-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
                     <div class="h-40 bg-cover bg-center" style="background-image: url('https://i.pinimg.com/736x/13/dc/9b/13dc9b64a9ba91d6948d05d6b0b75cca.jpg');"></div>
                     <div class="p-4 cursor-pointer" id="outils-products-toggle">
                         <h3 class="font-semibold text-lg mb-2 text-gray-800">Accessoires</h3>
-                        <p class="text-gray-600 text-sm">Outils professionnels</p>
+                                <p class="text-gray-600 text-sm">Outils professionnels</p>
                     </div>
-                    <div class="p-4 cursor-pointer" id="face-care-products" class="hidden p-4 border-t bg-white">
+                    <div id="face-care-products" class="hidden p-4 border-t bg-white">
                         <ul class="space-y-2 text-gray-700 text-sm">
-                            <li class="product-item cursor-pointer hover:text-pink-500" data-product="pinceaux">Pinceaux de Maquillage</li>
+                        <li class="product-item cursor-pointer hover:text-pink-500" data-product="pinceaux">Pinceaux de Maquillage</li>
                             <li class="product-item cursor-pointer hover:text-pink-500" data-product="blender">Éponge Blender</li>
                             <li class="product-item cursor-pointer hover:text-pink-500" data-product="rouleau">Rouleau de Jade</li>
                             <li class="product-item cursor-pointer hover:text-pink-500" data-product="brossevisage">Brosse Nettoyante Visage</li>
                         </ul>
                         <!-- Conteneur pour afficher la carte produit -->
                         <div id="product-detail" class="hidden mt-6"></div>
-                    </div>   
+                    </div>
                 </div>
                     
                 <div class="category-card bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
@@ -379,6 +379,7 @@
                                 <p class="text-gray-600 text-sm">Crèmes, sérums et masques</p>
                     </div>
                     <div id="face-care-products" class="hidden p-4 border-t bg-white">
+                        <ul class="space-y-2 text-gray-700 text-sm">
                         <li class="product-item cursor-pointer hover:text-pink-500" data-product="hydratante">Crème Hydratante Intense</li>
                                 <li class="product-item cursor-pointer hover:text-pink-500" data-product="serum">Sérum Anti-Âge Premium</li>
                                 <li class="product-item cursor-pointer hover:text-pink-500" data-product="masque">Masque Éclat Doré</li>
@@ -550,10 +551,10 @@
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center mb-8">
                 <h2 class="text-3xl font-bold text-gray-800">Nos Produits Phares</h2>
-                <a href="#" id="see-all-products"  class="text-pink-500 hover:text-pink-600 font-medium">Voir tout →</a>
+                <a href="#" id="see-all-products"  class="text-pink-500 hover:text-black-600 font-medium">Voir tout →</a>
             </div>
             <!-- div pour afficher les produits disponibles sur le site à faire -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6" id="see-all-product">
                 <!-- Produit 1 -->
                 <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300"  data-nom-produit="Fond de Teint Matifiant" >
                     <img src="https://i.pinimg.com/736x/48/66/04/486604a58f9ad5eea6c1e649bb65bd34.jpg" alt="Fond de teint" class="w-full h-48 object-cover">
@@ -773,7 +774,7 @@
                 <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300" data-nom-produit="1 pièce Bonnet De Bain Objet Pour Retirer Poils Casquette Soin Pour Cheveux">
                     <img src="https://i.pinimg.com/736x/5a/6c/89/5a6c89b55b76a7221ad06d23b2f9c557.jpg " alt="Poudre compacte" class="w-full h-48 object-cover">
                     <div class="p-4">
-                        <h4 class="font-bold text-lg text-gray-800 mb-2">1 pièce Bonnet De Bain Objet Pour Retirer Poils Casquette Soin Pour Cheveux</h4>
+                        <h4 class="font-bold text-lg text-gray-800 mb-2">Bonnet casquette pour cheveux</h4>
                         <p class="text-pink-500 font-bold mb-2">FCFA 500</p>
                         <button class="add-to-cart bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium py-2 px-4 rounded-full transition duration-300" data-id="8" data-name="1 pièce Bonnet De Bain Objet Pour Retirer Poils Casquette Soin Pour Cheveux" data-price="500">
                             Ajouter
@@ -2589,86 +2590,29 @@
 </section>
 
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white pt-12 pb-6">
+    <!-- Bottom Navigation -->
+    <nav class="fixed bottom-0 left-0 right-0 bg-white shadow-lg border-t">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-                <div>
-                    <div class="flex items-center mb-4">
-                        <i class="fas fa-spa text-2xl text-pink-500 mr-2"></i>
-                        <span class="text-xl font-bold">Beauté<span class="text-pink-500">Élégante</span></span>
-                    </div>
-                    <p class="text-gray-400 mb-4">Votre destination beauté premium pour des produits et services d'exception.</p>
-                    <div class="flex space-x-4">
-                        <a target="_blank" 
-                    rel="noopener noreferrer" href="https://www.facebook.com/share/1GBHkW9umd/" class="text-gray-400 hover:text-pink-500 transition duration-300">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a target="_blank" 
-                    rel="noopener noreferrer" href="https://x.com/AlaoScorty?t=3MIBEbsDRXE8tu_mljMJUS&s=09" class="text-gray-400 hover:text-pink-500 transition duration-300">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a target="_blank" 
-                    rel="noopener noreferrer" href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">
-                            <i class="fab fa-facebook"></i>
-                        </a>
-                        <a target="_blank" 
-                    rel="noopener noreferrer" href="wa.me/+22951563219" class="text-gray-400 hover:text-pink-500 transition duration-300">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a target="_blank" 
-                    rel="noopener noreferrer" href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">
-                            <i class="fab fa-pinterest-p"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-bold mb-4">Liens rapides</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">Accueil</a></li>
-                        <a href="formation.html" class="text-gray-700 hover:text-pink-500 font-medium">Nos formations</a>
-                        <li><a href="#products" class="text-gray-400 hover:text-pink-500 transition duration-300">Produits</a></li>
-                        <li><a href="#services" class="text-gray-400 hover:text-pink-500 transition duration-300">Services</a></li>
-                        <li><a href="#about" class="text-gray-400 hover:text-pink-500 transition duration-300">À propos</a></li>
-                        <li><a href="#contact" class="text-gray-400 hover:text-pink-500 transition duration-300">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-bold mb-4">Catégories</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#visage" class="text-gray-400 hover:text-pink-500 transition duration-300">Soins Visage</a></li>
-                        <li><a href="#face-care-toggle" class="text-gray-400 hover:text-pink-500 transition duration-300">Maquillage</a></li>
-                        <li><a href="#face-care-products" class="text-gray-400 hover:text-pink-500 transition duration-300">Corps & Bain</a></li>
-                        <li><a href="#face-care-toggle" class="text-gray-400 hover:text-pink-500 transition duration-300">Accessoires</a></li>
-                        <li><a href="#face-care-toggle" class="text-gray-400 hover:text-pink-500 transition duration-300">Nouveautés</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-bold mb-4">Contact</h4>
-                    <address class="not-italic text-gray-400 space-y-2">
-                        <p>Porto novo non loin du marché  OUANDO,Dodji à 100m avant le feu en quittant le CEG DJEGAN-KPEVI, Cotonou quartier Zogo</p>
-                        <p>Email: alaoservice1@gmail.com</p>
-                        <p>Tél: +229 0151563219</p>
-                        <p>Tél: +229 0197903723</p>
-                        <p>Tél: +229 0144104328</p>
-                        <p>Tél: +229 0141803470</p>
-                    </address>
-                </div>
-            </div>
-            
-            <div class="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 Beauté Élégante. Tous droits réservés.</p>
-                <div class="flex space-x-6">
-                    <a href="conditions.html#mention" class="text-gray-400 hover:text-pink-500 text-sm transition duration-300">Mentions légales</a>
-                    <a href="conditions.html#politique" class="text-gray-400 hover:text-pink-500 text-sm transition duration-300">Politique de confidentialité</a>
-                    <a href="conditions.html#condition" class="text-gray-400 hover:text-pink-500 text-sm transition duration-300">Conditions générales</a>
-                </div>
+            <div class="flex justify-around">
+                <a href="#" class="py-3 px-6 flex flex-col items-center nav-item active">
+                    <i class="fas fa-home text-lg mb-1"></i>
+                    <span class="text-xs">Accueil</span>
+                </a>
+                <a href="#reservation" class="py-3 px-6 flex flex-col items-center nav-item">
+                    <i class="fas fa-calendar-alt text-lg mb-1"></i>
+                    <span class="text-xs">Rendez-vous</span>
+                </a>
+                <a href="#see-all-product" class="py-3 px-6 flex flex-col items-center nav-item">
+                    <i class="fas fa-shopping-bag text-lg mb-1"></i>
+                    <span class="text-xs">Boutique</span>
+                </a>
+                <a href="formation.html" class="py-3 px-6 flex flex-col items-center nav-item">
+                    <i class="fas fa-hand-sparkles text-lg mb-1"></i>
+                    <span class="text-xs">Formation</span>
+                </a>
             </div>
         </div>
-    </footer>
+    </nav>
 
     <script>
         // Mobile menu toggle

@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Beauté Élégante - Votre destination beauté premium (catalogue) </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+</head>
+<style>
+        .carousel-container {
+            scroll-snap-type: x mandatory;
+        }
+        .carousel-slide {
+            scroll-snap-align: start;
+        }
+        .mini-carousel-container {
+            scroll-snap-type: x mandatory;
+        }
+        .mini-carousel-slide {
+            scroll-snap-align: start;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+<body class="font-sans bg-gray-50" id="content">
+
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-spa text-2xl text-pink-500 mr-2"></i>
+                <a href="#" class="text-2xl font-bold text-gray-800">Beauté<span class="text-pink-500">Élégante</span></a>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-700 hover:text-pink-500 font-medium">Accueil</a>
+                <a href="formation.html" class="text-gray-700 hover:text-pink-500 font-medium">Nos formations</a>
+                <a href="index.html#products" class="text-gray-700 hover:text-pink-500 font-medium">Produits</a>
+                <a href="index.html#services" class="text-gray-700 hover:text-pink-500 font-medium">Services</a>
+                <a href="index.html#about" class="text-gray-700 hover:text-pink-500 font-medium">À propos</a>
+                <a href="index.html#contact" class="text-gray-700 hover:text-pink-500 font-medium">Contact</a>
+                <div class="container mx-auto px-4 py-2 flex justify-end md:justify-end">
+                <a href="https://beaute-elangante-tml.web.app" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-5 rounded-full transition duration-300 flex items-center gap-2">
+                    <i class="fas fa-user"></i>
+                    Connexion
+                </a>
+
+            </nav>
+            <!--Section pour afficher la barre de recherche et la carte-->
+            <div class="flex items-center space-x-4">
+                <button id="search-btn" class="text-gray-600 hover:text-pink-500">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button id="cart-btn" class="relative text-gray-600 hover:text-pink-500">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-pink-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center hidden">0</span>
+                </button>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-600">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-4 px-4 shadow-lg">
+            <a href="index.html" class="block py-2 text-gray-700 hover:text-pink-500">Accueil</a>
+            <a href="formation.html" class="block py-2 text-gray-700 hover:text-pink-500">Nos formations</a>
+            <a href="index.html#products" class="block py-2 text-gray-700 hover:text-pink-500">Produits</a>
+            <a href="index.html#services" class="block py-2 text-gray-700 hover:text-pink-500">Services</a>
+            <a href="index.html#about" class="block py-2 text-gray-700 hover:text-pink-500">À propos</a>
+            <a href="index.html#contact" class="block py-2 text-gray-700 hover:text-pink-500">Contact</a>
+            <a href="https://beaute-elangante-tml.web.app" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-5 rounded-full transition duration-300 flex items-center gap-2 text-align:center;">
+                <i class="fas fa-user"></i>
+                Connexion
+            </a>
+
+        </div>
+
+
+        
+        <!-- Search Bar -->
+        <div id="search-bar" class="hidden bg-white py-3 px-4 shadow-md">
+            <div class="container mx-auto flex">
+                <input type="text" placeholder="Rechercher une formation..." class="flex-grow px-4 py-2 border border-gray-300 rounded-l focus:outline-none focus:ring-2 focus:ring-pink-500">
+                <button id="search-submit" class="bg-pink-500 text-white px-4 py-2 rounded-r hover:bg-pink-600">
+                    <i class="fas fa-search"></i>
+                </button>
+                <div id="search-no-result" class="hidden text-red-500 text-sm ml-4 flex items-center">
+                    Aucun résultat
+                </div>  
+            </div>
+        </div>
+    </header>
+
+    <!-- Galeries Section -->
+    <section id="galerie" class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Bienvenue sur notre catalogue</h2>
+            
+            <!-- Main Carousel -->
+        <div class="relative max-w-4xl mx-auto mb-12 rounded-xl overflow-hidden shadow-lg">
+            <div class="carousel-container flex overflow-x-auto snap-mandatory snap-x scroll-smooth h-96" id="mainCarousel">
+                <!-- Slide 1 -->
+                <div class="carousel-slide flex-shrink-0 w-full h-full relative">
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" 
+                         alt="Maison moderne" class="w-full h-full object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
+                        <h2 class="text-2xl font-bold text-white">Belle maison moderne</h2>
+                        <p class="text-gray-200">3 chambres, 2 salles de bain, jardin</p>
+                    </div>
+                    
+                    <!-- Mini Carousel for Slide 1 -->
+                    <div class="absolute top-4 left-4 bg-white bg-opacity-90 p-2 rounded-lg shadow-md w-64">
+                        <h3 class="font-semibold text-sm mb-2">Plus de photos</h3>
+                        <div class="flex items-center">
+                            <button class="mini-carousel-prev px-2 py-1 bg-gray-200 rounded-l" 
+                                    onclick="prevMiniSlide('miniCarousel1')">
+                                &lt;
+                            </button>
+                            <div class="mini-carousel-container flex overflow-x-auto snap-mandatory snap-x scroll-smooth w-48 h-20 mx-1" 
+                                 id="miniCarousel1">
+                                <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" 
+                                     alt="Maison salon" class="mini-carousel-slide flex-shrink-0 w-full h-full object-cover rounded">
+                                <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" 
+                                     alt="Maison cuisine" class="mini-carousel-slide flex-shrink-0 w-full h-full object-cover rounded">
+                                <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" 
+                                     alt="Maison chambre" class="mini-carousel-slide flex-shrink-0 w-full h-full object-cover rounded">
+                            </div>
+                            <button class="mini-carousel-next px-2 py-1 bg-gray-200 rounded-r" 
+                                    onclick="nextMiniSlide('miniCarousel1')">
+                                &gt;
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slide 2 -->
+                <div class="carousel-slide flex-shrink-0 w-full h-full relative">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" 
+                         alt="Appartement lumineux" class="w-full h-full object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
+                        <h2 class="text-2xl font-bold text-white">Appartement lumineux</h2>
+                        <p class="text-gray-200">2 chambres, 1 salle de bain, balcon</p>
+                    </div>
+                    
+                    <!-- Mini Carousel for Slide 2 -->
+                    <div class="absolute top-4 left-4 bg-white bg-opacity-90 p-2 rounded-lg shadow-md w-64">
+                        <h3 class="font-semibold text-sm mb-2">Plus de photos</h3>
+                        <div class="flex items-center">
+                            <button class="mini-carousel-prev px-2 py-1 bg-gray-200 rounded-l" 
+                                    onclick="prevMiniSlide('miniCarousel2')">
+                                &lt;
+                            </button>
+                            <div class="mini-carousel-container flex overflow-x-auto snap-mandatory snap-x scroll-smooth w-48 h-20 mx-1" 
+                                 id="miniCarousel2">
+                                <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" 
+                                     alt="Appartement salon" class="mini-carousel-slide flex-shrink-0 w-full h-full object-cover rounded">
+                                <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" 
+                                     alt="Appartement cuisine" class="mini-carousel-slide flex-shrink-0 w-full h-full object-cover rounded">
+                                <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" 
+                                     alt="Appartement salle de bain" class="mini-carousel-slide flex-shrink-0 w-full h-full object-cover rounded">
+                            </div>
+                            <button class="mini-carousel-next px-2 py-1 bg-gray-200 rounded-r" 
+                                    onclick="nextMiniSlide('miniCarousel2')">
+                                &gt;
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slide 3 -->
+                <div class="carousel-slide flex-shrink-0 w-full h-full relative">
+                    <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93388?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" 
+                         alt="Chalet montagne" class="w-full h-full object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
+                        <h2 class="text-2xl font-bold text-white">Chalet de montagne</h2>
+                        <p class="text-gray-200">4 chambres, 3 salles de bain, vue imprenable</p>
+                    </div>
+                    
+                    <!-- Mini Carousel for Slide 3 -->
+                    <div class="absolute top-4 left-4 bg-white bg-opacity-90 p-2 rounded-lg shadow-md w-64">
+                        <h3 class="font-semibold text-sm mb-2">Plus de photos</h3>
+                        <div class="flex items-center">
+                            <button class="mini-carousel-prev px-2 py-1 bg-gray-200 rounded-l" 
+                                    onclick="prevMiniSlide('miniCarousel3')">
+                                &lt;
+                            </button>
+                            <div class="mini-carousel-container flex overflow-x-auto snap-mandatory snap-x scroll-smooth w-48 h-20 mx-1" 
+                                 id="miniCarousel3">
+                                <img src="https://images.unsplash.com/photo-1475855581690-80accde3ae2b?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" 
+                                     alt="Chalet extérieur" class="mini-carousel-slide flex-shrink-0 w-full h-full object-cover rounded">
+                                <img src="https://images.unsplash.com/photo-1471115853179-bb1d604434e0?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" 
+                                     alt="Chalet cheminée" class="mini-carousel-slide flex-shrink-0 w-full h-full object-cover rounded">
+                                <img src="https://images.unsplash.com/photo-1519643381401-22c77e60520e?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" 
+                                     alt="Chalet terrasse" class="mini-carousel-slide flex-shrink-0 w-full h-full object-cover rounded">
+                            </div>
+                            <button class="mini-carousel-next px-2 py-1 bg-gray-200 rounded-r" 
+                                    onclick="nextMiniSlide('miniCarousel3')">
+                                &gt;
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Main Carousel Navigation -->
+            <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                <button class="btn btn-circle bg-white bg-opacity-70 hover:bg-opacity-100 p-2 rounded-full shadow-md" 
+                        onclick="prevMainSlide()">❮</button>
+                <button class="btn btn-circle bg-white bg-opacity-70 hover:bg-opacity-100 p-2 rounded-full shadow-md" 
+                        onclick="nextMainSlide()">❯</button>
+            </div>
+            
+            <!-- Indicators -->
+            <div class="flex justify-center space-x-2 absolute bottom-4 left-0 right-0">
+                <button class="w-3 h-3 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 indicator-btn" 
+                        onclick="goToSlide(0)"></button>
+                <button class="w-3 h-3 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 indicator-btn" 
+                        onclick="goToSlide(1)"></button>
+                <button class="w-3 h-3 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 indicator-btn" 
+                        onclick="goToSlide(2)"></button>
+            </div>
+        </div>
+        </div>
+
+        <div class="text-center mt-12">
+            <a href="#" class="inline-block bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full transition duration-300">
+            <i class="fa-solid fa-heart-circle-plus"></i>
+            </a>
+        </div>
+        <!-- Donation Modal -->
+        <div id="donation-modal" class="fixed inset-0 z-50 hidden overflow-y-auto">
+            <div class="flex items-center justify-center min-h-screen px-4">
+                <div class="fixed inset-0 bg-gray-900 opacity-60"></div>
+                <div class="bg-white rounded-lg shadow-lg max-w-md w-full z-10 p-8 relative">
+                    <button id="close-donation" class="absolute top-3 right-3 text-gray-400 hover:text-pink-500 text-xl">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <h3 class="text-2xl font-bold text-center mb-4 text-pink-500">Faire un don</h3>
+                    <form id="donation-form" class="space-y-5">
+                        <div>
+                            <label for="donor-name" class="block text-gray-700 font-medium mb-1">Nom complet</label>
+                            <input type="text" id="donor-name" required class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                        </div>
+                        <div>
+                            <label for="donor-email" class="block text-gray-700 font-medium mb-1">Email</label>
+                            <input type="email" id="donor-email" required class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                        </div>
+                        <div>
+                            <label for="donation-amount" class="block text-gray-700 font-medium mb-1">Montant (FCFA )</label>
+                            <input type="number" id="donation-amount" min="100" required class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-1">Méthode de paiement</label>
+                            <select id="donation-method" required class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                                <option value="">Sélectionnez une méthode</option>
+                                <option value="mobile">Mobile Money (MTN, Moov, etc.)</option>
+                                <option value="bank">Virement bancaire (Bénin)</option>
+                            </select>
+                        </div>
+                        <div id="mobile-info" class="hidden">
+                            <p class="text-sm text-gray-600 mt-2">
+                                Envoyez votre don via MTN Mobile Money au <span class="font-bold text-pink-500">+229 51563219</span>ou par Moov Mobile money au <span class="font-bold text-pink-500">+229 64517494</span> puis entrez le numéro de transaction ci-dessous.
+                            </p>
+                            <input type="text" id="mobile-transaction" placeholder="Numéro de transaction" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                        </div>
+                        <div id="bank-info" class="hidden">
+                            <p class="text-sm text-gray-600 mt-2">
+                                Faites un virement à la banque :<br>
+                                <span class="font-bold">Banque : Ecobank Bénin</span><br>
+                                <span class="font-bold">IBAN : BJ6600100100000000123456789</span><br>
+                                <span class="font-bold">Nom : Beauté Élégante ou AMOUSSA Sayidi A.O</span>
+                            </p>
+                            <input type="text" id="bank-reference" placeholder="Référence du virement" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                        </div>
+                        <button type="submit" class="w-full bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 rounded transition duration-300">Valider le don</button>
+                        <div id="donation-success" class="hidden text-green-600 text-center font-medium mt-4">Merci pour votre don !</div>
+                    </form>
+                </div>
+                </div>
+        </div>
+        <script>
+            // Show donation modal
+            document.querySelector('.fa-heart-circle-plus').closest('a').addEventListener('click', function(e) {
+                e.preventDefault();
+                document.getElementById('donation-modal').classList.remove('hidden');
+            });
+            // Close modal
+            document.getElementById('close-donation').onclick = function() {
+                document.getElementById('donation-modal').classList.add('hidden');
+                };
+            // Payment method toggle
+            document.getElementById('donation-method').addEventListener('change', function() {
+                document.getElementById('mobile-info').classList.toggle('hidden', this.value !== 'mobile');
+                document.getElementById('bank-info').classList.toggle('hidden', this.value !== 'bank');
+            });
+            // Handle form submit
+            document.getElementById('donation-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                document.getElementById('donation-success').classList.remove('hidden');
+                setTimeout(() => {
+                    document.getElementById('donation-modal').classList.add('hidden');
+                    document.getElementById('donation-success').classList.add('hidden');
+                    this.reset();
+                    document.getElementById('mobile-info').classList.add('hidden');
+                    document.getElementById('bank-info').classList.add('hidden');
+                }, 2000);
+            });
+        </script> 
+    </section>
+
+    <!-- formulaire de réservation -->
+    <section id="reservation" class="py-16 bg-gray-50 mb-5">
+        <div class="container mx-auto px-4 max-w-xl">
+            <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">Réserver un service</h2>
+            <form id="whatsapp-reservation-form" class="space-y-6 bg-white p-8 rounded-lg shadow-md">
+                <div>
+                    <label for="res-name" class="block text-gray-700 font-medium mb-2">Nom complet</label>
+                    <input type="text" id="res-name" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                </div>
+                <div>
+                    <label for="res-phone" class="block text-gray-700 font-medium mb-2">Téléphone</label>
+                    <input type="tel" id="res-phone" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                </div>
+                <div>
+                    <label for="res-service" class="block text-gray-700 font-medium mb-2">Service souhaité</label>
+                    <select id="res-service" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                        <option value="">Sélectionnez un service</option>
+                        <option>Soin du Visage Premium</option>
+                        <option>Manucure Professionnelle</option>
+                        <option>Extensions de Cils</option>
+                        <option>Tatouage</option>
+                        <option>Vernis simple</option>
+                        <option>Onglerie simple</option>
+                        <option>Autre</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="res-date" class="block text-gray-700 font-medium mb-2">Date souhaitée</label>
+                    <input type="date" id="res-date" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                </div>
+                <div>
+                    <label for="res-message" class="block text-gray-700 font-medium mb-2">Message (optionnel)</label>
+                    <textarea id="res-message" rows="3" class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500"></textarea>
+                </div>
+                <script>
+                // Lors de la soumission du formulaire de réservation, stocke la réservation dans le localStorage
+                document.getElementById('whatsapp-reservation-form').addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const name = document.getElementById('res-name').value.trim();
+                    const phone = document.getElementById('res-phone').value.trim();
+                    const service = document.getElementById('res-service').value.trim();
+                    const date = document.getElementById('res-date').value.trim();
+                    const message = document.getElementById('res-message').value.trim();
+
+                    // Récupère les réservations existantes ou initialise un tableau
+                    let reservations = [];
+                    try {
+                        reservations = JSON.parse(localStorage.getItem('reservations')) || [];
+                    } catch (err) {
+                        reservations = [];
+                    }
+                    // Ajoute la nouvelle réservation
+                    reservations.push({
+                        name,
+                        phone,
+                        service,
+                        date,
+                        message,
+                        createdAt: new Date().toISOString()
+                    });
+                    localStorage.setItem('reservations', JSON.stringify(reservations));
+
+                    // Optionnel : affiche un message de confirmation
+                    alert('Votre réservation a bien été enregistrée !');
+
+                    // Redirige vers dashboard.html (optionnel)
+                    // window.location.href = 'dashboard.html';
+                });
+                </script>
+                <button type="submit" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-6 rounded transition duration-300 w-full">Envoyer</button>
+            </form>
+        </div>  
+    </section>
+
+    <!-- Rejoindre le groupe -->
+    <section class="py-16 bg-pink-500 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">Abonnez-vous à notre groupe whatsapp</h2>
+            <p class="text-pink-100 mb-8 max-w-2xl mx-auto">Recevez nos offres exclusives, conseils beauté et nouveautés directement sur whatsapp</p>
+            <form id="whatsapp-group-form" class="flex flex-col sm:flex-row max-w-md mx-auto sm:max-w-xl">
+                <input type="tel" id="whatsapp-phone" placeholder="Votre numéro de téléphone" required class="flex-grow px-4 py-3 rounded sm:rounded-r-none focus:outline-none text-gray-800">
+                <button type="submit" class="bg-gray-900 hover:bg-gray-800 text-white font-bold px-6 py-3 rounded sm:rounded-l-none mt-2 sm:mt-0 transition duration-300">Rejoindre</button>
+                <script>
+                    document.getElementById('whatsapp-group-form').addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // Remplacez ce lien par celui de votre groupe WhatsApp
+                    const whatsappGroupLink = "https://chat.whatsapp.com/I8GTvwRGSUjAqHcqouuSlA";
+                    window.open(whatsappGroupLink, '_blank');
+                    });
+                </script>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Contactez-nous</h2>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <form id="contact-whatsapp-form" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Nom complet</label>
+                            <input id="name" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-gray-700 font-medium mb-2">Sujet</label>
+                            <select id="subject" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                                <option value="">Sélectionnez un sujet</option>
+                                <option value="products">Question sur les produits</option>
+                                <option value="services">Réservation de service</option>
+                                <option value="other">Autre demande</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                            <textarea id="message" rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500"></textarea>
+                        </div>
+                        <button id="contact-send-btn" type="submit" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-6 rounded transition duration-300">Envoyer le message</button>
+                    </form>
+                    <script>
+                        document.getElementById('contact-whatsapp-form').addEventListener('submit', function(e) {
+                            e.preventDefault();
+                            var btn = document.getElementById('contact-send-btn');
+                            btn.disabled = true;
+                            btn.textContent = 'Envoi en cours...';
+
+                            var name = document.getElementById('name').value.trim();
+                            var email = document.getElementById('email').value.trim();
+                            var subject = document.getElementById('subject').options[document.getElementById('subject').selectedIndex].text;
+                            var message = document.getElementById('message').value.trim();
+
+                            var text = `Nouveau message depuis le site Beauté Élégante:%0A%0A*Nom complet:* ${name}%0A*Email:* ${email}%0A*Sujet:* ${subject}%0A*Message:* ${message}`;
+                            var phone = '22997903723';
+                            var url = `https://wa.me/${phone}?text=${text}`;
+
+                            setTimeout(function() {
+                                window.open(url, '_blank');
+                                btn.disabled = false;
+                                btn.textContent = 'Envoyer le message';
+                            }, 800);
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Modal pour le paiement -->
+    <div id="cart-modal" class="fixed inset-0 z-50 hidden overflow-y-auto">
+        <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+                <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+            </div>
+            
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+            
+            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="flex justify-between items-center border-b pb-4">
+                        <h3 class="text-lg font-bold text-gray-800">Votre Panier</h3>
+                        <button id="close-cart" class="text-gray-500 hover:text-gray-700">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    
+                    <div id="cart-items" class="max-h-96 overflow-y-auto py-4">
+                        <!-- Cart items will be added here dynamically -->
+                        <p class="text-gray-500 text-center py-8">Votre panier est vide</p>
+                    </div>
+                    
+                    <div class="border-t pt-4">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium text-gray-700">Sous-total</span>
+                            <span id="cart-subtotal" class="font-medium">FCFA 0</span>
+                        </div>
+                        <div class="flex justify-between mb-4">
+                            <span class="font-medium text-gray-700">Livraison</span>
+                            <span class="font-medium">Gratuite</span>
+                        </div>
+                        <div class="flex justify-between border-t pt-4">
+                            <span class="font-bold text-lg text-gray-800">Total</span>
+                            <span id="cart-total" class="font-bold text-lg text-pink-500">FCFA 0</span>
+                             <!-- Total enregistré dans le localStorage -->
+                            
+                            <script>
+                                // Met à jour le total dans le localStorage et l'affiche
+                                function updateCartTotalLocal() {
+                                    const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+                                    localStorage.setItem('cartTotal', total);
+                                    document.getElementById('cart-total-local').textContent = `FCFA ${total.toFixed(2)}`;
+                                }
+                                // Appelle la fonction à chaque mise à jour du panier
+                                const _oldUpdateCartDisplay = updateCartDisplay;
+                                updateCartDisplay = function() {
+                                    _oldUpdateCartDisplay();
+                                    updateCartTotalLocal();
+                                };
+                                // Initialise à l'ouverture du panier
+                                updateCartTotalLocal();
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                    <button id="checkout-btn" type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-pink-500 text-base font-medium text-white hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 sm:ml-3 sm:w-auto sm:text-sm transition duration-300">
+                        Passer la commande
+                    </button>
+                    <script>
+                        document.getElementById('checkout-btn').addEventListener('click', function() {
+                            // Récupère le nombre de commandes dans le localStorage ou 0
+                            let ordersCount = parseInt(localStorage.getItem('ordersCount') || '0', 10);
+                            ordersCount += 1;
+                            localStorage.setItem('ordersCount', ordersCount);
+                        });
+                    </script>
+                    <!-- Modal Paiement -->
+                    <div id="payment-modal" class="fixed inset-0 z-60 hidden overflow-y-auto">
+                        <div class="flex items-center justify-center min-h-screen px-4">
+                            <div class="fixed inset-0 bg-gray-900 opacity-60"></div>
+                            <div class="bg-white rounded-lg shadow-lg max-w-md w-full z-10 p-8 relative">
+                                <button id="close-payment-modal" class="absolute top-3 right-3 text-gray-400 hover:text-pink-500 text-xl">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                                <h3 class="text-2xl font-bold text-center mb-4 text-pink-500">Paiement de la commande</h3>
+                                <form id="payment-form" class="space-y-5">
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-1">Méthode de paiement</label>
+                                        <select id="payment-method" required class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                                            <option value="">Sélectionnez une méthode</option>
+                                            <option value="mobile">Mobile Money (MTN, Moov, etc.)</option>
+                                            <option value="bank">Virement bancaire (Bénin)</option>
+                                        </select>
+                                    </div>
+                                    <div id="mobile-info-pay" class="hidden">
+                                        <p class="text-sm text-gray-600 mt-2">
+                                            Payez via MTN Mobile Money au <span class="font-bold text-pink-500">+229 51563219</span> ou Moov au <span class="font-bold text-pink-500">+229 94516481</span> puis entrez le numéro de transaction ci-dessous.
+                                        </p>
+                                        <input type="text" id="mobile-transaction-pay" placeholder="Numéro de transaction" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                                    </div>
+                                    <div id="bank-info-pay" class="hidden">
+                                        <p class="text-sm text-gray-600 mt-2">
+                                            Faites un virement à la banque :<br>
+                                            <span class="font-bold">Banque : Ecobank Bénin</span><br>
+                                            <span class="font-bold">IBAN : BJ6600100100000000123456789</span><br>
+                                            <span class="font-bold">Nom : Beauté Élégante ou AMOUSSA Sayidi A.O</span>
+                                        </p>
+                                        <input type="text" id="bank-reference-pay" placeholder="Référence du virement" class="w-full mt-2 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500">
+                                    </div>
+                                    <button type="submit" class="w-full bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 rounded transition duration-300">Confirmer le paiement</button>
+                                    <div id="payment-success" class="hidden text-green-600 text-center font-medium mt-4">Paiement confirmé ! Génération du PDF...</div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+                    <script>
+                    document.getElementById('checkout-btn').onclick = function() {
+                        document.getElementById('payment-modal').classList.remove('hidden');
+                    };
+                    document.getElementById('close-payment-modal').onclick = function() {
+                        document.getElementById('payment-modal').classList.add('hidden');
+                    };
+                    document.getElementById('payment-method').addEventListener('change', function() {
+                        document.getElementById('mobile-info-pay').classList.toggle('hidden', this.value !== 'mobile');
+                        document.getElementById('bank-info-pay').classList.toggle('hidden', this.value !== 'bank');
+                    });
+                    document.getElementById('payment-form').addEventListener('submit', function(e) {
+                        e.preventDefault();
+                        document.getElementById('payment-success').classList.remove('hidden');
+                        setTimeout(() => {
+                            // Génération du PDF de commande
+                            const { jsPDF } = window.jspdf;
+                            const doc = new jsPDF();
+                            doc.setFontSize(16);
+                            doc.text("Beauté Élégante - Réçu de votre commande", 10, 15);
+                            doc.setFontSize(12);
+                            let y = 30;
+                            doc.text("Produits :", 10, y);
+                            y += 8;
+                            let total = 0;
+                            cart.forEach(item => {
+                                doc.text(`${item.name} x${item.quantity} - FCFA ${(item.price * item.quantity).toFixed(2)}`, 12, y);
+                                y += 7;
+                                total += item.price * item.quantity;
+                            });
+                            y += 5;
+                            doc.text(`Total : FCFA ${total.toFixed(2)}`, 10, y);
+                            y += 10;
+                            doc.text("Merci pour votre commande !", 10, y);
+
+                            // Génère le PDF en blob
+                            doc.save("votrecommande.pdf");
+
+                            // Prépare le message WhatsApp
+                            const phone = "22994516481";
+                            const text = encodeURIComponent("Bonjour, j'ai effectué mon paiement. Veuillez trouver ci-joint le PDF de ma commande.");
+                            // Ouvre WhatsApp (l'utilisateur doit joindre le PDF manuellement)
+                            window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
+
+                            document.getElementById('payment-modal').classList.add('hidden');
+                            document.getElementById('payment-success').classList.add('hidden');
+                            document.getElementById('payment-form').reset();
+                            document.getElementById('mobile-info-pay').classList.add('hidden');
+                            document.getElementById('bank-info-pay').classList.add('hidden');
+                        }, 1200);
+                    });
+                    </script>
+                    <button id="continue-shopping" type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm transition duration-300">
+                        Continuer mes achats
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-spa text-2xl text-pink-500 mr-2"></i>
+                        <span class="text-xl font-bold">Beauté<span class="text-pink-500">Élégante</span></span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Votre destination beauté premium pour des produits et services d'exception.</p>
+                    <div class="flex space-x-4">
+                        <a target="_blank" 
+                    rel="noopener noreferrer" href="https://www.facebook.com/share/1GBHkW9umd/" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a target="_blank" 
+                    rel="noopener noreferrer" href="https://x.com/AlaoScorty?t=3MIBEbsDRXE8tu_mljMJUS&s=09" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a target="_blank" 
+                    rel="noopener noreferrer" href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a target="_blank" 
+                    rel="noopener noreferrer" href="wa.me/+22951563219" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a target="_blank" 
+                    rel="noopener noreferrer" href="#" class="text-gray-400 hover:text-pink-500 transition duration-300">
+                            <i class="fab fa-pinterest-p"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Liens rapides</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-pink-500 transition duration-300">Accueil</a></li>
+                        <a href="formation.html" class="text-gray-700 hover:text-pink-500 font-medium">Nos formations</a>
+                        <li><a href="index.html#products" class="text-gray-400 hover:text-pink-500 transition duration-300">Produits</a></li>
+                        <li><a href="index.html#services" class="text-gray-400 hover:text-pink-500 transition duration-300">Services</a></li>
+                        <li><a href="index.html#about" class="text-gray-400 hover:text-pink-500 transition duration-300">À propos</a></li>
+                        <li><a href="index.html#contact" class="text-gray-400 hover:text-pink-500 transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Catégories</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html#visage" class="text-gray-400 hover:text-pink-500 transition duration-300">Soins Visage</a></li>
+                        <li><a href="index.html#face-care-toggle" class="text-gray-400 hover:text-pink-500 transition duration-300">Maquillage</a></li>
+                        <li><a href="index.html#face-care-products" class="text-gray-400 hover:text-pink-500 transition duration-300">Corps & Bain</a></li>
+                        <li><a href="index.html#face-care-toggle" class="text-gray-400 hover:text-pink-500 transition duration-300">Accessoires</a></li>
+                        <li><a href="index.html#face-care-toggle" class="text-gray-400 hover:text-pink-500 transition duration-300">Nouveautés</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contact</h4>
+                    <address class="not-italic text-gray-400 space-y-2">
+                        <p>Porto novo non loin du marché  OUANDO,Dodji à 100m avant le feu en quittant le CEG DJEGAN-KPEVI, Cotonou quartier Zogo</p>
+                        <p>Email: alaoservice1@gmail.com</p>
+                        <p>Tél: +229 0151563219</p>
+                        <p>Tél: +229 0197903723</p>
+                        <p>Tél: +229 0144104328</p>
+                        <p>Tél: +229 0141803470</p>
+                    </address>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 Beauté Élégante. Tous droits réservés.</p>
+                <div class="flex space-x-6">
+                    <a href="conditions.html#mention" class="text-gray-400 hover:text-pink-500 text-sm transition duration-300">Mentions légales</a>
+                    <a href="conditions.html#politique" class="text-gray-400 hover:text-pink-500 text-sm transition duration-300">Politique de confidentialité</a>
+                    <a href="conditions.html#condition" class="text-gray-400 hover:text-pink-500 text-sm transition duration-300">Conditions générales</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Search bar toggle
+        const searchBtn = document.getElementById('search-btn');
+        const searchBar = document.getElementById('search-bar');
+        
+        searchBtn.addEventListener('click', () => {
+            searchBar.classList.toggle('hidden');
+        });
+        
+        // Cart functionality
+        const cartBtn = document.getElementById('cart-btn');
+        const cartModal = document.getElementById('cart-modal');
+        const closeCart = document.getElementById('close-cart');
+        const continueShopping = document.getElementById('continue-shopping');
+        const cartCount = document.getElementById('cart-count');
+        const cartItemsContainer = document.getElementById('cart-items');
+        const cartSubtotal = document.getElementById('cart-subtotal');
+        const cartTotal = document.getElementById('cart-total');
+        
+        let cart = [];
+        
+        // Toggle cart modal
+        cartBtn.addEventListener('click', () => {
+            cartModal.classList.toggle('hidden');
+            updateCartDisplay();
+        });
+        
+        closeCart.addEventListener('click', () => {
+            cartModal.classList.add('hidden');
+        });
+        
+        continueShopping.addEventListener('click', () => {
+            cartModal.classList.add('hidden');
+        });
+        
+        // Add to cart functionality
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const id = button.getAttribute('data-id');
+                const name = button.getAttribute('data-name');
+                const price = parseFloat(button.getAttribute('data-price'));
+                
+                // Check if item already in cart
+                const existingItem = cart.find(item => item.id === id);
+                
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        id,
+                        name,
+                        price,
+                        quantity: 1
+                    });
+                }
+                
+                updateCartCount();
+                updateCartDisplay();
+                
+                // Add pulse animation to cart button
+                cartBtn.classList.add('cart-pulse');
+                setTimeout(() => {
+                    cartBtn.classList.remove('cart-pulse');
+                }, 1500);
+            });
+        });
+        
+        // Update cart count display
+        function updateCartCount() {
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            
+            if (totalItems > 0) {
+                cartCount.textContent = totalItems;
+                cartCount.classList.remove('hidden');
+            } else {
+                cartCount.classList.add('hidden');
+            }
+        }
+        
+        // Update cart display in modal
+        function updateCartDisplay() {
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p class="text-gray-500 text-center py-8">Votre panier est vide</p>';
+                cartSubtotal.textContent = 'FCFA 0';
+                cartTotal.textContent = 'FCFA 0';
+                return;
+            }
+            
+            let itemsHTML = '';
+            let subtotal = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+                
+                itemsHTML += `
+                    <div class="flex justify-between items-center py-4 border-b">
+                        <div>
+                            <h4 class="font-medium text-gray-800">${item.name}</h4>
+                            <p class="text-sm text-gray-500">FCFA ${item.price.toFixed(2)}</p>
+                        </div>
+                        <div class="flex items-center">
+                            <button class="decrease-quantity text-gray-500 hover:text-pink-500 px-2" data-id="${item.id}">
+                                <i class="fas fa-minus text-xs"></i>
+                            </button>
+                            <span class="mx-2 text-gray-700">${item.quantity}</span>
+                            <button class="increase-quantity text-gray-500 hover:text-pink-500 px-2" data-id="${item.id}">
+                                <i class="fas fa-plus text-xs"></i>
+                            </button>
+                            <button class="remove-item text-red-500 hover:text-red-700 ml-4" data-id="${item.id}">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            cartItemsContainer.innerHTML = itemsHTML;
+            cartSubtotal.textContent = `FCFA ${subtotal.toFixed(2)}`;
+            cartTotal.textContent = `FCFA ${subtotal.toFixed(2)}`;
+            
+            // Add event listeners to quantity buttons
+            document.querySelectorAll('.decrease-quantity').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const id = e.target.closest('button').getAttribute('data-id');
+                    const item = cart.find(item => item.id === id);
+                    
+                    if (item.quantity > 1) {
+                        item.quantity -= 1;
+                    } else {
+                        cart = cart.filter(item => item.id !== id);
+                    }
+                    
+                    updateCartCount();
+                    updateCartDisplay();
+                });
+            });
+            
+            document.querySelectorAll('.increase-quantity').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const id = e.target.closest('button').getAttribute('data-id');
+                    const item = cart.find(item => item.id === id);
+                    item.quantity += 1;
+                    
+                    updateCartCount();
+                    updateCartDisplay();
+                });
+            });
+            
+            document.querySelectorAll('.remove-item').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const id = e.target.closest('button').getAttribute('data-id');
+                    cart = cart.filter(item => item.id !== id);
+                    
+                    updateCartCount();
+                    updateCartDisplay();
+                });
+            });
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+    <script>
+        // Main Carousel Logic
+        let currentMainSlide = 0;
+        const mainCarousel = document.getElementById('mainCarousel');
+        const mainSlides = document.querySelectorAll('.carousel-slide');
+        const totalMainSlides = mainSlides.length;
+        let mainCarouselInterval;
+        
+        // Mini Carousel Logic
+        function nextMiniSlide(carouselId) {
+            const carousel = document.getElementById(carouselId);
+            const slides = carousel.querySelectorAll('.mini-carousel-slide');
+            const currentSlide = carousel.scrollLeft / carousel.offsetWidth;
+            const nextSlide = (currentSlide + 1) % slides.length;
+            carousel.scrollTo({
+                left: nextSlide * carousel.offsetWidth,
+                behavior: 'smooth'
+            });
+        }
+        
+        function prevMiniSlide(carouselId) {
+            const carousel = document.getElementById(carouselId);
+            const slides = carousel.querySelectorAll('.mini-carousel-slide');
+            const currentSlide = carousel.scrollLeft / carousel.offsetWidth;
+            const prevSlide = (currentSlide - 1 + slides.length) % slides.length;
+            carousel.scrollTo({
+                left: prevSlide * carousel.offsetWidth,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Main Carousel Functions
+        function goToSlide(index) {
+            currentMainSlide = index;
+            updateMainCarousel();
+            resetMainCarouselInterval();
+        }
+        
+        function nextMainSlide() {
+            currentMainSlide = (currentMainSlide + 1) % totalMainSlides;
+            updateMainCarousel();
+            resetMainCarouselInterval();
+        }
+        
+        function prevMainSlide() {
+            currentMainSlide = (currentMainSlide - 1 + totalMainSlides) % totalMainSlides;
+            updateMainCarousel();
+            resetMainCarouselInterval();
+        }
+        
+        function updateMainCarousel() {
+            mainCarousel.scrollTo({
+                left: currentMainSlide * mainCarousel.offsetWidth,
+                behavior: 'smooth'
+            });
+            
+            // Update indicators
+            document.querySelectorAll('.indicator-btn').forEach((btn, index) => {
+                if (index === currentMainSlide) {
+                    btn.classList.remove('bg-opacity-50');
+                    btn.classList.add('bg-opacity-100');
+                } else {
+                    btn.classList.remove('bg-opacity-100');
+                    btn.classList.add('bg-opacity-50');
+                }
+            });
+        }
+        
+        function startMainCarouselInterval() {
+            mainCarouselInterval = setInterval(() => {
+                nextMainSlide();
+            }, 3000);
+        }
+        
+        function resetMainCarouselInterval() {
+            clearInterval(mainCarouselInterval);
+            startMainCarouselInterval();
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            startMainCarouselInterval();
+            
+            // Pause on hover
+            mainCarousel.addEventListener('mouseenter', () => {
+                clearInterval(mainCarouselInterval);
+            });
+            
+            mainCarousel.addEventListener('mouseleave', () => {
+                resetMainCarouselInterval();
+            });
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

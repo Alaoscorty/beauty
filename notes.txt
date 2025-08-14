@@ -55,5 +55,3 @@ mon-projet/
 │   ├── js/
 │   ├── images/
 ├── firebase.json
-Besoin de rediriger vers dashboard-client.html ou dashboard-pro.html ?
-Place ces fichiers aussi dans le dossier public/compteuser/html/.
