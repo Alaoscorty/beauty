@@ -502,24 +502,14 @@
       );
 
       // REDIRECTION SI DÉJÀ CONNECTÉ
-      auth.onAuthStateChanged(async (user) => {
-        if (user && user.emailVerified) {
-          try {
-            const docSnap = await db.collection("users").doc(user.uid).get();
-            if (!docSnap.exists) return;
+      auth.onAuthStateChanged((user) => {
+        if (!user) return;
 
-            const role = docSnap.data()?.role;
-
-            if (role === "client") {
-              window.location.href = "compteuser/html/dashboard-client.html";
-            } else if (role === "pro") {
-              window.location.href = "compteuser/html/dashboard-pro.html";
-            }
-          } catch (err) {
-            alert("Erreur chargement utilisateur : " + err.message);
-          }
+        if (!user.emailVerified) {
+          auth.signOut();
         }
       });
+
     </script>
   </body>
 </html>
